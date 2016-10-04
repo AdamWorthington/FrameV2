@@ -4,10 +4,11 @@ import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -24,10 +25,12 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class WorldController extends FragmentActivity implements OnMapReadyCallback,
+public class WorldController extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener
 {
 
@@ -38,6 +41,8 @@ public class WorldController extends FragmentActivity implements OnMapReadyCallb
 
     private static final int REQUEST_CHECK_SETTINGS = 100;
     private static final int REQUEST_ACCESS_FINE_LOC = 200;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+    private int first = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -196,10 +201,12 @@ public class WorldController extends FragmentActivity implements OnMapReadyCallb
 
     @Override
     public void onLocationChanged(Location location) {
-        // Add a marker in Sydney and move the camera
-        LatLng user = new LatLng(location.getLatitude(), location.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(user).title("Person Marker"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(user));
+        //move camera on only the first location
+        if (first == 0) {
+            LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
+            mMap.animateCamera(CameraUpdateFactory.newLatLng(loc));
+            first++;
+        }
     }
 
     /**
@@ -214,5 +221,41 @@ public class WorldController extends FragmentActivity implements OnMapReadyCallb
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setBuildingsEnabled(true);
+        mMap.setMinZoomPreference(10);
+        mMap.setIndoorEnabled(true);
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Toast.makeText(getApplicationContext(), "viewing photos", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        UiSettings mMapUiSettings = mMap.getUiSettings();
+        mMapUiSettings.setMyLocationButtonEnabled(true);
+
+        enableMyLocation();
+
+    }
+
+
+    public void addMapMarker(LatLng position, String title, String snippet) {
+        mMap.addMarker(new MarkerOptions()
+            .position(position)
+            .title(title)
+            //.icon()
+            .snippet(snippet));
+    }
+
+    private void enableMyLocation() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission to access the location is missing.
+            PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION, true);
+        } else if (mMap != null) {
+            // Access to the location has been granted to the app.
+            mMap.setMyLocationEnabled(true);
+        }
     }
 }

@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "506408773105",
+    "project_id": "frame-145102"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506408773105:android:d9fcc71b8b663acf",
+        "android_client_info": {
+          "package_name": "cs490.frame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506408773105-fagcstlr7vpmg9ql9f2bdh1585bljqn7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cs490.frame",
+            "certificate_hash": "73965E37616A2A7F16929288DF91C80735F35931"
+          }
+        },
+        {
+          "client_id": "506408773105-dn9jakdnatgtm4maqhjkf7m4i89tf135.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJdMlrUeWqeqa4ECmbkGHwWWo9OgK0nFU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-85057579-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
