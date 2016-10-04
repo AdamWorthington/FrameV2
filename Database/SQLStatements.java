@@ -39,7 +39,7 @@ public class SQLStatements {
 	public static boolean postImage(Connection conn, String picture, String user, double lat, double lon) {
 		
 		/*
-		 * Columns: int ID, varchar Image, double Latitude, double Longitude, varchar User, timestamp Date
+		 * table Media: int ID, varchar Image, double Latitude, double Longitude, varchar User, timestamp Date
 		 */
 		
 		PreparedStatement stmt = null;
