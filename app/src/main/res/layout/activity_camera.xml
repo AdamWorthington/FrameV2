@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="cs490.frame.CameraActivity">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+        <Button
+            android:id="@+id/picture_button"
+            android:text="Picture"
+            android:textSize="32dp"
+            android:layout_width="300dp"
+            android:layout_height="200dp"/>
+        <Button
+            android:id="@+id/video_button"
+            android:text="Video"
+            android:textSize="32dp"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/picture_button"/>
+    </RelativeLayout>
+</RelativeLayout>
