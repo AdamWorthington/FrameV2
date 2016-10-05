@@ -1,13 +1,16 @@
 package cs490.frame;
 
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -53,6 +56,14 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        FloatingActionButton button = (FloatingActionButton) findViewById(R.id.cameraButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCameraClick();
+            }
+        });
 
         createLocationRequest();
         connectToGoogleApi();
@@ -222,7 +233,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setBuildingsEnabled(true);
-        mMap.setMinZoomPreference(10);
+        mMap.setMinZoomPreference(15);
         mMap.setIndoorEnabled(true);
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
@@ -257,5 +268,11 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
             // Access to the location has been granted to the app.
             mMap.setMyLocationEnabled(true);
         }
+    }
+
+    private void onCameraClick()
+    {
+        Intent cameraIntent = new Intent(this, CameraActivity.class);
+        startActivity(cameraIntent);
     }
 }

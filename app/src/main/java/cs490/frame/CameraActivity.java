@@ -41,7 +41,7 @@ public class CameraActivity extends AppCompatActivity {
     static final int REQUEST_CAMERA_ACCESS = 3;
     static final int REQUEST_VIDEO_ACCESS  = 4;
 
-    private Uri savedUri = null;
+    private String savedPhotoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +112,7 @@ public class CameraActivity extends AppCompatActivity {
         File photoFile = null;
         try {
             photoFile = createFile(true);
+            savedPhotoPath = photoFile.getAbsolutePath();
         }
         catch(IOException e)
         {
@@ -120,7 +121,6 @@ public class CameraActivity extends AppCompatActivity {
         if(photoFile != null)
         {
             Uri photoUri = FileProvider.getUriForFile(this, "cs490.frame", photoFile);
-            savedUri = photoUri;
             takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
@@ -207,7 +207,7 @@ public class CameraActivity extends AppCompatActivity {
 
             //We can be guaranteed that the photo URI will be what we passed in.
             Intent resultIntent = new Intent(this, ReviewActivity.class);
-            resultIntent.putExtra("uri", savedUri);
+            resultIntent.putExtra("path", savedPhotoPath);
             resultIntent.putExtra("format", "photo");
             startActivity(resultIntent);
         }

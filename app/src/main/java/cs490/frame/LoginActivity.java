@@ -130,6 +130,8 @@ public class LoginActivity extends AppCompatActivity implements
         } else {
             // Signed out, show unauthenticated UI.
             updateUI(false);
+            Intent worldView = new Intent(this, WorldController.class);
+            startActivity(worldView);
         }
     }
     // [END handleSignInResult]
