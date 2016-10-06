@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.naming.CommunicationException;
-
 public class SQLStatements {
 	
 	/*
@@ -17,25 +15,7 @@ public class SQLStatements {
 	public SQLStatements() {
 		
 	}
-	
-	/*
-	 * Used to store image attributes in one easy place
-	 */
-	public class ImageAttributeHolder {
-		int ID;
-		double latitude;
-		double longitude;
-		String user;
-		String date;
-		
-		public ImageAttributeHolder(int ID, double latitude, double longitude, String user, String date) {
-			this.ID = ID;
-			this.latitude = latitude;
-			this.longitude = longitude;
-			this.user = user;
-			this.date = date;
-		}
-	}
+
 
     /*
      * Create a connection to access the database
@@ -121,7 +101,7 @@ public class SQLStatements {
 				user = rs.getString("User");
 				date = rs.getString("Date");
 				
-				ImageAttributeHolder iah = sql.new ImageAttributeHolder(ID, latitude, longitude, user, date);
+				ImageAttributeHolder iah = new ImageAttributeHolder(ID, latitude, longitude, user, date);
 				ret.add(iah);
 			}
 		}

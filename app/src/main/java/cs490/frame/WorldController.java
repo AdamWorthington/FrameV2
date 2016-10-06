@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.grant.myapplication.backend.myApi.model.IAHBean;
+import com.example.grant.myapplication.backend.myApi.model.ImageAttributeHolder;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -33,6 +35,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WorldController extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener
 {
@@ -46,6 +51,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
     private static final int REQUEST_ACCESS_FINE_LOC = 200;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private int first = 0;
+    private String displayName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -67,6 +73,9 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
 
         createLocationRequest();
         connectToGoogleApi();
+
+        Intent intent = getIntent();
+        displayName = intent.getStringExtra("extra_displayname");
     }
 
     @Override
@@ -231,6 +240,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        //Map fragement setup
         mMap = googleMap;
         mMap.setBuildingsEnabled(true);
         mMap.setMinZoomPreference(15);
@@ -247,6 +257,23 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
 
         enableMyLocation();
 
+        //Get all posts from the db
+        ArrayList<ImageAttributeHolder> posts = null;
+        try {
+            posts = new GetAllAttributes().execute().get();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (posts != null) {
+            //add a marker for each post
+            for (int i = 0; i < posts.size(); i++) {
+                ImageAttributeHolder holder = posts.get(i);
+                LatLng position = new LatLng(holder.getLatitude(), holder.getLatitude());
+                String title = holder.getId().toString();
+                String snippet = "Posted by: " + holder.getUser();
+                addMapMarker(position, title, snippet);
+            }
+        }
     }
 
 
@@ -272,7 +299,19 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
 
     private void onCameraClick()
     {
+        Location location = null;
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission to access the location is missing.
+            PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION, true);
+        } else if (mMap != null) {
+            // Access to the location has been granted to the app.
+            location  = LocationServices.FusedLocationApi.getLastLocation(mGoogleClient);
+        }
         Intent cameraIntent = new Intent(this, CameraActivity.class);
+        cameraIntent.putExtra("extra_location", location);
+        cameraIntent.putExtra("extra_displayname", displayName);
         startActivity(cameraIntent);
     }
 }

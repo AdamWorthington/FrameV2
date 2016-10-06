@@ -63,6 +63,7 @@ public class CameraActivity extends AppCompatActivity {
                 onCameraVideo();
             }
         });
+
     }
 
     private void onCameraPicture()

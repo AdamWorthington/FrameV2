@@ -7,15 +7,15 @@ import java.util.ArrayList;
  */
 
 public class IAHBean {
-    private ArrayList<SQLStatements.ImageAttributeHolder> iah;
+    private ArrayList<ImageAttributeHolder> iah;
     private String info;
 
-    public ArrayList<SQLStatements.ImageAttributeHolder> getData() {
+    public ArrayList<ImageAttributeHolder> getList() {
         return iah;
     }
     public String getInfo() { return info; }
 
-    public void setData(ArrayList<SQLStatements.ImageAttributeHolder> iah) {
+    public void setData(ArrayList<ImageAttributeHolder> iah) {
         iah = iah;
     }
     public void setInfo(String info) { info = info; }

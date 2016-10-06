@@ -31,11 +31,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:text="Comment"/>
+            android:text="Comment"
+            android:id="@+id/commentButton" />
         <Button
             android:layout_width="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_height="wrap_content"
-            android:text="Send"/>
+            android:text="Send"
+            android:id="@+id/sendButton" />
     </RelativeLayout>
 </RelativeLayout>

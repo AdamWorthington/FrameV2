@@ -59,7 +59,7 @@ public class MyEndpoint {
             return response;
         }
 
-        ArrayList<SQLStatements.ImageAttributeHolder> attributes = SQLStatements.getAttributes(conn);
+        ArrayList<ImageAttributeHolder> attributes = SQLStatements.getAttributes(conn);
 
         response.setData(attributes);
         return response;

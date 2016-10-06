@@ -3,12 +3,14 @@ package cs490.frame;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -31,6 +33,29 @@ public class ReviewActivity extends AppCompatActivity
 
         Bundle extras = getIntent().getExtras();
         String format = extras.getString("format");
+
+        Button send = (Button) findViewById(R.id.sendButton);
+        Button comment = (Button) findViewById(R.id.commentButton);
+
+        Intent intent = getIntent();
+        final Location location = intent.getParcelableExtra("extra_location");
+        final String displayName = intent.getStringExtra("extra_displayname");
+
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Post post = new Post();
+                post.setLat(location.getLatitude());
+                post.setLng(location.getLongitude());
+                post.setPicture("Picture");
+                post.setUser(displayName);
+                try {
+                    new PostImage().execute();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         if(format.compareTo("photo") == 0)
         {

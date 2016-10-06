@@ -66,6 +66,7 @@
             android:label="Frame"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".WorldController" />
+        <activity android:name=".DisplayImageActivity"></activity>
     </application>
 
 </manifest>

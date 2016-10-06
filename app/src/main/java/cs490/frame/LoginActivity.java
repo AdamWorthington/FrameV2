@@ -126,6 +126,7 @@ public class LoginActivity extends AppCompatActivity implements
             mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             updateUI(true);
             Intent worldView = new Intent(this, WorldController.class);
+            worldView.putExtra("extra_displayname", acct.getDisplayName());
             startActivity(worldView);
         } else {
             // Signed out, show unauthenticated UI.

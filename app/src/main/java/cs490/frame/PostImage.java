@@ -2,32 +2,30 @@ package cs490.frame;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Pair;
-import android.widget.Toast;
 
+import com.example.grant.myapplication.backend.myApi.MyApi;
+import com.example.grant.myapplication.backend.myApi.model.ImageAttributeHolder;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Scott on 10/6/2016.
  */
 
-class GetPostsInArea extends AsyncTask<Pair<Context, String>, Void, String> {
-    private static MyEndpoint myApiService = null;
+public class PostImage extends AsyncTask<Post, Void, Boolean> {
+    private static MyApi myApiService = null;
     private Context context;
 
     @Override
-    protected String doInBackground(Pair<Context, String>... params) {
+    protected Boolean doInBackground(Post...params) {
         if(myApiService == null) {  // Only do this once
-            frameAPI.Builder builder = new frameApi.Builder(AndroidHttp.newCompatibleTransport(),
+            MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
-                    // options for running against local devappserver
-                    // - 10.0.2.2 is localhost's IP address in Android emulator
-                    // - turn off compression when running against local devappserver
                     .setRootUrl("http:.//frame-145601/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
@@ -35,23 +33,15 @@ class GetPostsInArea extends AsyncTask<Pair<Context, String>, Void, String> {
                             abstractGoogleClientRequest.setDisableGZipContent(true);
                         }
                     });
-            // end options for devappserver
 
             myApiService = builder.build();
         }
-
-        context = params[0].first;
-        String name = params[0].second;
+        Post post = params[0];
 
         try {
-            return myApiService.sayHi(name).execute().getData();
+            return myApiService.postImage(post.getPicture(), post.getUser(), post.getLat(), post.getLng()).execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            return false;
         }
-    }
-
-    @Override
-    protected void onPostExecute(String result) {
-        Toast.makeText(context, result, Toast.LENGTH_LONG).show();
     }
 }
