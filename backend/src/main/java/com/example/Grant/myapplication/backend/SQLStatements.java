@@ -42,8 +42,8 @@ public class SQLStatements {
 
         Connection conn = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(DatabaseInformation.url2);
+            Class.forName("com.mysql.jdbc.GoogleDriver");
+            conn = DriverManager.getConnection(DatabaseInformation.url);
         }
         catch (ClassNotFoundException e) {
             System.err.println("Error generating connection in createConnection (ClassNotFound)");
