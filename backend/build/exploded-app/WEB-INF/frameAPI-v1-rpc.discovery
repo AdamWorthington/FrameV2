@@ -1,9 +1,9 @@
 {
- "kind": "discovery#restDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/jXZEEyU3fgDJ5jQAQ1oUZ5RqU7M\"",
+ "kind": "discovery#rpcDescription",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/Whe8EedIW7760WoQgKZrBOHO2S4\"",
  "discoveryVersion": "v1",
- "id": "myApi:v1",
- "name": "myApi",
+ "id": "frameAPI:v1",
+ "name": "frameAPI",
  "version": "v1",
  "description": "This is an API",
  "ownerDomain": "backend.myapplication.Grant.example.com",
@@ -12,12 +12,10 @@
   "x16": "http://www.google.com/images/icons/product/search-16.gif",
   "x32": "http://www.google.com/images/icons/product/search-32.gif"
  },
- "protocol": "rest",
- "baseUrl": "https://myApplicationId.appspot.com/_ah/api/myApi/v1/sayHi/",
- "basePath": "/_ah/api/myApi/v1/sayHi/",
+ "protocol": "rpc",
  "rootUrl": "https://myApplicationId.appspot.com/_ah/api/",
- "servicePath": "myApi/v1/sayHi/",
- "batchPath": "batch",
+ "rpcUrl": "https://myApplicationId.appspot.com/_ah/api/rpc",
+ "rpcPath": "/_ah/api/rpc",
  "parameters": {
   "alt": {
    "type": "string",
@@ -73,32 +71,112 @@
   }
  },
  "schemas": {
-  "MyBean": {
-   "id": "MyBean",
+  "IAHBean": {
+   "id": "IAHBean",
+   "type": "object",
+   "properties": {
+    "data": {
+     "type": "array",
+     "items": {
+      "$ref": "ImageAttributeHolder"
+     }
+    }
+   }
+  },
+  "ImageAttributeHolder": {
+   "id": "ImageAttributeHolder",
+   "type": "object"
+  },
+  "ImageBean": {
+   "id": "ImageBean",
    "type": "object",
    "properties": {
     "data": {
      "type": "string"
     }
    }
+  },
+  "MyBean": {
+   "id": "MyBean",
+   "type": "object",
+   "properties": {
+    "data": {
+     "type": "boolean"
+    }
+   }
   }
  },
  "methods": {
-  "sayHi": {
-   "id": "myApi.sayHi",
-   "path": "{name}",
-   "httpMethod": "POST",
+  "frameAPI.getAttributes": {
+   "id": "frameAPI.getAttributes",
+   "allowGet": true,
    "parameters": {
-    "name": {
-     "type": "string",
+    "ids": {
+     "type": "integer",
      "required": true,
-     "location": "path"
+     "format": "int32",
+     "repeated": true
     }
    },
    "parameterOrder": [
-    "name"
+    "ids"
    ],
-   "response": {
+   "returns": {
+    "$ref": "IAHBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "frameAPI.getImage": {
+   "id": "frameAPI.getImage",
+   "allowGet": true,
+   "parameters": {
+    "id": {
+     "type": "integer",
+     "required": true,
+     "format": "int32"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "returns": {
+    "$ref": "ImageBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "frameAPI.postImage": {
+   "id": "frameAPI.postImage",
+   "parameters": {
+    "lat": {
+     "type": "number",
+     "required": true,
+     "format": "double"
+    },
+    "lon": {
+     "type": "number",
+     "required": true,
+     "format": "double"
+    },
+    "picture": {
+     "type": "string",
+     "required": true
+    },
+    "user": {
+     "type": "string",
+     "required": true
+    }
+   },
+   "parameterOrder": [
+    "picture",
+    "user",
+    "lat",
+    "lon"
+   ],
+   "returns": {
     "$ref": "MyBean"
    },
    "scopes": [

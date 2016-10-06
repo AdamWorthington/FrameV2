@@ -16,13 +16,14 @@
         android:name="android.hardware.camera"
         android:required="true" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="cs490.frame"
@@ -30,7 +31,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
 
         <!--
@@ -58,12 +59,13 @@
             android:name=".CameraActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Frame"
-            android:theme="@style/FullscreenTheme"/>
-        <activity android:name=".ReviewActivity"
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".ReviewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Frame"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".WorldController"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".WorldController" />
     </application>
 
 </manifest>
