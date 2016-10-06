@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,9 +24,10 @@ public class ReviewActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_review);
 
-        FrameLayout frame = (FrameLayout) findViewById(R.id.reviewFrame);
+        setContentView(R.layout.activity_review);
+        ImageView iFrame = (ImageView) findViewById(R.id.imageFrame);
+        VideoView vFrame = (VideoView) findViewById(R.id.videoFrame);
 
         Bundle extras = getIntent().getExtras();
         String format = extras.getString("format");
@@ -33,20 +36,19 @@ public class ReviewActivity extends AppCompatActivity
         {
             String filePath = extras.getString("path");
 
-            setPicture(frame, filePath);
+            setPicture(iFrame, filePath);
+            vFrame.setVisibility(View.GONE);
+            iFrame.setVisibility(View.VISIBLE);
         }
         else if(format.compareTo("video") == 0)
         {
+
             //We have a video
             Uri fileUri = extras.getParcelable("uri");
-            VideoView video = new VideoView(this);
-            video.setVideoURI(fileUri);
-            video.setMediaController(new MediaController(this));
-            video.setLayoutParams(new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.FILL_PARENT,
-                    LinearLayout.LayoutParams.FILL_PARENT));
-
-            frame.addView(video);
+            vFrame.setVideoURI(fileUri);
+            vFrame.setMediaController(new MediaController(this));
+            vFrame.setVisibility(View.VISIBLE);
+            iFrame.setVisibility(View.GONE);
         }
         else
         {
@@ -54,17 +56,11 @@ public class ReviewActivity extends AppCompatActivity
         }
     }
 
-    private void setPicture(FrameLayout parent, String path)
+    private void setPicture(ImageView frame, String path)
     {
-        //We have a photo
-        ImageView photo = new ImageView(this);
-        photo.setLayoutParams(new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT));
-
         // Get the dimensions of the View
-        int targetW = parent.getWidth();
-        int targetH = parent.getHeight();
+        int targetW = frame.getWidth();
+        int targetH = frame.getHeight();
 
         // Get the dimensions of the bitmap
         BitmapFactory.Options bmOptions = new BitmapFactory.Options();
@@ -72,6 +68,12 @@ public class ReviewActivity extends AppCompatActivity
         BitmapFactory.decodeFile(path, bmOptions);
         int photoW = bmOptions.outWidth;
         int photoH = bmOptions.outHeight;
+
+        if(targetH == 0 && targetW == 0)
+        {
+            targetW = 720;
+            targetH = 1280;
+        }
 
         // Determine how much to scale down the image
         int scaleFactor = 1;
@@ -86,7 +88,6 @@ public class ReviewActivity extends AppCompatActivity
         bmOptions.inPurgeable = true;
 
         Bitmap bitmap = BitmapFactory.decodeFile(path, bmOptions);
-        photo.setImageBitmap(bitmap);
-        parent.addView(photo);
+        frame.setImageBitmap(bitmap);
     }
 }
