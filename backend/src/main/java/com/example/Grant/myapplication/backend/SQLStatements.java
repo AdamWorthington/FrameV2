@@ -94,6 +94,7 @@ public class SQLStatements {
 			String user;
 			String date;
 			SQLStatements sql = new SQLStatements();
+
 			while (rs.next()) {
 				ID = rs.getInt("ID");
 				latitude = rs.getDouble("Latitude");
@@ -104,6 +105,8 @@ public class SQLStatements {
 				ImageAttributeHolder iah = new ImageAttributeHolder(ID, latitude, longitude, user, date);
 				ret.add(iah);
 			}
+
+			return ret;
 		}
 		catch(SQLException e) {
 			System.err.println("Error retrieving attributes from table Media");
@@ -111,8 +114,6 @@ public class SQLStatements {
 			
 			return null;
 		}
-		
-		return ret;
 	}
 	
 	/*

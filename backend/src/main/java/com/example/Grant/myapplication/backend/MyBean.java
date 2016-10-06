@@ -16,5 +16,5 @@ public class MyBean {
     public void setData(boolean data) {
         myData = data;
     }
-    public void setInfo(String info) { info = info; }
+    public void setInfo(String info1) { info = info1; }
 }

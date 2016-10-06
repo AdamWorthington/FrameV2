@@ -15,8 +15,8 @@ public class IAHBean {
     }
     public String getInfo() { return info; }
 
-    public void setData(ArrayList<ImageAttributeHolder> iah) {
-        iah = iah;
+    public void setData(ArrayList<ImageAttributeHolder> iah1) {
+        iah = iah1;
     }
-    public void setInfo(String info) { info = info; }
+    public void setInfo(String info1) { info = info1; }
 }
