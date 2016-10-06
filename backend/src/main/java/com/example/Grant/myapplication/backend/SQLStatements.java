@@ -34,6 +34,29 @@ public class SQLStatements {
 			this.date = date;
 		}
 	}
+
+    /*
+     * Create a connection to access the database
+     */
+    public static Connection createConnection() {
+
+        Connection conn = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(DatabaseInformation.url2);
+        }
+        catch (ClassNotFoundException e) {
+            System.err.println("Error generating connection in createConnection (ClassNotFound)");
+            System.err.println(e.getMessage());
+            return null;
+        }
+        catch (SQLException e) {
+            System.err.println("Error generating connection in createConnection (SQLException)");
+            System.err.println(e.getMessage());
+            return null;
+        }
+        return conn;
+    }
 	
 	/*
 	 * Post an image and its attributes to the database
@@ -147,4 +170,16 @@ public class SQLStatements {
 		
 		return ret;
 	}
+
+    public static void main(String[] argv) {
+
+        Connection conn = createConnection();
+
+        if (conn == null) {
+            System.out.println("Connection is Null");
+            System.exit(1);
+        }
+
+        postImage(conn, "testing", "testing", 1.5, 4.5);
+    }
 }
