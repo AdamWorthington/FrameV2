@@ -261,12 +261,18 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
 
         //Get all posts from the db
         ArrayList<ImageAttributeHolder> posts = null;
+        Log.e("WorldController", "here1");
         try {
+            Log.e("WorldController", "here2");
             posts = new GetAllAttributes().execute().get();
+            if (posts == null) {
+                Log.e("WorldController", "posts is empty");
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("WorldController", e.getMessage());
         }
         if (posts != null) {
+            Log.e("WorldController", "making a marker");
             //add a marker for each post
             for (int i = 0; i < posts.size(); i++) {
                 ImageAttributeHolder holder = posts.get(i);

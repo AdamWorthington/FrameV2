@@ -2,7 +2,9 @@ package cs490.frame;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
+import com.example.grant.myapplication.backend.myApi.model.IAHBean;
 import com.example.grant.myapplication.backend.myApi.model.ImageAttributeHolder;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -38,9 +40,20 @@ public class GetAllAttributes extends AsyncTask<Void, Void, ArrayList<ImageAttri
         }
 
         try {
-            ArrayList<ImageAttributeHolder> ret = (ArrayList<ImageAttributeHolder>) myApiService.getAttributes().execute().getData();
+            IAHBean container =  myApiService.getAttributes().execute();
+            if (container == null) {
+                Log.e("getAllAttributes", "container is null");
+            }
+            ArrayList<ImageAttributeHolder> ret = (ArrayList<ImageAttributeHolder>) container.getData();
+            if (ret == null) {
+                Log.e("getAllAttributes", "ret is null");
+                if (container.getData() == null) {
+                    Log.e("getAllAttributes", "container.getData() is null");
+                }
+            }
             return ret;
         } catch (IOException e) {
+            Log.e("getAllAttributes", e.getMessage());
             ArrayList<ImageAttributeHolder> ret = new ArrayList<>();
             return ret;
         }
