@@ -36,6 +36,12 @@ public class MyEndpoint {
         ImageBean response = new ImageBean();
 
         Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            response.setInfo("Connection Failure in getImage");
+            return response;
+        }
+
         String image = SQLStatements.getImage(conn, id);
 
         response.setData(image);
@@ -43,11 +49,17 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "getAttributes")
-    public IAHBean getAttributes(@Named("ids") int[] ids) {
+    public IAHBean getAttributes() {
         IAHBean response = new IAHBean();
 
         Connection conn = SQLStatements.createConnection();
-        ArrayList<SQLStatements.ImageAttributeHolder> attributes = SQLStatements.getAttributes(conn, ids);
+
+        if (conn == null) {
+            response.setInfo("Connection Failure in getAttributes");
+            return response;
+        }
+
+        ArrayList<SQLStatements.ImageAttributeHolder> attributes = SQLStatements.getAttributes(conn);
 
         response.setData(attributes);
         return response;
@@ -58,6 +70,12 @@ public class MyEndpoint {
         MyBean response = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            response.setInfo("Connection Failure in postImage");
+            return response;
+        }
+
         boolean posted = SQLStatements.postImage(conn, picture, user, lat, lon);
 
         response.setData(posted);

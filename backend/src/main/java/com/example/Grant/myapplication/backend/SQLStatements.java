@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.naming.CommunicationException;
+
 public class SQLStatements {
 	
 	/*
@@ -43,7 +45,8 @@ public class SQLStatements {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.GoogleDriver");
-            conn = DriverManager.getConnection(DatabaseInformation.url);
+            conn = DriverManager.getConnection(DatabaseInformation.url3);
+			//conn = DriverManager.getConnection(DatabaseInformation.url2, DatabaseInformation.username, DatabaseInformation.password);
         }
         catch (ClassNotFoundException e) {
             System.err.println("Error generating connection in createConnection (ClassNotFound)");
@@ -53,6 +56,7 @@ public class SQLStatements {
         catch (SQLException e) {
             System.err.println("Error generating connection in createConnection (SQLException)");
             System.err.println(e.getMessage());
+			System.err.println(e.getStackTrace().toString());
             return null;
         }
         return conn;
@@ -68,7 +72,7 @@ public class SQLStatements {
 		 */
 		
 		PreparedStatement stmt = null;
-		String query = "INSERT INTO Media (ID, Image, Latitude, Longitude, User, Date) VALUES (NULL, ?, ?, ?, ?, NULL);";
+		String query = "INSERT INTO FrameV2.Media (ID, Image, Latitude, Longitude, User, Date) VALUES (NULL, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
 		
 		try {
 			stmt = conn.prepareStatement(query);
@@ -93,24 +97,14 @@ public class SQLStatements {
 	 * Retrieve all information about an image except for the image itself.
 	 * Accessed by passing in the ID of the image
 	 */
-	public static ArrayList<ImageAttributeHolder> getAttributes(Connection conn, int[] ids) {
+	public static ArrayList<ImageAttributeHolder> getAttributes(Connection conn) {
 		ArrayList<ImageAttributeHolder> ret = new ArrayList<ImageAttributeHolder>();
 		
 		PreparedStatement stmt = null;
-		String query = "SELECT ID, Latitude, Longitude, User, Date FROM Media WHERE ";
-		String idEquals = "ID = ? ";
-		int numberOfRequestedIDs = ids.length;
-		
-		for (int i = 0; i < numberOfRequestedIDs; i++) {
-			query += idEquals;
-		}
+		String query = "SELECT ID, Latitude, Longitude, User, Date FROM FrameV2.Media";
 		
 		try {
 			stmt = conn.prepareStatement(query);
-			
-			for (int i = 0; i < numberOfRequestedIDs; i++) {
-				stmt.setInt(i + 1, ids[i]);
-			}
 			
 			ResultSet rs = stmt.executeQuery();
 			
@@ -149,7 +143,7 @@ public class SQLStatements {
 		
 		String ret = null;
 		PreparedStatement stmt = null;
-		String query = "SELECT Image FROM Media WHERE ID = ?;";
+		String query = "SELECT Image FROM FrameV2.Media WHERE ID = ?;";
 		
 		try {
 			stmt = conn.prepareStatement(query);
