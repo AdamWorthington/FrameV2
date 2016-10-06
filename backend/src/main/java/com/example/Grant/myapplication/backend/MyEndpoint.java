@@ -9,6 +9,8 @@ package com.example.Grant.myapplication.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import java.sql.Connection;
+import java.util.ArrayList;
 
 import javax.inject.Named;
 
@@ -29,11 +31,36 @@ public class MyEndpoint {
     /**
      * A simple endpoint method that takes a name and says Hi back
      */
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi(@Named("name") String name) {
-        MyBean response = new MyBean();
-        response.setData("Hi, " + name);
+    @ApiMethod(name = "getImage")
+    public ImageBean getImage(@Named("id") int id) {
+        ImageBean response = new ImageBean();
 
+        Connection conn = SQLStatements.createConnection();
+        String image = SQLStatements.getImage(conn, id);
+
+        response.setData(image);
+        return response;
+    }
+
+    @ApiMethod(name = "getAttributes")
+    public IAHBean getAttributes(@Named("ids") int[] ids) {
+        IAHBean response = new IAHBean();
+
+        Connection conn = SQLStatements.createConnection();
+        ArrayList<SQLStatements.ImageAttributeHolder> attributes = SQLStatements.getAttributes(conn, ids);
+
+        response.setData(attributes);
+        return response;
+    }
+
+    @ApiMethod(name = "postImage")
+    public MyBean postImage(@Named("picture") String picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
+        MyBean response = new MyBean();
+
+        Connection conn = SQLStatements.createConnection();
+        boolean posted = SQLStatements.postImage(conn, picture, user, lat, lon);
+
+        response.setData(posted);
         return response;
     }
 
