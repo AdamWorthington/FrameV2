@@ -2,6 +2,7 @@ package cs490.frame;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.grant.myapplication.backend.myApi.MyApi;
 import com.example.grant.myapplication.backend.myApi.model.ImageAttributeHolder;
@@ -26,7 +27,7 @@ public class PostImage extends AsyncTask<Post, Void, Boolean> {
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
-                    .setRootUrl("http:.//frame-145601/_ah/api/")
+                    .setRootUrl("https://frame-145601.appspot.com/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
@@ -36,11 +37,15 @@ public class PostImage extends AsyncTask<Post, Void, Boolean> {
 
             myApiService = builder.build();
         }
-        Post post = params[0];
+        Post post = new Post();
+        post = params[0];
+        Log.i("postImage", "Post Lat: " + post.getLat() + " Lng: " + post.getLng() + " picture: " + post.getPicture() + " user: " + post.getUser());
 
         try {
             return myApiService.postImage(post.getPicture(), post.getUser(), post.getLat(), post.getLng()).execute().getData();
         } catch (IOException e) {
+            Log.i("postImage", "IOException occured~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Log.e("postImage", e.getMessage());
             return false;
         }
     }

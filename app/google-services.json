@@ -13,11 +13,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "506408773105-fagcstlr7vpmg9ql9f2bdh1585bljqn7.apps.googleusercontent.com",
+          "client_id": "506408773105-0hkjs7tq4a0ric6tc5qljirinsp36k4p.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "cs490.frame",
-            "certificate_hash": "73965E37616A2A7F16929288DF91C80735F35931"
+            "certificate_hash": "521F6BC8388F9725BBD3F01484A9BCD9A826AE9F"
           }
         },
         {
@@ -27,7 +27,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCJdMlrUeWqeqa4ECmbkGHwWWo9OgK0nFU"
+          "current_key": "AIzaSyB3JkvAtVogsk5JyKXUJDBdqlDI8NyP-LI"
         }
       ],
       "services": {

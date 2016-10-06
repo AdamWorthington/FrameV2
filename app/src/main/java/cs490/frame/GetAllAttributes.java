@@ -26,7 +26,7 @@ public class GetAllAttributes extends AsyncTask<Void, Void, ArrayList<ImageAttri
         if(myApiService == null) {  // Only do this once
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
-                    .setRootUrl("http:.//frame-145601/_ah/api/")
+                    .setRootUrl("https://frame-145601.appspot.com/_ah/api/")
                     .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
                         @Override
                         public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {

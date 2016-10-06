@@ -50,7 +50,7 @@ public class SQLStatements {
 		/*
 		 * table Media: int ID, varchar Image, double Latitude, double Longitude, varchar User, timestamp Date
 		 */
-		
+		System.err.println("Picture: " + picture + " user: " + user + " lat: " + lat + " lng: " + lon);
 		PreparedStatement stmt = null;
 		String query = "INSERT INTO FrameV2.Media (ID, Image, Latitude, Longitude, User, Date) VALUES (NULL, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
 		
@@ -145,6 +145,7 @@ public class SQLStatements {
 		return ret;
 	}
 
+	/*
     public static void main(String[] argv) {
 
         Connection conn = createConnection();
@@ -156,4 +157,5 @@ public class SQLStatements {
 
         postImage(conn, "testing", "testing", 1.5, 4.5);
     }
+    */
 }

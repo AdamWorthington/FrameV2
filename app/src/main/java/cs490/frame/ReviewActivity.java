@@ -1,5 +1,6 @@
 package cs490.frame;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,6 +9,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -45,15 +47,29 @@ public class ReviewActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Post post = new Post();
-                post.setLat(location.getLatitude());
-                post.setLng(location.getLongitude());
+                if (location != null) {
+                    post.setLat(location.getLatitude());
+                    post.setLng(location.getLongitude());
+                }
+                else {
+                    post.setLat(0.00);
+                    post.setLng(0.00);
+                }
                 post.setPicture("Picture");
-                post.setUser(displayName);
+                if (displayName != null) {
+                    post.setUser(displayName);
+                }
+                else {
+                    post.setUser("user was null");
+                }
                 try {
-                    new PostImage().execute();
+                    boolean posted = new PostImage().execute(post).get();
+                    Log.i("postedImage", "Posted: " + posted + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                Intent ret = new Intent(ReviewActivity.this, WorldController.class);
+                startActivity(ret);
             }
         });
 

@@ -1,9 +1,11 @@
 package cs490.frame;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
@@ -299,6 +301,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
 
     private void onCameraClick()
     {
+        Intent cameraIntent = new Intent(this, CameraActivity.class);
         Location location = null;
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -307,9 +310,9 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
                     android.Manifest.permission.ACCESS_FINE_LOCATION, true);
         } else if (mMap != null) {
             // Access to the location has been granted to the app.
-            location  = LocationServices.FusedLocationApi.getLastLocation(mGoogleClient);
+            connectToGoogleApi();
+            location = LocationServices.FusedLocationApi.getLastLocation(mGoogleClient);
         }
-        Intent cameraIntent = new Intent(this, CameraActivity.class);
         cameraIntent.putExtra("extra_location", location);
         cameraIntent.putExtra("extra_displayname", displayName);
         startActivity(cameraIntent);
