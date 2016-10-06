@@ -5,13 +5,13 @@ package com.example.Grant.myapplication.backend;
  */
 public class MyBean {
 
-    private String myData;
+    private boolean myData;
 
-    public String getData() {
+    public boolean getData() {
         return myData;
     }
 
-    public void setData(String data) {
+    public void setData(boolean data) {
         myData = data;
     }
 }
