@@ -59,7 +59,10 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="Frame"
             android:theme="@style/FullscreenTheme"/>
-        <activity android:name=".ReviewActivity"/>
+        <activity android:name=".ReviewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Frame"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".WorldController"/>
     </application>
 
