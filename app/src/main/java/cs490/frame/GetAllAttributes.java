@@ -44,10 +44,10 @@ public class GetAllAttributes extends AsyncTask<Void, Void, ArrayList<ImageAttri
             if (container == null) {
                 Log.e("getAllAttributes", "container is null");
             }
-            ArrayList<ImageAttributeHolder> ret = (ArrayList<ImageAttributeHolder>) container.getData();
+            ArrayList<ImageAttributeHolder> ret = (ArrayList<ImageAttributeHolder>) container.getList();
             if (ret == null) {
                 Log.e("getAllAttributes", "ret is null");
-                if (container.getData() == null) {
+                if (container.getList() == null) {
                     Log.e("getAllAttributes", "container.getData() is null");
                 }
             }

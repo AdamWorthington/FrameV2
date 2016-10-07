@@ -65,8 +65,8 @@ public class MyEndpoint {
         return response;
     }
 
-    @ApiMethod(name = "postImage")
-    public MyBean postImage(@Named("picture") String picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
+    @ApiMethod(name = "postImage", httpMethod= ApiMethod.HttpMethod.POST)
+    public MyBean postImage(ImageBean picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
         MyBean response = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
@@ -76,7 +76,7 @@ public class MyEndpoint {
             return response;
         }
 
-        boolean posted = SQLStatements.postImage(conn, picture, user, lat, lon);
+        boolean posted = SQLStatements.postImage(conn, picture.getData(), user, lat, lon);
 
         response.setData(posted);
         return response;

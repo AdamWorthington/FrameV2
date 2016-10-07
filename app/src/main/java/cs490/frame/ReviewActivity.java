@@ -22,8 +22,11 @@ import android.widget.VideoView;
 
 import java.io.File;
 
+import static android.R.attr.bitmap;
+
 public class ReviewActivity extends AppCompatActivity
 {
+    private Bitmap bitmap;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -39,9 +42,8 @@ public class ReviewActivity extends AppCompatActivity
         Button send = (Button) findViewById(R.id.sendButton);
         Button comment = (Button) findViewById(R.id.commentButton);
 
-        Intent intent = getIntent();
-        final Location location = intent.getParcelableExtra("extra_location");
-        final String displayName = intent.getStringExtra("extra_displayname");
+        final Location location = WorldController.curLoc;
+        final String displayName = LoginActivity.username;
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,10 +54,11 @@ public class ReviewActivity extends AppCompatActivity
                     post.setLng(location.getLongitude());
                 }
                 else {
-                    post.setLat(0.00);
-                    post.setLng(0.00);
+                    post.setLat(40.429049);
+                    post.setLng(-86.906065);
                 }
-                post.setPicture("Picture");
+                String send = ImageConverter.encodeTobase64(bitmap, false);
+                post.setPicture(send);
                 if (displayName != null) {
                     post.setUser(displayName);
                 }
@@ -128,7 +131,7 @@ public class ReviewActivity extends AppCompatActivity
         bmOptions.inSampleSize = scaleFactor;
         bmOptions.inPurgeable = true;
 
-        Bitmap bitmap = BitmapFactory.decodeFile(path, bmOptions);
+        bitmap = BitmapFactory.decodeFile(path, bmOptions);
         frame.setImageBitmap(bitmap);
     }
 }

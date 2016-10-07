@@ -1,10 +1,12 @@
 package cs490.frame;
 
+import java.io.Serializable;
+
 /**
  * Created by Scott on 10/6/2016.
  */
 
-public class Post {
+public class Post implements Serializable{
     String picture;
     String user;
     double lat;

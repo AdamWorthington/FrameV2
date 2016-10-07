@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.example.grant.myapplication.backend.myApi.MyApi;
 import com.example.grant.myapplication.backend.myApi.model.ImageAttributeHolder;
+import com.example.grant.myapplication.backend.myApi.model.ImageBean;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
@@ -40,9 +41,11 @@ public class PostImage extends AsyncTask<Post, Void, Boolean> {
         Post post = new Post();
         post = params[0];
         Log.i("postImage", "Post Lat: " + post.getLat() + " Lng: " + post.getLng() + " picture: " + post.getPicture() + " user: " + post.getUser());
+        ImageBean image = new ImageBean();
+        image.setData(post.getPicture());
 
         try {
-            return myApiService.postImage(post.getPicture(), post.getUser(), post.getLat(), post.getLng()).execute().getData();
+            return myApiService.postImage(post.getUser(), post.getLat(), post.getLng(), image).execute().getData();
         } catch (IOException e) {
             Log.i("postImage", "IOException occured~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             Log.e("postImage", e.getMessage());

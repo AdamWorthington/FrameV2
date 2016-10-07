@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/ORIB4McPNqSnm6SDLMtUJp9DHiE\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/tFrN9JOqeHJ6DbdClq2oPawS6iA\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -185,9 +185,8 @@
      "required": true,
      "format": "double"
     },
-    "picture": {
-     "type": "string",
-     "required": true
+    "resource": {
+     "$ref": "ImageBean"
     },
     "user": {
      "type": "string",
@@ -195,7 +194,7 @@
     }
    },
    "parameterOrder": [
-    "picture",
+    "resource",
     "user",
     "lat",
     "lon"

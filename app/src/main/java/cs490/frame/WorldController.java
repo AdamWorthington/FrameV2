@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.grant.myapplication.backend.myApi.model.IAHBean;
 import com.example.grant.myapplication.backend.myApi.model.ImageAttributeHolder;
+import com.example.grant.myapplication.backend.myApi.model.ImageBean;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -40,6 +41,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Thread.sleep;
+
 public class WorldController extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener
 {
@@ -54,6 +57,9 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private int first = 0;
     private String displayName;
+
+    static String showPicture;
+    static Location curLoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -245,12 +251,20 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
         //Map fragement setup
         mMap = googleMap;
         mMap.setBuildingsEnabled(true);
-        mMap.setMinZoomPreference(15);
+        //mMap.setMinZoomPreference(15);
         mMap.setIndoorEnabled(true);
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                Toast.makeText(getApplicationContext(), "viewing photos", Toast.LENGTH_SHORT).show();
+                ImageBean image = null;
+                try {
+                    image = new GetImage().execute(Integer.parseInt(marker.getTitle())).get();
+                } catch (Exception e) {
+                    Log.e("WorldController", e.getMessage());
+                }
+                Intent imageView = new Intent(WorldController.this, DisplayImageActivity.class);
+                showPicture = image.getData();
+                startActivity(imageView);
             }
         });
 
@@ -261,22 +275,16 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
 
         //Get all posts from the db
         ArrayList<ImageAttributeHolder> posts = null;
-        Log.e("WorldController", "here1");
         try {
-            Log.e("WorldController", "here2");
             posts = new GetAllAttributes().execute().get();
-            if (posts == null) {
-                Log.e("WorldController", "posts is empty");
-            }
         } catch (Exception e) {
             Log.e("WorldController", e.getMessage());
         }
         if (posts != null) {
-            Log.e("WorldController", "making a marker");
             //add a marker for each post
             for (int i = 0; i < posts.size(); i++) {
                 ImageAttributeHolder holder = posts.get(i);
-                LatLng position = new LatLng(holder.getLatitude(), holder.getLatitude());
+                LatLng position = new LatLng(holder.getLatitude(), holder.getLongitude());
                 String title = holder.getId().toString();
                 String snippet = "Posted by: " + holder.getUser();
                 addMapMarker(position, title, snippet);
@@ -309,6 +317,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
     {
         Intent cameraIntent = new Intent(this, CameraActivity.class);
         Location location = null;
+
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             // Permission to access the location is missing.
@@ -316,11 +325,11 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
                     android.Manifest.permission.ACCESS_FINE_LOCATION, true);
         } else if (mMap != null) {
             // Access to the location has been granted to the app.
+            createLocationRequest();
             connectToGoogleApi();
-            location = LocationServices.FusedLocationApi.getLastLocation(mGoogleClient);
+            curLoc = LocationServices.FusedLocationApi.getLastLocation(mGoogleClient);
         }
-        cameraIntent.putExtra("extra_location", location);
-        cameraIntent.putExtra("extra_displayname", displayName);
+
         startActivity(cameraIntent);
     }
 }

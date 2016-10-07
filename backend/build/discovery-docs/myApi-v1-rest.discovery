@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/ORIB4McPNqSnm6SDLMtUJp9DHiE\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/tFrN9JOqeHJ6DbdClq2oPawS6iA\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -179,7 +179,7 @@
   },
   "postImage": {
    "id": "myApi.postImage",
-   "path": "postImage/{picture}/{user}/{lat}/{lon}",
+   "path": "postImage/{user}/{lat}/{lon}",
    "httpMethod": "POST",
    "parameters": {
     "lat": {
@@ -194,11 +194,6 @@
      "format": "double",
      "location": "path"
     },
-    "picture": {
-     "type": "string",
-     "required": true,
-     "location": "path"
-    },
     "user": {
      "type": "string",
      "required": true,
@@ -206,11 +201,14 @@
     }
    },
    "parameterOrder": [
-    "picture",
     "user",
     "lat",
     "lon"
    ],
+   "request": {
+    "$ref": "ImageBean",
+    "parameterName": "resource"
+   },
    "response": {
     "$ref": "MyBean"
    },
