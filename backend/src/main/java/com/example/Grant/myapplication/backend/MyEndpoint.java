@@ -9,8 +9,6 @@ package com.example.Grant.myapplication.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
-
-import java.sql.Blob;
 import java.sql.Connection;
 import java.util.ArrayList;
 
@@ -44,7 +42,7 @@ public class MyEndpoint {
             return response;
         }
 
-        Blob image = SQLStatements.getImage(conn, id);
+        String image = SQLStatements.getImage(conn, id);
 
         response.setData(image);
         return response;
@@ -68,7 +66,7 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "postImage")
-    public MyBean postImage(Blob picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
+    public MyBean postImage(@Named("picture") String picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
         MyBean response = new MyBean();
 
         Connection conn = SQLStatements.createConnection();

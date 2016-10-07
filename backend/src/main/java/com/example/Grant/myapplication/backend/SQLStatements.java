@@ -1,6 +1,5 @@
 package com.example.Grant.myapplication.backend;
 
-import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -46,7 +45,7 @@ public class SQLStatements {
 	/*
 	 * Post an image and its attributes to the database
 	 */
-	public static boolean postImage(Connection conn, Blob picture, String user, double lat, double lon) {
+	public static boolean postImage(Connection conn, String picture, String user, double lat, double lon) {
 		
 		/*
 		 * table Media: int ID, varchar Image, double Latitude, double Longitude, varchar User, timestamp Date
@@ -57,7 +56,7 @@ public class SQLStatements {
 		
 		try {
 			stmt = conn.prepareStatement(query);
-			stmt.setBlob(1, picture);
+			stmt.setString(1, picture);
 			stmt.setDouble(2, lat);
 			stmt.setDouble(3, lon);
 			stmt.setString(4, user);
@@ -121,9 +120,9 @@ public class SQLStatements {
 	 * Retrieve solely the image itself
 	 * Accessed by passing in the image's ID
 	 */
-	public static Blob getImage(Connection conn, int id) {
+	public static String getImage(Connection conn, int id) {
 		
-		Blob ret = null;
+		String ret = null;
 		PreparedStatement stmt = null;
 		String query = "SELECT Image FROM FrameV2.Media WHERE ID = ?;";
 		
@@ -135,7 +134,7 @@ public class SQLStatements {
 			ResultSet rs = stmt.executeQuery();
 			
 			rs.next();
-			ret = rs.getBlob("Image");
+			ret = rs.getString("Image");
 		}
 		catch(SQLException e) {
 			System.err.println("Error getting picture from table Media");
