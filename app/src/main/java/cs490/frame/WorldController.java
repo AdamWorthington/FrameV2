@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.design.widget.FloatingActionButton;
@@ -34,6 +35,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.UiSettings;
+import com.google.android.gms.maps.model.Circle;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -60,6 +63,8 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
 
     static String showPicture;
     static Location curLoc;
+
+    private Circle circle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -229,11 +234,26 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
 
     @Override
     public void onLocationChanged(Location location) {
+        curLoc = location;
+
         //move camera on only the first location
         if (first == 0) {
             LatLng loc = new LatLng(location.getLatitude(), location.getLongitude());
             mMap.animateCamera(CameraUpdateFactory.newLatLng(loc));
             first++;
+        }
+
+        //Draw circle around user
+        if (circle == null) {
+            circle = mMap.addCircle(new CircleOptions()
+                    .center(new LatLng(location.getLatitude(), location.getLongitude()))
+                    .radius(50)
+                    .strokeColor(Color.RED)
+                    .fillColor(Color.TRANSPARENT)
+                    .visible(true)
+            );
+        } else {
+            circle.setCenter(new LatLng(location.getLatitude(), location.getLongitude()));
         }
     }
 
@@ -256,15 +276,24 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                ImageBean image = null;
-                try {
-                    image = new GetImage().execute(Integer.parseInt(marker.getTitle())).get();
-                } catch (Exception e) {
-                    Log.e("WorldController", e.getMessage());
+                //Check to see if marker is in radius
+                LatLng markerLatLng = marker.getPosition();
+                Location there = new Location("");
+                there.setLatitude(markerLatLng.latitude);
+                there.setLongitude(markerLatLng.longitude);
+                if (curLoc.distanceTo(there) <= 50) {
+                    ImageBean image = null;
+                    try {
+                        image = new GetImage().execute(Integer.parseInt(marker.getTitle())).get();
+                    } catch (Exception e) {
+                        Log.e("WorldController", e.getMessage());
+                    }
+                    Intent imageView = new Intent(WorldController.this, DisplayImageActivity.class);
+                    showPicture = image.getData();
+                    startActivity(imageView);
+                } else {
+                    Toast.makeText(WorldController.this, "Not close enough to marker", Toast.LENGTH_SHORT).show();
                 }
-                Intent imageView = new Intent(WorldController.this, DisplayImageActivity.class);
-                showPicture = image.getData();
-                startActivity(imageView);
             }
         });
 
@@ -318,6 +347,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
         Intent cameraIntent = new Intent(this, CameraActivity.class);
         Location location = null;
 
+        /*
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             // Permission to access the location is missing.
@@ -329,6 +359,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
             connectToGoogleApi();
             curLoc = LocationServices.FusedLocationApi.getLastLocation(mGoogleClient);
         }
+        */
 
         startActivity(cameraIntent);
     }
