@@ -16,11 +16,13 @@ import com.google.appengine.tools.cloudstorage.GcsService;
 import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
 import com.google.appengine.tools.cloudstorage.RetryParams;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.channels.Channels;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.inject.Named;
@@ -104,14 +106,17 @@ public class MyEndpoint {
         response.setData(posted);
         return response;
     }
-
+    //    public void postVideo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
     @ApiMethod(name = "postVideo", httpMethod= ApiMethod.HttpMethod.POST)
-    public void postVideo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public MyBean postVideo(VideoBean video, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) throws IOException, SQLException {
+
+        MyBean response = new MyBean();
         GcsFileOptions instance = GcsFileOptions.getDefaultInstance();
-        GcsFilename fileName = getFileName(req);
+        GcsFilename fileName = new GcsFilename("frame-145601.appspot.com", "Bob Saget");//getFileName(req);
         GcsOutputChannel outputChannel;
         outputChannel = gcsService.createOrReplace(fileName, instance);
-        copy(req.getInputStream(), Channels.newOutputStream(outputChannel));
+        copy(video.getData().getBinaryStream(), Channels.newOutputStream(outputChannel));
+        return response;
     }
 
     private GcsFilename getFileName(HttpServletRequest req) {

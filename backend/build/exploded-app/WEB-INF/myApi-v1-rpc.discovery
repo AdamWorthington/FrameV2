@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/OwthO60HRVZ6-7dUBKt18BaTSC0\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/EuZ97xYvchE82rTiVPfFWAgpnf8\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -71,39 +71,12 @@
   }
  },
  "schemas": {
-  "HttpServletResponse": {
-   "id": "HttpServletResponse",
+  "Blob": {
+   "id": "Blob",
    "type": "object",
    "properties": {
-    "bufferSize": {
-     "type": "integer",
-     "format": "int32"
-    },
-    "characterEncoding": {
-     "type": "string"
-    },
-    "committed": {
-     "type": "boolean"
-    },
-    "contentLength": {
-     "type": "integer",
-     "format": "int32"
-    },
-    "contentType": {
-     "type": "string"
-    },
-    "locale": {
-     "$ref": "Locale"
-    },
-    "outputStream": {
-     "$ref": "ServletOutputStream"
-    },
-    "status": {
-     "type": "integer",
-     "format": "int32"
-    },
-    "writer": {
-     "$ref": "PrintWriter"
+    "binaryStream": {
+     "$ref": "InputStream"
     }
    }
   },
@@ -164,62 +137,9 @@
     }
    }
   },
-  "Locale": {
-   "id": "Locale",
-   "type": "object",
-   "properties": {
-    "country": {
-     "type": "string"
-    },
-    "displayCountry": {
-     "type": "string"
-    },
-    "displayLanguage": {
-     "type": "string"
-    },
-    "displayName": {
-     "type": "string"
-    },
-    "displayScript": {
-     "type": "string"
-    },
-    "displayVariant": {
-     "type": "string"
-    },
-    "extensionKeys": {
-     "type": "array",
-     "items": {
-      "type": "string"
-     }
-    },
-    "iso3Country": {
-     "type": "string"
-    },
-    "iso3Language": {
-     "type": "string"
-    },
-    "language": {
-     "type": "string"
-    },
-    "script": {
-     "type": "string"
-    },
-    "unicodeLocaleAttributes": {
-     "type": "array",
-     "items": {
-      "type": "string"
-     }
-    },
-    "unicodeLocaleKeys": {
-     "type": "array",
-     "items": {
-      "type": "string"
-     }
-    },
-    "variant": {
-     "type": "string"
-    }
-   }
+  "InputStream": {
+   "id": "InputStream",
+   "type": "object"
   },
   "MyBean": {
    "id": "MyBean",
@@ -233,13 +153,17 @@
     }
    }
   },
-  "PrintWriter": {
-   "id": "PrintWriter",
-   "type": "object"
-  },
-  "ServletOutputStream": {
-   "id": "ServletOutputStream",
-   "type": "object"
+  "VideoBean": {
+   "id": "VideoBean",
+   "type": "object",
+   "properties": {
+    "data": {
+     "$ref": "Blob"
+    },
+    "info": {
+     "type": "string"
+    }
+   }
   }
  },
  "methods": {
@@ -310,13 +234,33 @@
   "myApi.postVideo": {
    "id": "myApi.postVideo",
    "parameters": {
+    "lat": {
+     "type": "number",
+     "required": true,
+     "format": "double"
+    },
+    "lon": {
+     "type": "number",
+     "required": true,
+     "format": "double"
+    },
     "resource": {
-     "$ref": "HttpServletResponse"
+     "$ref": "VideoBean"
+    },
+    "user": {
+     "type": "string",
+     "required": true
     }
    },
    "parameterOrder": [
-    "resource"
+    "resource",
+    "user",
+    "lat",
+    "lon"
    ],
+   "returns": {
+    "$ref": "MyBean"
+   },
    "scopes": [
     "https://www.googleapis.com/auth/userinfo.email"
    ]
