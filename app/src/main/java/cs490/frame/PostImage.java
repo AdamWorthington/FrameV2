@@ -13,7 +13,9 @@ import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
+import java.security.acl.Acl;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by Scott on 10/6/2016.
@@ -41,6 +43,7 @@ public class PostImage extends AsyncTask<Post, Void, Boolean> {
         Post post = new Post();
         post = params[0];
         Log.i("postImage", "Post Lat: " + post.getLat() + " Lng: " + post.getLng() + " picture: " + post.getPicture() + " user: " + post.getUser());
+        
         ImageBean image = new ImageBean();
         image.setData(post.getPicture());
 

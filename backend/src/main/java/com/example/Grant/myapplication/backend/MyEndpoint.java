@@ -9,10 +9,23 @@ package com.example.Grant.myapplication.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.google.appengine.tools.cloudstorage.GcsFileOptions;
+import com.google.appengine.tools.cloudstorage.GcsFilename;
+import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
+import com.google.appengine.tools.cloudstorage.GcsService;
+import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
+import com.google.appengine.tools.cloudstorage.RetryParams;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.channels.Channels;
 import java.sql.Connection;
 import java.util.ArrayList;
 
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * An endpoint class we are exposing
@@ -31,6 +44,16 @@ public class MyEndpoint {
     /**
      * A simple endpoint method that takes a name and says Hi back
      */
+
+    private final GcsService gcsService = GcsServiceFactory.createGcsService(new RetryParams.Builder()
+            .initialRetryDelayMillis(10)
+            .retryMaxAttempts(10)
+            .totalRetryPeriodMillis(15000)
+            .build());
+
+    /**Used below to determine the size of chucks to read in. Should be > 1kb and < 10MB */
+    private static final int BUFFER_SIZE = 2 * 1024 * 1024;
+
     @ApiMethod(name = "getImage")
     public ImageBean getImage(@Named("id") int id) {
         ImageBean response = new ImageBean();
@@ -82,4 +105,38 @@ public class MyEndpoint {
         return response;
     }
 
+    @ApiMethod(name = "postVideo", httpMethod= ApiMethod.HttpMethod.POST)
+    public void postVideo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        GcsFileOptions instance = GcsFileOptions.getDefaultInstance();
+        GcsFilename fileName = getFileName(req);
+        GcsOutputChannel outputChannel;
+        outputChannel = gcsService.createOrReplace(fileName, instance);
+        copy(req.getInputStream(), Channels.newOutputStream(outputChannel));
+    }
+
+    private GcsFilename getFileName(HttpServletRequest req) {
+        String[] splits = req.getRequestURI().split("/", 4);
+        if (!splits[0].equals("") || !splits[1].equals("gcs")) {
+            throw new IllegalArgumentException("The URL is not formed as expected. " +
+                    "Expecting /gcs/<bucket>/<object>");
+        }
+        return new GcsFilename(splits[2], splits[3]);
+    }
+
+    /**
+     * Transfer the data from the inputStream to the outputStream. Then close both streams.
+     */
+    private void copy(InputStream input, OutputStream output) throws IOException {
+        try {
+            byte[] buffer = new byte[BUFFER_SIZE];
+            int bytesRead = input.read(buffer);
+            while (bytesRead != -1) {
+                output.write(buffer, 0, bytesRead);
+                bytesRead = input.read(buffer);
+            }
+        } finally {
+            input.close();
+            output.close();
+        }
+    }
 }
