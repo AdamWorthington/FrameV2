@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.location.Location;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -132,6 +133,9 @@ public class ReviewActivity extends AppCompatActivity
         bmOptions.inPurgeable = true;
 
         bitmap = BitmapFactory.decodeFile(path, bmOptions);
-        frame.setImageBitmap(bitmap);
+        Matrix matrix = new Matrix();
+        matrix.postRotate(90);
+        Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap , 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        frame.setImageBitmap(rotatedBitmap);
     }
 }
