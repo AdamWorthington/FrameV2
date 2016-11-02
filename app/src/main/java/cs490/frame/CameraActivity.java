@@ -42,6 +42,7 @@ public class CameraActivity extends AppCompatActivity {
     static final int REQUEST_VIDEO_ACCESS  = 4;
 
     private String savedPhotoPath;
+    private Uri videoUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,7 +141,7 @@ public class CameraActivity extends AppCompatActivity {
         }
         if(videoFile != null)
         {
-            Uri videoUri = FileProvider.getUriForFile(this, "cs490.frame", videoFile);
+            videoUri = FileProvider.getUriForFile(this, "cs490.frame", videoFile);
             takeVideoIntent.putExtra(MediaStore.EXTRA_OUTPUT, videoUri);
             takeVideoIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10);
             startActivityForResult(takeVideoIntent, REQUEST_VIDEO_CAPTURE);
@@ -197,10 +198,8 @@ public class CameraActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent intent)
     {
         if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK) {
-            Uri videoURI = intent.getData();
-
             Intent resultIntent = new Intent(this, ReviewActivity.class);
-            resultIntent.putExtra("uri", videoURI);
+            resultIntent.putExtra("uri", videoUri);
             resultIntent.putExtra("format", "video");
             startActivity(resultIntent);
         }
