@@ -23,6 +23,8 @@ android {
     dexOptions {
         javaMaxHeapSize "2g"
     }
+
+    useLibrary 'org.apache.http.legacy'
 }
 
 ext {
@@ -69,4 +71,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(path: ':backend', configuration: 'android-endpoints')
     compile 'org.apache.directory.studio:org.apache.commons.io:2.4'
+    compile 'com.google.appengine:appengine-api-1.0-sdk:1.9.44'
+    compile 'com.google.apis:google-api-services-storage:v1-rev68-1.21.0'
 }

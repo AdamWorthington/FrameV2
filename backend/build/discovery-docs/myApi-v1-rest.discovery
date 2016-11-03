@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/K2IGtWOfgshgntLK6BY2J40E7wk\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/n87My5MY_60OGWxjseBB6Ts4eSM\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -73,6 +73,42 @@
   }
  },
  "schemas": {
+  "HttpServletResponse": {
+   "id": "HttpServletResponse",
+   "type": "object",
+   "properties": {
+    "bufferSize": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "characterEncoding": {
+     "type": "string"
+    },
+    "committed": {
+     "type": "boolean"
+    },
+    "contentLength": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "contentType": {
+     "type": "string"
+    },
+    "locale": {
+     "$ref": "Locale"
+    },
+    "outputStream": {
+     "$ref": "ServletOutputStream"
+    },
+    "status": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "writer": {
+     "$ref": "PrintWriter"
+    }
+   }
+  },
   "IAHBean": {
    "id": "IAHBean",
    "type": "object",
@@ -130,6 +166,63 @@
     }
    }
   },
+  "Locale": {
+   "id": "Locale",
+   "type": "object",
+   "properties": {
+    "country": {
+     "type": "string"
+    },
+    "displayCountry": {
+     "type": "string"
+    },
+    "displayLanguage": {
+     "type": "string"
+    },
+    "displayName": {
+     "type": "string"
+    },
+    "displayScript": {
+     "type": "string"
+    },
+    "displayVariant": {
+     "type": "string"
+    },
+    "extensionKeys": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "iso3Country": {
+     "type": "string"
+    },
+    "iso3Language": {
+     "type": "string"
+    },
+    "language": {
+     "type": "string"
+    },
+    "script": {
+     "type": "string"
+    },
+    "unicodeLocaleAttributes": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "unicodeLocaleKeys": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "variant": {
+     "type": "string"
+    }
+   }
+  },
   "MyBean": {
    "id": "MyBean",
    "type": "object",
@@ -142,17 +235,13 @@
     }
    }
   },
-  "VideoBean": {
-   "id": "VideoBean",
-   "type": "object",
-   "properties": {
-    "info": {
-     "type": "string"
-    },
-    "video": {
-     "type": "string"
-    }
-   }
+  "PrintWriter": {
+   "id": "PrintWriter",
+   "type": "object"
+  },
+  "ServletOutputStream": {
+   "id": "ServletOutputStream",
+   "type": "object"
   }
  },
  "methods": {
@@ -230,34 +319,10 @@
   },
   "postVideo": {
    "id": "myApi.postVideo",
-   "path": "postVideo/{user}/{lat}/{lon}",
+   "path": "postVideo",
    "httpMethod": "POST",
-   "parameters": {
-    "lat": {
-     "type": "number",
-     "required": true,
-     "format": "double",
-     "location": "path"
-    },
-    "lon": {
-     "type": "number",
-     "required": true,
-     "format": "double",
-     "location": "path"
-    },
-    "user": {
-     "type": "string",
-     "required": true,
-     "location": "path"
-    }
-   },
-   "parameterOrder": [
-    "user",
-    "lat",
-    "lon"
-   ],
    "request": {
-    "$ref": "VideoBean",
+    "$ref": "HttpServletResponse",
     "parameterName": "resource"
    },
    "response": {

@@ -8,6 +8,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -84,7 +85,11 @@ public class ReviewActivity extends AppCompatActivity
                         post.setLat(40.429049);
                         post.setLng(-86.906065);
                     }
-                    //create blob from video file
+                    if (displayName != null) {
+                        post.setUser(displayName);
+                    } else {
+                        post.setUser("user was null");
+                    }
                     try {
                         InputStream iStream = getContentResolver().openInputStream(fileUri);
                         // write the inputStream to a FileOutputStream
@@ -100,8 +105,14 @@ public class ReviewActivity extends AppCompatActivity
                         byte[] array = Files.toByteArray(tempVideo);
                         if (array == null) Log.e("ReviewActivity", "byte array null");
                         else {
+//                            String toReturn = Base64.encodeToString(array,Base64.DEFAULT);
                             post.setVideo(array);
-                            //Send the post here??
+//                            Log.e("reviewactivity", "video string is " + toReturn.locatioength() + " characters long");
+                            PostVideo thing = new PostVideo();
+                            boolean posted = thing.execute(post).get();
+                            if (posted == false) {
+                                Log.e("reviewactivity", "failed to post video");
+                            }
                             finish();
                         }
                     } catch (Exception e) {

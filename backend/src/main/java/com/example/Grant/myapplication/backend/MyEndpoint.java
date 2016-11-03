@@ -9,6 +9,9 @@ package com.example.Grant.myapplication.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+import com.google.appengine.api.blobstore.UploadOptions;
 import com.google.appengine.tools.cloudstorage.GcsFileOptions;
 import com.google.appengine.tools.cloudstorage.GcsFilename;
 import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
@@ -19,6 +22,7 @@ import com.google.appengine.tools.cloudstorage.RetryParams;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.nio.channels.Channels;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -26,6 +30,7 @@ import java.util.ArrayList;
 
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * An endpoint class we are exposing
@@ -104,21 +109,36 @@ public class MyEndpoint {
         response.setData(posted);
         return response;
     }
-
+    BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
     @ApiMethod(name = "postVideo", httpMethod= ApiMethod.HttpMethod.POST)
-    public MyBean postVideo(VideoBean video, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
+    public MyBean postVideo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         MyBean response = new MyBean();
+        System.err.println("Titties");
+        UploadOptions uploadOptions = UploadOptions.Builder
+                .withGoogleStorageBucketName("frame-145601.appspot.com")
+                .maxUploadSizeBytes(1048576);
+        String blobUploadUrl = blobstoreService.createUploadUrl("/upload",
+                uploadOptions);
 
-        Connection conn = SQLStatements.createConnection();
+        // String blobUploadUrl = blobstoreService.createUploadUrl("/uploaded");
 
-        if (conn == null) {
-            response.setInfo("Connection Failure in postImage");
-            return response;
-        }
+        resp.setStatus(HttpServletResponse.SC_OK);
+        resp.setContentType("text/plain");
 
-        boolean posted = true;// = SQLStatements.postImage(conn, "video.getData()", user, lat, lon);
+        PrintWriter out = resp.getWriter();
+        out.print(blobUploadUrl);
 
-        response.setData(posted);
+//
+//        Connection conn = SQLStatements.createConnection();
+//
+//        if (conn == null) {
+//            response.setInfo("Connection Failure in postImage");
+//            return response;
+//        }
+//
+//        boolean posted = SQLStatements.postImage(conn, video.getVideo(), user, lat, lon);
+//
+//        response.setData(posted);
         return response;
     }
 
