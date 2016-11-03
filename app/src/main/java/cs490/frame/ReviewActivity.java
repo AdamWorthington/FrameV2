@@ -22,6 +22,8 @@ import org.apache.commons.io.FileUtils;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 public class ReviewActivity extends AppCompatActivity
 {
@@ -70,8 +72,8 @@ public class ReviewActivity extends AppCompatActivity
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    Intent ret = new Intent(ReviewActivity.this, WorldController.class);
-                    startActivity(ret);
+
+                    finish();
                 }
                 else if (format.compareTo("video") == 0) {
                     Post post = new Post();
@@ -84,10 +86,23 @@ public class ReviewActivity extends AppCompatActivity
                     }
                     //create blob from video file
                     try {
-                        byte[] array = Files.toByteArray(new File(fileUri.toString()));
+                        InputStream iStream = getContentResolver().openInputStream(fileUri);
+                        // write the inputStream to a FileOutputStream
+                        File tempVideo = new File(getCacheDir(), "tempVideo");
+                        FileOutputStream outputStream = new FileOutputStream(tempVideo);
+
+                        int read = 0;
+                        byte[] bytes = new byte[1024];
+
+                        while ((read = iStream.read(bytes)) != -1) {
+                            outputStream.write(bytes, 0, read);
+                        }
+                        byte[] array = Files.toByteArray(tempVideo);
                         if (array == null) Log.e("ReviewActivity", "byte array null");
                         else {
                             post.setVideo(array);
+                            //Send the post here??
+                            finish();
                         }
                     } catch (Exception e) {
                         Log.e("sendvideo", e.getMessage());
