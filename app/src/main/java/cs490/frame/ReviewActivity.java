@@ -72,8 +72,8 @@ public class ReviewActivity extends AppCompatActivity
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Intent ret = new Intent(ReviewActivity.this, WorldController.class);
-                startActivity(ret);
+
+                finish();
             }
         });
 
@@ -93,6 +93,8 @@ public class ReviewActivity extends AppCompatActivity
             vFrame.setVideoURI(fileUri);
             vFrame.setMediaController(new MediaController(this));
             vFrame.setVisibility(View.VISIBLE);
+            vFrame.requestFocus();
+            vFrame.start();
             iFrame.setVisibility(View.GONE);
         }
         else

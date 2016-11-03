@@ -202,6 +202,7 @@ public class CameraActivity extends AppCompatActivity {
             resultIntent.putExtra("uri", videoUri);
             resultIntent.putExtra("format", "video");
             startActivity(resultIntent);
+            finish();
         }
         else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
 
@@ -210,6 +211,7 @@ public class CameraActivity extends AppCompatActivity {
             resultIntent.putExtra("path", savedPhotoPath);
             resultIntent.putExtra("format", "photo");
             startActivity(resultIntent);
+            finish();
         }
     }
 }
