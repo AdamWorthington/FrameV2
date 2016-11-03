@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity implements
     private TextView mStatusTextView;
     private ProgressDialog mProgressDialog;
 
-    static String username;
+    public static String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

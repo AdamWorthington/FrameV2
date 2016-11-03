@@ -1,23 +1,27 @@
 package com.example.Grant.myapplication.backend;
 
-
-import java.sql.Blob;
-
 /**
  * Created by Grant on 11/2/2016.
  */
 
 public class VideoBean {
-    private Blob video;
-    private String info;
-
-    public Blob getData() {
+    public String getVideo() {
         return video;
     }
-    public String getInfo() { return info; }
 
-    public void setData(Blob data) {
-        video = data;
+    public void setVideo(String video) {
+        this.video = video;
     }
-    public void setInfo(String info) { info = info; }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    private String video;
+    private String info;
+
 }

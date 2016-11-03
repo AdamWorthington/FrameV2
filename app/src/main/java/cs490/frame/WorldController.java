@@ -1,12 +1,10 @@
 package cs490.frame;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
-import android.location.LocationManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
@@ -16,7 +14,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.grant.myapplication.backend.myApi.model.IAHBean;
 import com.example.grant.myapplication.backend.myApi.model.ImageAttributeHolder;
 import com.example.grant.myapplication.backend.myApi.model.ImageBean;
 import com.google.android.gms.common.ConnectionResult;
@@ -42,9 +39,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import static java.lang.Thread.sleep;
 
 public class WorldController extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Frame</string>
     <string name="title_activity_world_controller">Map</string>
-    <string name="google_maps_key">AIzaSyC97fZJHWcw_E6beJIgjQmKnZf8MeYU_LU</string>
+    <string name="google_maps_key">AIzaSyCq_8HYTPVZ5lTTSEsTfHtjQn6nFlu_GiY</string>
 
     <string name="title_activity_login">Frame</string>
 

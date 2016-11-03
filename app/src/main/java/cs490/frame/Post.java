@@ -11,6 +11,15 @@ public class Post implements Serializable{
     String user;
     double lat;
     double lng;
+    byte[] video;
+
+    public byte[] getVideo() {
+        return video;
+    }
+
+    public void setVideo(byte[] video) {
+        this.video = video;
+    }
 
     public String getPicture() {
         return picture;

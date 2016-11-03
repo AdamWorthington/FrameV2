@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.example.grant.myapplication.backend.myApi.MyApi;
-import com.example.grant.myapplication.backend.myApi.model.ImageAttributeHolder;
 import com.example.grant.myapplication.backend.myApi.model.ImageBean;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -13,9 +12,6 @@ import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
-import java.security.acl.Acl;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by Scott on 10/6/2016.

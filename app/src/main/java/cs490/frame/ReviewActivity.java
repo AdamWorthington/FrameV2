@@ -1,29 +1,27 @@
 package cs490.frame;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.location.Location;
 import android.net.Uri;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.MediaController;
-import android.widget.RelativeLayout;
 import android.widget.VideoView;
 
-import java.io.File;
+import com.google.common.io.Files;
 
-import static android.R.attr.bitmap;
+import org.apache.commons.io.FileUtils;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 public class ReviewActivity extends AppCompatActivity
 {
@@ -38,7 +36,8 @@ public class ReviewActivity extends AppCompatActivity
         VideoView vFrame = (VideoView) findViewById(R.id.videoFrame);
 
         Bundle extras = getIntent().getExtras();
-        String format = extras.getString("format");
+        final String format = extras.getString("format");
+        final Uri fileUri = extras.getParcelable("uri");
 
         Button send = (Button) findViewById(R.id.sendButton);
         Button comment = (Button) findViewById(R.id.commentButton);
@@ -49,31 +48,51 @@ public class ReviewActivity extends AppCompatActivity
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Post post = new Post();
-                if (location != null) {
-                    post.setLat(location.getLatitude());
-                    post.setLng(location.getLongitude());
+                if (format.compareTo("photo") == 0) {
+                    Post post = new Post();
+                    if (location != null) {
+                        post.setLat(location.getLatitude());
+                        post.setLng(location.getLongitude());
+                    } else {
+                        post.setLat(40.429049);
+                        post.setLng(-86.906065);
+                    }
+                    String send = ImageConverter.encodeTobase64(bitmap, false);
+                    post.setPicture(send);
+                    if (displayName != null) {
+                        post.setUser(displayName);
+                    } else {
+                        post.setUser("user was null");
+                    }
+                    try {
+                        boolean posted = new PostImage().execute(post).get();
+                        Log.i("postedImage", "Posted: " + posted + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    Intent ret = new Intent(ReviewActivity.this, WorldController.class);
+                    startActivity(ret);
                 }
-                else {
-                    post.setLat(40.429049);
-                    post.setLng(-86.906065);
+                else if (format.compareTo("video") == 0) {
+                    Post post = new Post();
+                    if (location != null) {
+                        post.setLat(location.getLatitude());
+                        post.setLng(location.getLongitude());
+                    } else {
+                        post.setLat(40.429049);
+                        post.setLng(-86.906065);
+                    }
+                    //create blob from video file
+                    try {
+                        byte[] array = Files.toByteArray(new File(fileUri.toString()));
+                        if (array == null) Log.e("ReviewActivity", "byte array null");
+                        else {
+                            post.setVideo(array);
+                        }
+                    } catch (Exception e) {
+                        Log.e("sendvideo", e.getMessage());
+                    }
                 }
-                String send = ImageConverter.encodeTobase64(bitmap, false);
-                post.setPicture(send);
-                if (displayName != null) {
-                    post.setUser(displayName);
-                }
-                else {
-                    post.setUser("user was null");
-                }
-                try {
-                    boolean posted = new PostImage().execute(post).get();
-                    Log.i("postedImage", "Posted: " + posted + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                finish();
             }
         });
 
@@ -89,7 +108,6 @@ public class ReviewActivity extends AppCompatActivity
         {
 
             //We have a video
-            Uri fileUri = extras.getParcelable("uri");
             vFrame.setVideoURI(fileUri);
             vFrame.setMediaController(new MediaController(this));
             vFrame.setVisibility(View.VISIBLE);

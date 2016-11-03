@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/EuZ97xYvchE82rTiVPfFWAgpnf8\"",
+ "etag": "\"zRMgE0l9nVDW4S28VYYcYQF9UW4/K2IGtWOfgshgntLK6BY2J40E7wk\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -71,15 +71,6 @@
   }
  },
  "schemas": {
-  "Blob": {
-   "id": "Blob",
-   "type": "object",
-   "properties": {
-    "binaryStream": {
-     "$ref": "InputStream"
-    }
-   }
-  },
   "IAHBean": {
    "id": "IAHBean",
    "type": "object",
@@ -137,10 +128,6 @@
     }
    }
   },
-  "InputStream": {
-   "id": "InputStream",
-   "type": "object"
-  },
   "MyBean": {
    "id": "MyBean",
    "type": "object",
@@ -157,10 +144,10 @@
    "id": "VideoBean",
    "type": "object",
    "properties": {
-    "data": {
-     "$ref": "Blob"
-    },
     "info": {
+     "type": "string"
+    },
+    "video": {
      "type": "string"
     }
    }

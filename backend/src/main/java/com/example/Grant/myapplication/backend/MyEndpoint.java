@@ -16,7 +16,6 @@ import com.google.appengine.tools.cloudstorage.GcsService;
 import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
 import com.google.appengine.tools.cloudstorage.RetryParams;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -27,7 +26,6 @@ import java.util.ArrayList;
 
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * An endpoint class we are exposing
@@ -106,6 +104,26 @@ public class MyEndpoint {
         response.setData(posted);
         return response;
     }
+
+    @ApiMethod(name = "postVideo", httpMethod= ApiMethod.HttpMethod.POST)
+    public MyBean postVideo(VideoBean video, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
+        MyBean response = new MyBean();
+
+        Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            response.setInfo("Connection Failure in postImage");
+            return response;
+        }
+
+        boolean posted = true;// = SQLStatements.postImage(conn, "video.getData()", user, lat, lon);
+
+        response.setData(posted);
+        return response;
+    }
+
+
+    /*
     //    public void postVideo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
     @ApiMethod(name = "postVideo", httpMethod= ApiMethod.HttpMethod.POST)
     public MyBean postVideo(VideoBean video, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) throws IOException, SQLException {
@@ -128,9 +146,7 @@ public class MyEndpoint {
         return new GcsFilename(splits[2], splits[3]);
     }
 
-    /**
-     * Transfer the data from the inputStream to the outputStream. Then close both streams.
-     */
+
     private void copy(InputStream input, OutputStream output) throws IOException {
         try {
             byte[] buffer = new byte[BUFFER_SIZE];
@@ -144,4 +160,5 @@ public class MyEndpoint {
             output.close();
         }
     }
+    */
 }
