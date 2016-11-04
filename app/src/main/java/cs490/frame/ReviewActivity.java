@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.google.common.io.Files;
@@ -69,8 +70,10 @@ public class ReviewActivity extends AppCompatActivity
                     try {
                         boolean posted = new PostImage().execute(post).get();
                         Log.i("postedImage", "Posted: " + posted + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        if (posted == false) Toast.makeText(ReviewActivity.this, "Failed to post image", Toast.LENGTH_LONG).show();
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Log.e("reviewactivity", "failed to post image" + e.getMessage());
+                        Toast.makeText(ReviewActivity.this, "Failed to post image", Toast.LENGTH_LONG).show();
                     }
 
                     finish();
@@ -101,11 +104,13 @@ public class ReviewActivity extends AppCompatActivity
                         if (array == null) Log.e("ReviewActivity", "byte array null");
                         else {
                             post.setVideo(array);
-                            //Send the post here??
+                            //TODO: Send the post here
+                            Toast.makeText(ReviewActivity.this, "Video functionality still under construction.", Toast.LENGTH_LONG).show();
                             finish();
                         }
                     } catch (Exception e) {
                         Log.e("sendvideo", e.getMessage());
+                        Toast.makeText(ReviewActivity.this, "Error finding video file.", Toast.LENGTH_LONG).show();
                     }
                 }
             }

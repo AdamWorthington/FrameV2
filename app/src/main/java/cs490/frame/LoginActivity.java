@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -104,6 +105,7 @@ public class LoginActivity extends AppCompatActivity implements
                 }
             });
         }
+
     }
 
     // [START onActivityResult]
@@ -133,6 +135,7 @@ public class LoginActivity extends AppCompatActivity implements
         } else {
             // Signed out, show unauthenticated UI.
             updateUI(false);
+            Toast.makeText(this, "Sign-in failed, user preferences disabled", Toast.LENGTH_LONG).show();
             Intent worldView = new Intent(this, WorldController.class);
             startActivity(worldView);
         }
@@ -179,6 +182,7 @@ public class LoginActivity extends AppCompatActivity implements
         // An unresolvable error has occurred and Google APIs (including Sign-In) will not
         // be available.
         Log.d(TAG, "onConnectionFailed:" + connectionResult);
+        Toast.makeText(this, "Connection to Google servers failed, sign-in unavailable.", Toast.LENGTH_LONG);
     }
 
     private void showProgressDialog() {

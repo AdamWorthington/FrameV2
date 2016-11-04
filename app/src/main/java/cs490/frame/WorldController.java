@@ -279,12 +279,16 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
                     ImageBean image = null;
                     try {
                         image = new GetImage().execute(Integer.parseInt(marker.getTitle())).get();
+                        if (image.getInfo().equals("Connection Failure in getImage")) Toast.makeText(WorldController.this, "Failed to retrieve image from server", Toast.LENGTH_SHORT).show();
+                        else {
+                            Intent imageView = new Intent(WorldController.this, DisplayImageActivity.class);
+                            showPicture = image.getData();
+                            startActivity(imageView);
+                        }
                     } catch (Exception e) {
                         Log.e("WorldController", e.getMessage());
+                        Toast.makeText(WorldController.this, "Failed to retrieve image from server", Toast.LENGTH_SHORT).show();
                     }
-                    Intent imageView = new Intent(WorldController.this, DisplayImageActivity.class);
-                    showPicture = image.getData();
-                    startActivity(imageView);
                 } else {
                     Toast.makeText(WorldController.this, "Not close enough to marker", Toast.LENGTH_SHORT).show();
                 }
@@ -302,6 +306,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
             posts = new GetAllAttributes().execute().get();
         } catch (Exception e) {
             Log.e("WorldController", e.getMessage());
+            Toast.makeText(this, "Unable to contact server, local posts unavailable", Toast.LENGTH_SHORT).show();
         }
         if (posts != null) {
             //add a marker for each post
@@ -312,6 +317,8 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
                 String snippet = "Posted by: " + holder.getUser();
                 addMapMarker(position, title, snippet);
             }
+        } else {
+            Toast.makeText(this, "Error retrieving posts from server", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -339,22 +346,6 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
     private void onCameraClick()
     {
         Intent cameraIntent = new Intent(this, CameraActivity.class);
-        Location location = null;
-
-        /*
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Permission to access the location is missing.
-            PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
-                    android.Manifest.permission.ACCESS_FINE_LOCATION, true);
-        } else if (mMap != null) {
-            // Access to the location has been granted to the app.
-            createLocationRequest();
-            connectToGoogleApi();
-            curLoc = LocationServices.FusedLocationApi.getLastLocation(mGoogleClient);
-        }
-        */
-
         startActivity(cameraIntent);
     }
 }

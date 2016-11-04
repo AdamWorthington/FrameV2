@@ -54,8 +54,7 @@ public class GetAllAttributes extends AsyncTask<Void, Void, ArrayList<ImageAttri
             return ret;
         } catch (IOException e) {
             Log.e("getAllAttributes", e.getMessage());
-            ArrayList<ImageAttributeHolder> ret = new ArrayList<>();
-            return ret;
+            return null;
         }
     }
 }
