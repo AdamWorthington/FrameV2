@@ -21,8 +21,12 @@
           }
         },
         {
-          "client_id": "882154403463-85agkponqut2hj5qltev1jn10pulhp3p.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "882154403463-v4lco63rg84rapm9r9vuuu6va55phe5u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cs490.frame",
+            "certificate_hash": "CBE55ACF7A11837547DEE75445F1A62C2DE179A4"
+          }
         }
       ],
       "api_key": [
