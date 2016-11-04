@@ -1,41 +1,38 @@
 {
   "project_info": {
-    "project_number": "506408773105",
-    "project_id": "frame-145102"
+    "project_number": "882154403463",
+    "project_id": "frame-145601"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:506408773105:android:d9fcc71b8b663acf",
+        "mobilesdk_app_id": "1:882154403463:android:d9fcc71b8b663acf",
         "android_client_info": {
           "package_name": "cs490.frame"
         }
       },
       "oauth_client": [
         {
-          "client_id": "506408773105-0hkjs7tq4a0ric6tc5qljirinsp36k4p.apps.googleusercontent.com",
+          "client_id": "882154403463-v4lco63rg84rapm9r9vuuu6va55phe5u.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "cs490.frame",
-            "certificate_hash": "521F6BC8388F9725BBD3F01484A9BCD9A826AE9F"
+            "certificate_hash": "BD986EFAC6708B8979BD99C768F1F502CFA2408A"
           }
         },
         {
-          "client_id": "506408773105-dn9jakdnatgtm4maqhjkf7m4i89tf135.apps.googleusercontent.com",
+          "client_id": "882154403463-85agkponqut2hj5qltev1jn10pulhp3p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB3JkvAtVogsk5JyKXUJDBdqlDI8NyP-LI"
+          "current_key": "AIzaSyBOnaaachrmlCoG36-85HfX4E74b4qng04"
         }
       ],
       "services": {
         "analytics_service": {
-          "status": 2,
-          "analytics_property": {
-            "tracking_id": "UA-85057579-1"
-          }
+          "status": 1
         },
         "appinvite_service": {
           "status": 1,
