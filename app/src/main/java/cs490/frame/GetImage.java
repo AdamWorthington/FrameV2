@@ -45,7 +45,7 @@ public class GetImage extends AsyncTask<Integer, Void, ImageBean> {
             }
             return image;
         } catch (IOException e) {
-            Log.e("getAllAttributes", e.getMessage());
+            Log.e("getImage", e.getMessage());
             ImageBean ret = new ImageBean();
             ret.setInfo(e.getMessage());
             return ret;

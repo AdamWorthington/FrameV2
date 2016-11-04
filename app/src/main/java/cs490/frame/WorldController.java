@@ -279,8 +279,9 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
                     ImageBean image = null;
                     try {
                         image = new GetImage().execute(Integer.parseInt(marker.getTitle())).get();
-                        if (image.getInfo().equals("Connection Failure in getImage")) Toast.makeText(WorldController.this, "Failed to retrieve image from server", Toast.LENGTH_SHORT).show();
-                        else {
+                        if (image.getInfo() != null)
+                            if (image.getInfo().equals("Connection Failure in getImage")) Toast.makeText(WorldController.this, "Failed to retrieve image from server", Toast.LENGTH_SHORT).show();
+                        if (image.getInfo() == null) {
                             Intent imageView = new Intent(WorldController.this, DisplayImageActivity.class);
                             showPicture = image.getData();
                             startActivity(imageView);

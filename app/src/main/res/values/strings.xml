@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Frame</string>
     <string name="title_activity_world_controller">Map</string>
-    <string name="google_maps_key">AIzaSyCq_8HYTPVZ5lTTSEsTfHtjQn6nFlu_GiY</string>
+    <string name="google_maps_key">AIzaSyD-SgUp3ugM_lb68PCX3vPSYDgh979dOBY</string>
 
     <string name="title_activity_login">Frame</string>
 
@@ -46,7 +46,7 @@
     <!-- TODO(user): replace with your real server client ID -->
     <!-- Server Client ID.  This should be a valid Web OAuth 2.0 Client ID obtained
          from https://console.developers.google.com/ -->
-    <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
+    <string name="server_client_id">882154403463-duatp0g095kadg41as1hhc5td834n2f7.apps.googleusercontent.com</string>
 
     <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
     <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
