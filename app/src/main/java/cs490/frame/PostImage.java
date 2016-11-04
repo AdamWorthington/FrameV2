@@ -38,7 +38,7 @@ public class PostImage extends AsyncTask<Post, Void, Boolean> {
         }
         Post post = new Post();
         post = params[0];
-        Log.i("postImage", "Post Lat: " + post.getLat() + " Lng: " + post.getLng() + " picture: " + post.getPicture() + " user: " + post.getUser());
+        Log.i("postImage", "Post Lat: " + post.getLat() + " Lng: " + post.getLng() + " picture: lookin' good" + " user: " + post.getUser());
 
         ImageBean image = new ImageBean();
         image.setData(post.getPicture());

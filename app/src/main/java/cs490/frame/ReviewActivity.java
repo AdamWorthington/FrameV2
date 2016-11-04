@@ -71,12 +71,11 @@ public class ReviewActivity extends AppCompatActivity
                         boolean posted = new PostImage().execute(post).get();
                         Log.i("postedImage", "Posted: " + posted + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                         if (posted == false) Toast.makeText(ReviewActivity.this, "Failed to post image", Toast.LENGTH_LONG).show();
+                        else finish();
                     } catch (Exception e) {
                         Log.e("reviewactivity", "failed to post image" + e.getMessage());
                         Toast.makeText(ReviewActivity.this, "Failed to post image", Toast.LENGTH_LONG).show();
                     }
-
-                    finish();
                 }
                 else if (format.compareTo("video") == 0) {
                     Post post = new Post();
