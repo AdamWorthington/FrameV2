@@ -52,14 +52,15 @@ public class SQLStatements {
 		 */
 		System.err.println("Picture: " + picture + " user: " + user + " lat: " + lat + " lng: " + lon);
 		PreparedStatement stmt = null;
-		String query = "INSERT INTO FrameV2.Media (ID, Image, Latitude, Longitude, User, Date) VALUES (NULL, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
+		String query = "INSERT INTO FrameV2.Media (ID, Image, IsVideo, Latitude, Longitude, User, Date) VALUES (NULL, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
 		
 		try {
 			stmt = conn.prepareStatement(query);
 			stmt.setString(1, picture);
-			stmt.setDouble(2, lat);
-			stmt.setDouble(3, lon);
-			stmt.setString(4, user);
+			stmt.setInt(2, 0);
+			stmt.setDouble(3, lat);
+			stmt.setDouble(4, lon);
+			stmt.setString(5, user);
 			
 			int stmtReturn = stmt.executeUpdate();
 		}
