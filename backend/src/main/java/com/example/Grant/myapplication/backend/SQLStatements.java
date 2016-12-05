@@ -43,7 +43,7 @@ public class SQLStatements {
     }
 
 	/*
-	 *
+	 * Posts a comment to the database for a specific post
 	 */
 	public static boolean postComment(Connection conn, int postID, String comment, String user) {
 		/*
@@ -99,6 +99,41 @@ public class SQLStatements {
 		}
 		
 		return true;
+	}
+
+	/*
+	 *  Retrieves all comments for a specific post
+	 */
+	public static ArrayList<Comment> getComments(Connection conn, int postID) {
+		ArrayList<Comment> ret = new ArrayList<Comment>();
+
+		PreparedStatement stmt = null;
+		String query = "SELECT Comment, User FROM FrameV2.Comments WHERE PostID=?;";
+
+		try {
+			stmt = conn.prepareStatement(query);
+			stmt.setInt(1, postID);
+
+			ResultSet rs = stmt.executeQuery();
+			String comment;
+			String user;
+
+			while (rs.next()) {
+				comment = rs.getString("Comment");
+				user = rs.getString("User");
+
+				Comment c = new Comment(postID, comment, user);
+				ret.add(c);
+			}
+		}
+		catch (SQLException e) {
+			System.err.println("Error retrieving comments from table Comments (PostID " + postID + ")");
+			System.err.println(e.getMessage());
+
+			return null;
+		}
+
+		return ret;
 	}
 	
 	/*
