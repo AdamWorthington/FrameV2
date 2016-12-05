@@ -13,9 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.MediaController;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.google.api.services.drive.model.Comment;
 import com.google.common.io.Files;
 
 import org.apache.commons.io.FileUtils;
@@ -26,9 +28,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
-public class ReviewActivity extends AppCompatActivity
+public class ReviewActivity extends AppCompatActivity implements CommentDialogFragment.NoticeDialogListener
 {
     private Bitmap bitmap;
+    private String comment;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -44,6 +47,14 @@ public class ReviewActivity extends AppCompatActivity
 
         Button send = (Button) findViewById(R.id.sendButton);
         Button comment = (Button) findViewById(R.id.commentButton);
+        comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CommentDialogFragment dialogFragment = new CommentDialogFragment();
+                dialogFragment.setExistingComment(ReviewActivity.this.comment);
+                dialogFragment.show(getSupportFragmentManager(), "AddNoteDialogFragment");
+            }
+        });
 
         final Location location = WorldController.curLoc;
         final String displayName = LoginActivity.username;
@@ -176,5 +187,17 @@ public class ReviewActivity extends AppCompatActivity
         matrix.postRotate(90);
         Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap , 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         frame.setImageBitmap(rotatedBitmap);
+    }
+
+    @Override
+    public void onDialogPositiveClick(CommentDialogFragment dialog, String comment) {
+        this.comment = comment;
+        TextView caption = (TextView) findViewById(R.id.captionContent);
+        caption.setText(comment);
+    }
+
+    @Override
+    public void onDialogNegativeClick(CommentDialogFragment dialog) {
+
     }
 }

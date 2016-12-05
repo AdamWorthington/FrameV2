@@ -5,8 +5,12 @@ import android.graphics.Matrix;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class DisplayImageActivity extends AppCompatActivity {
+    ArrayList<Comment> comments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +31,10 @@ public class DisplayImageActivity extends AppCompatActivity {
             Bitmap rotatedBitmap = Bitmap.createBitmap(image , 0, 0, image.getWidth(), image.getHeight(), matrix, true);
             view.setImageBitmap(rotatedBitmap);
         }
+
+        comments = new ArrayList<>();
+        ListView commentList = (ListView) findViewById(R.id.commentsList);
+        CommentsAdapter adapter = new CommentsAdapter(this, comments);
+        commentList.setAdapter(adapter);
     }
 }
