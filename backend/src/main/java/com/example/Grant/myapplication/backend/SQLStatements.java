@@ -115,12 +115,10 @@ public class SQLStatements {
 			stmt.setInt(1, postID);
 
 			ResultSet rs = stmt.executeQuery();
-			String comment;
-			String user;
 
 			while (rs.next()) {
-				comment = rs.getString("Comment");
-				user = rs.getString("User");
+				String comment = rs.getString("Comment");
+				String user = rs.getString("User");
 
 				Comment c = new Comment(postID, comment, user);
 				ret.add(c);
