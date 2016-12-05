@@ -41,6 +41,33 @@ public class SQLStatements {
         }
         return conn;
     }
+
+	/*
+	 *
+	 */
+	public static boolean postComment(Connection conn, int postID, String comment, String user) {
+		/*
+		 * table Comments: int CommentID, int PostID, varchar Comment, varchar User
+		 */
+		PreparedStatement stmt = null;
+		String query = "INSERT INTO FrameV2.Comments (CommentID, PostID, Comment, User) Values (NULL, ?, ?, ?);";
+
+		try {
+			stmt = conn.prepareStatement(query);
+			stmt.setInt(1, postID);
+			stmt.setString(2, comment);
+			stmt.setString(3, user);
+			int stmtReturn = stmt.executeUpdate();
+		}
+		catch (SQLException e) {
+			System.err.println("Error posting comment to table Comments");
+			System.err.println(e.getMessage());
+
+			return false;
+		}
+
+		return true;
+	}
 	
 	/*
 	 * Post an image and its attributes to the database
