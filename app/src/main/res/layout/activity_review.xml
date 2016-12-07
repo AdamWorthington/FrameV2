@@ -12,6 +12,19 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:visibility="gone"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:id="@+id/captionTitle"
+        android:text="Caption: "/>
+    <TextView
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/captionContent"
+        android:layout_toRightOf="@id/captionTitle"
+        android:text="None"/>
     <VideoView
         android:id="@+id/videoFrame"
         android:layout_width="fill_parent"
@@ -31,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:text="Comment"
+            android:text="Caption"
             android:id="@+id/commentButton" />
         <Button
             android:layout_width="wrap_content"
