@@ -41,6 +41,33 @@ public class SQLStatements {
         }
         return conn;
     }
+
+	/*
+	 * Posts a comment to the database for a specific post
+	 */
+	public static boolean postComment(Connection conn, int postID, String comment, String user) {
+		/*
+		 * table Comments: int CommentID, int PostID, varchar Comment, varchar User
+		 */
+		PreparedStatement stmt = null;
+		String query = "INSERT INTO FrameV2.Comments (CommentID, PostID, Comment, User) Values (NULL, ?, ?, ?);";
+
+		try {
+			stmt = conn.prepareStatement(query);
+			stmt.setInt(1, postID);
+			stmt.setString(2, comment);
+			stmt.setString(3, user);
+			int stmtReturn = stmt.executeUpdate();
+		}
+		catch (SQLException e) {
+			System.err.println("Error posting comment to table Comments");
+			System.err.println(e.getMessage());
+
+			return false;
+		}
+
+		return true;
+	}
 	
 	/*
 	 * Post an image and its attributes to the database
@@ -72,6 +99,39 @@ public class SQLStatements {
 		}
 		
 		return true;
+	}
+
+	/*
+	 *  Retrieves all comments for a specific post
+	 */
+	public static ArrayList<Comment> getComments(Connection conn, int postID) {
+		ArrayList<Comment> ret = new ArrayList<Comment>();
+
+		PreparedStatement stmt = null;
+		String query = "SELECT Comment, User FROM FrameV2.Comments WHERE PostID=?;";
+
+		try {
+			stmt = conn.prepareStatement(query);
+			stmt.setInt(1, postID);
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				String comment = rs.getString("Comment");
+				String user = rs.getString("User");
+
+				Comment c = new Comment(postID, comment, user);
+				ret.add(c);
+			}
+		}
+		catch (SQLException e) {
+			System.err.println("Error retrieving comments from table Comments (PostID " + postID + ")");
+			System.err.println(e.getMessage());
+
+			return null;
+		}
+
+		return ret;
 	}
 	
 	/*
