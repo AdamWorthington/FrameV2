@@ -24,7 +24,7 @@ public class CommentDialogFragment extends DialogFragment {
     // Use this instance of the interface to deliver action events
     NoticeDialogListener mListener;
 
-    String existingComment;
+    String existingComment = "";
 
     // Override the Fragment.onAttach() method to instantiate the NoticeDialogListener
     @Override
@@ -53,7 +53,7 @@ public class CommentDialogFragment extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         final View v = inflater.inflate(R.layout.dialog_addcomment, null);
         EditText captionText = (EditText) v.findViewById(R.id.commentEditText);
-        if(!existingComment.isEmpty())
+        if(existingComment != null && !existingComment.isEmpty())
             captionText.setText(existingComment);
 
         builder.setView(v)

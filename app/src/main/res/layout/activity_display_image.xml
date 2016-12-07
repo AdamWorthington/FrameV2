@@ -1,59 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:id="@+id/activity_display_image"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="cs490.frame.DisplayImageActivity">
-
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/cast_album_art_placeholder"
-        android:id="@+id/imageView"
-        android:cropToPadding="false"
-        android:adjustViewBounds="false"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"/>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imageView"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="5dp">
-        <ListView
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/cast_album_art_placeholder"
+            android:id="@+id/imageView"
+            android:cropToPadding="false"
+            android:layout_gravity="center_horizontal"
+            android:adjustViewBounds="false"
+            android:layout_weight=".1" />
+        <RelativeLayout
+            android:layout_margin="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/caption"
+                android:layout_centerVertical="true"
+                android:text="hello what is going on here"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:id="@+id/downVoteCount"
+                android:text="0"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:id="@+id/downvoteButton"
+                android:src="@mipmap/ic_mood_bad_black_24dp"
+                android:background="@null"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/downVoteCount"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:text="0"
+                android:id="@+id/upvoteCount"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/downvoteButton"
+                android:layout_height="wrap_content"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:id="@+id/upvoteButton"
+                android:background="@null"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/ic_mood_black_24dp"
+                android:layout_toLeftOf="@id/upvoteCount"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/commentsList"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_below="@id/commentsList"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-            <EditText
-                android:layout_width="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="5dp">
+            <ListView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:layout_weight="1"
-                android:id="@+id/commentText" />
-            <Button
-                android:layout_weight="0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/commentText"
-                android:id="@+id/postCommentButton"
-                android:text="Post"/>
-        </LinearLayout>
+                android:id="@+id/commentsList"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_below="@id/commentsList"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:layout_weight="1"
+                    android:id="@+id/commentText" />
+                <Button
+                    android:layout_weight="0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/postCommentButton"
+                    android:text="Post"/>
+            </LinearLayout>
+        </RelativeLayout>
 
-    </RelativeLayout>
-</RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -29,7 +30,7 @@ public class CommentsAdapter extends BaseAdapter{
     }
 
     @Override
-    public Object getItem(int position) {
+    public Comment getItem(int position) {
         return mDataSource.get(position);
     }
 
@@ -41,8 +42,16 @@ public class CommentsAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get view for row item
-        View rowView = mInflater.inflate(R.layout.list_item_comment, parent, false);
+        if(convertView == null)
+        {
+            convertView = mInflater.inflate(R.layout.list_item_comment, parent, false);
+        }
+        Comment c = getItem(position);
+        TextView tvName = (TextView) convertView.findViewById(R.id.commentId);
+        TextView tvContent = (TextView) convertView.findViewById(R.id.commentContent);
+        tvName.setText(c.user);
+        tvContent.setText(c.comment);
 
-        return rowView;
+        return convertView;
     }
 }

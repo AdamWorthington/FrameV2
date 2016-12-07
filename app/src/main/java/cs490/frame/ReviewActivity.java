@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.location.Location;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -184,7 +185,8 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
 
         bitmap = BitmapFactory.decodeFile(path, bmOptions);
         Matrix matrix = new Matrix();
-        matrix.postRotate(90);
+        if(Build.MANUFACTURER.compareTo("motorola") != 0)
+            matrix.postRotate(90);
         Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap , 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         frame.setImageBitmap(rotatedBitmap);
     }
@@ -194,6 +196,8 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
         this.comment = comment;
         TextView caption = (TextView) findViewById(R.id.captionContent);
         caption.setText(comment);
+        if(comment.isEmpty())
+            caption.setText("None");
     }
 
     @Override

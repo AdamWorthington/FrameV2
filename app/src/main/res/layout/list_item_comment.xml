@@ -15,5 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/commentId"
+        android:id="@+id/commentContent"
         android:text="content"/>
 </RelativeLayout>
