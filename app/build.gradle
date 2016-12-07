@@ -80,4 +80,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(path: ':backend', configuration: 'android-endpoints')
     compile 'org.apache.directory.studio:org.apache.commons.io:2.4'
+    compile project(path: ':backend')
 }

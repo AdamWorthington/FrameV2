@@ -12,6 +12,9 @@ public class Post implements Serializable{
     double lat;
     double lng;
     byte[] video;
+    int postID;
+
+    int likes;
 
     public byte[] getVideo() {
         return video;
@@ -51,5 +54,21 @@ public class Post implements Serializable{
 
     public void setLng(double lng) {
         this.lng = lng;
+    }
+
+    public int getPostID() {
+        return postID;
+    }
+
+    public void setPostID(int postID) {
+        this.postID = postID;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 }

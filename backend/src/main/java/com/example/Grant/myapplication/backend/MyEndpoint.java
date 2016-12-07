@@ -122,43 +122,72 @@ public class MyEndpoint {
         return response;
     }
 
+    @ApiMethod(name = "postComment", httpMethod = ApiMethod.HttpMethod.POST)
+    public MyBean postComment(Comment comment) {
+        MyBean ret = new MyBean();
 
-    /*
-    //    public void postVideo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-    @ApiMethod(name = "postVideo", httpMethod= ApiMethod.HttpMethod.POST)
-    public MyBean postVideo(VideoBean video, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) throws IOException, SQLException {
+        Connection conn = SQLStatements.createConnection();
 
-        MyBean response = new MyBean();
-        GcsFileOptions instance = GcsFileOptions.getDefaultInstance();
-        GcsFilename fileName = new GcsFilename("frame-145601.appspot.com", "Bob Saget");//getFileName(req);
-        GcsOutputChannel outputChannel;
-        outputChannel = gcsService.createOrReplace(fileName, instance);
-        copy(video.getData().getBinaryStream(), Channels.newOutputStream(outputChannel));
-        return response;
-    }
-
-    private GcsFilename getFileName(HttpServletRequest req) {
-        String[] splits = req.getRequestURI().split("/", 4);
-        if (!splits[0].equals("") || !splits[1].equals("gcs")) {
-            throw new IllegalArgumentException("The URL is not formed as expected. " +
-                    "Expecting /gcs/<bucket>/<object>");
+        if (conn == null) {
+            ret.setInfo("Connection Failure in postComment");
+            ret.setData(false);
+            return ret;
         }
-        return new GcsFilename(splits[2], splits[3]);
+
+        ret.setData(SQLStatements.postComment(conn, comment.getPostID(), comment.getComment(), comment.getUser()));
+
+        return ret;
     }
 
+    @ApiMethod(name = "getComments", httpMethod = ApiMethod.HttpMethod.GET)
+    public Comment getComments(@Named("postID")int postID) {
+        Comment ret = new Comment();
 
-    private void copy(InputStream input, OutputStream output) throws IOException {
-        try {
-            byte[] buffer = new byte[BUFFER_SIZE];
-            int bytesRead = input.read(buffer);
-            while (bytesRead != -1) {
-                output.write(buffer, 0, bytesRead);
-                bytesRead = input.read(buffer);
-            }
-        } finally {
-            input.close();
-            output.close();
+        Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            ret = null;
+            return ret;
         }
+
+        ArrayList<Comment> comments = SQLStatements.getComments(conn, postID);
+        ret.setComments(comments);
+        return ret;
     }
-    */
+
+    @ApiMethod(name = "addToScrapbook", httpMethod = ApiMethod.HttpMethod.POST)
+    public MyBean addToScrapbook(@Named("postID") int postID, @Named("user") String user) {
+        MyBean ret = new MyBean();
+
+        Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            ret.setInfo("Connection Failure in getImage");
+            ret.setData(false);
+            return ret;
+        }
+
+        //TODO: Call database function here
+        //ret.setData(SQLStatements.addToScrapbook(conn, postID, user));
+
+        return ret;
+    }
+
+    @ApiMethod(name = "updateLikes", httpMethod = ApiMethod.HttpMethod.POST)
+    public MyBean updateLikes(@Named("postID") int postID, @Named("likes") int likes) {
+        MyBean ret = new MyBean();
+
+        Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            ret.setInfo("Connection Failure in getImage");
+            ret.setData(false);
+            return ret;
+        }
+
+        //TODO: Call database function here
+        //ret.setData(SQLStatements.updateLikes(conn, postID, likes));
+
+        return ret;
+    }
 }

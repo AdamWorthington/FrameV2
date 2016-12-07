@@ -207,17 +207,4 @@ public class SQLStatements {
 		return ret;
 	}
 
-	/*
-    public static void main(String[] argv) {
-
-        Connection conn = createConnection();
-
-        if (conn == null) {
-            System.out.println("Connection is Null");
-            System.exit(1);
-        }
-
-        postImage(conn, "testing", "testing", 1.5, 4.5);
-    }
-    */
 }
