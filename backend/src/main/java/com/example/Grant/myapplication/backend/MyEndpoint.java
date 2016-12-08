@@ -215,4 +215,19 @@ public class MyEndpoint {
         ret.setData(true);
         return ret;
     }
+
+    @ApiMethod(name = "getUserData", httpMethod = ApiMethod.HttpMethod.GET)
+    public UserDataHolder signin(@Named("userEmail")String userEmail) {
+        UserDataHolder ret = new UserDataHolder();
+
+        Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            return null;
+        }
+
+        //TODO: Call database function here
+
+        return ret;
+    }
 }

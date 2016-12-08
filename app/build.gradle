@@ -118,4 +118,5 @@ dependencies {
     compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
     compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
     compile 'com.google.appengine:appengine-endpoints:1.9.34'
+    compile project(path: ':backend')
 }
