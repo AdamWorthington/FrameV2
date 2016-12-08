@@ -22,6 +22,11 @@
         <url-pattern>/upload</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>download</servlet-name>
+        <servlet-class>com.example.Grant.myapplication.backend</servlet-class>
+    </servlet>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>

@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.Grant.myapplication.backend.Comment;
 
 import java.util.ArrayList;
 

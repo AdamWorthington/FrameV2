@@ -10,6 +10,7 @@ public class MyBean {
     private boolean myData;
     private String info;
     private BlobKey blobKey;
+    private int postID;
 
     public boolean getData() {
         return myData;
@@ -26,5 +27,12 @@ public class MyBean {
     }
     public void setBlobKey(BlobKey blobKey) {
         this.blobKey = blobKey;
+    }
+
+    public int getPostID() {
+        return postID;
+    }
+    public void setPostID(int postID) {
+        this.postID = postID;
     }
 }

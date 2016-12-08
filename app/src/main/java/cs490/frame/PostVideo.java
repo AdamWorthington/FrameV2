@@ -10,17 +10,35 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
+import com.google.api.client.util.IOUtils;
+import com.google.appengine.api.blobstore.BlobKey;
+import com.google.appengine.repackaged.com.google.common.io.CharStreams;
+import com.google.appengine.repackaged.org.codehaus.jackson.map.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.ContentBody;
 import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.InputStreamBody;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
+import java.io.OutputStream;
+import java.io.StringWriter;
 
 import static cs490.frame.LoginActivity.userEmail;
 
@@ -50,16 +68,10 @@ public class PostVideo extends AsyncTask<Post, Void, Boolean> {
 
         Post post = params[0];
 
-        /*
-        String toReturn = Base64.encodeToString(post.getVideo(),Base64.DEFAULT);
-        VideoBean video = new VideoBean();
-        video.setVideo(toReturn);
-        */
-
         //Get the upload url
         MyBean response = null;
         try {
-            response = myApiService.getBlobURL(0).execute();
+            response = myApiService.getBlobURL().execute();
         } catch (Exception e) {
             Log.e("postVideo", e.getMessage());
             return false;
@@ -80,55 +92,85 @@ public class PostVideo extends AsyncTask<Post, Void, Boolean> {
         HttpClient httpClient = new DefaultHttpClient();
         HttpPost httpPost = new HttpPost(response.getInfo());
 
+        /* Tried making file out of URI, didnt work. Couldnt open due to ENOENT (No such file or directory)
         File video = new File(post.getVideoURI().getPath());
-        FileBody fileBody = new FileBody(video);
-        MultipartEntity reqEntity = new MultipartEntity();
+        Log.d("postVideo", "uri path: " + post.getVideoURI().getPath());
+        FileBody fileBody = null;
+        if (video != null )fileBody = new FileBody(video);
+        else {
+            Log.e("postVideo", "error creating video file");
+            return false;
+        }
+        */
 
-        reqEntity.addPart("video", fileBody);
 
-        httpPost.setEntity(reqEntity);
+        ContentBody contentBody = new InputStreamBody(new ByteArrayInputStream(post.getVideo()), Integer.toString(response.getPostID()));
+
+        MultipartEntityBuilder reqEntity = MultipartEntityBuilder.create();
+        reqEntity.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+        reqEntity.addPart(Integer.toString(response.getPostID()), contentBody);
+
+        httpPost.setEntity(reqEntity.build());
         HttpResponse resp = null;
-        MyBean respon = null;
+        String blobkey = null;
         try {
             resp = httpClient.execute(httpPost);
             if (resp == null) {
                 Log.e("postVideo", "response from upload servlet was null");
                 return false;
             }
-            ObjectInputStream in = new ObjectInputStream(resp.getEntity().getContent());
-            respon = (MyBean)in.readObject();
-        } catch (Exception e) {
-            Log.e("postVideo", e.getMessage());
+            int respCode = resp.getStatusLine().getStatusCode();
+            Log.d("postVideo", "Response Code: " + respCode);
+
+            switch (respCode) {
+                case 500:
+                    HttpEntity entity = resp.getEntity();
+                    if (entity != null) {
+                        String responseBody = EntityUtils.toString(entity);
+                        Log.e("postVideo", "Case 500: " + responseBody);
+                        return false;
+                    }
+                    break;
+
+                case 404:
+                    HttpEntity entity1 = resp.getEntity();
+                    if (entity1 != null) {
+                        String responseBody = EntityUtils.toString(entity1);
+                        Log.e("postVideo", "Case 404: " + responseBody);
+                        return false;
+                    }
+                    break;
+
+                default:
+                    InputStream in = resp.getEntity().getContent();
+                    blobkey = CharStreams.toString(new InputStreamReader(in));
+                    Log.d("postVideo", "blobkey: " + blobkey);
+            }
+        } catch (IOException e) {
+            Log.e("postVideo", "Err sending file to server: " + e.getMessage());
             return false;
         }
 
-        if(respon == null) {
-            Log.e("postVideo", "MyBean response containing blobkey was null");
-            return false;
-        }
-        if (respon.getInfo() == null || respon.getBlobKey() == null) {
-            Log.e("postVideo", "MyBean response missing vital information");
+        if (blobkey == null) {
+            Log.e("postVideo", "blobkey was null");
             return false;
         }
 
         //file sent successfully, send the retrieval info to be stored with the post info
-        String blobKey = respon.getBlobKey().toString();
-        String servingUrl = respon.getInfo();
-        Log.d("postVideo", "blobKey: " + blobKey + " servingUrl: " + servingUrl);
 
         response = null;
         try {
-            response = myApiService.postVideo(userEmail, blobKey, servingUrl, post.getLat(), post.getLng()).execute();
+            response = myApiService.postVideo(userEmail, blobkey, post.getLat(), post.getLng()).execute();
         } catch (Exception e) {
-            Log.e("postVideo", e.getMessage());
+            Log.e("postVideo", "post video failed: " + e.getMessage());
             return false;
         }
         if (response == null) {
             Log.e("postVideo", "MyBean response for posting serving info returned null");
             return false;
         }
-        if (!response.getData()) {
-            Log.e("postVideo", response.getInfo());
+        if (response.getData() == false) {
+            Log.e("postVideo", "response was false: " + response.getInfo());
             return false;
         }
 

@@ -1,0 +1,410 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/IGOhHaVkpu8ql5W18CWoErMZIec\"",
+ "discoveryVersion": "v1",
+ "id": "myApi:v1",
+ "name": "myApi",
+ "version": "v1",
+ "description": "This is an API",
+ "ownerDomain": "backend.myapplication.Grant.example.com",
+ "ownerName": "backend.myapplication.Grant.example.com",
+ "icons": {
+  "x16": "https://www.gstatic.com/images/branding/product/1x/googleg_16dp.png",
+  "x32": "https://www.gstatic.com/images/branding/product/1x/googleg_32dp.png"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://myApplicationId.appspot.com/_ah/api/myApi/v1/",
+ "basePath": "/_ah/api/myApi/v1/",
+ "rootUrl": "https://myApplicationId.appspot.com/_ah/api/",
+ "servicePath": "myApi/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "BlobKey": {
+   "id": "BlobKey",
+   "type": "object",
+   "properties": {
+    "keyString": {
+     "type": "string"
+    }
+   }
+  },
+  "Comment": {
+   "id": "Comment",
+   "type": "object",
+   "properties": {
+    "comment": {
+     "type": "string"
+    },
+    "comments": {
+     "type": "array",
+     "items": {
+      "$ref": "Comment"
+     }
+    },
+    "postID": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "user": {
+     "type": "string"
+    }
+   }
+  },
+  "IAHBean": {
+   "id": "IAHBean",
+   "type": "object",
+   "properties": {
+    "data": {
+     "type": "array",
+     "items": {
+      "$ref": "ImageAttributeHolder"
+     }
+    },
+    "info": {
+     "type": "string"
+    },
+    "list": {
+     "type": "array",
+     "items": {
+      "$ref": "ImageAttributeHolder"
+     }
+    }
+   }
+  },
+  "ImageAttributeHolder": {
+   "id": "ImageAttributeHolder",
+   "type": "object",
+   "properties": {
+    "date": {
+     "type": "string"
+    },
+    "id": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "latitude": {
+     "type": "number",
+     "format": "double"
+    },
+    "longitude": {
+     "type": "number",
+     "format": "double"
+    },
+    "user": {
+     "type": "string"
+    }
+   }
+  },
+  "ImageBean": {
+   "id": "ImageBean",
+   "type": "object",
+   "properties": {
+    "data": {
+     "type": "string"
+    },
+    "info": {
+     "type": "string"
+    }
+   }
+  },
+  "MyBean": {
+   "id": "MyBean",
+   "type": "object",
+   "properties": {
+    "blobKey": {
+     "$ref": "BlobKey"
+    },
+    "data": {
+     "type": "boolean"
+    },
+    "info": {
+     "type": "string"
+    },
+    "postID": {
+     "type": "integer",
+     "format": "int32"
+    }
+   }
+  }
+ },
+ "methods": {
+  "addToScrapbook": {
+   "id": "myApi.addToScrapbook",
+   "path": "addToScrapbook/{postID}/{user}",
+   "httpMethod": "POST",
+   "parameters": {
+    "postID": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
+    },
+    "user": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "postID",
+    "user"
+   ],
+   "response": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getAttributes": {
+   "id": "myApi.getAttributes",
+   "path": "iahbean",
+   "httpMethod": "GET",
+   "response": {
+    "$ref": "IAHBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getBlobURL": {
+   "id": "myApi.getBlobURL",
+   "path": "mybean",
+   "httpMethod": "GET",
+   "response": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getComments": {
+   "id": "myApi.getComments",
+   "path": "comment/{postID}",
+   "httpMethod": "GET",
+   "parameters": {
+    "postID": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "postID"
+   ],
+   "response": {
+    "$ref": "Comment"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "getImage": {
+   "id": "myApi.getImage",
+   "path": "imagebean/{id}",
+   "httpMethod": "GET",
+   "parameters": {
+    "id": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "response": {
+    "$ref": "ImageBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "postComment": {
+   "id": "myApi.postComment",
+   "path": "postComment",
+   "httpMethod": "POST",
+   "request": {
+    "$ref": "Comment",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "postImage": {
+   "id": "myApi.postImage",
+   "path": "postImage/{user}/{userEmail}/{lat}/{lon}",
+   "httpMethod": "POST",
+   "parameters": {
+    "lat": {
+     "type": "number",
+     "required": true,
+     "format": "double",
+     "location": "path"
+    },
+    "lon": {
+     "type": "number",
+     "required": true,
+     "format": "double",
+     "location": "path"
+    },
+    "user": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    },
+    "userEmail": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "user",
+    "userEmail",
+    "lat",
+    "lon"
+   ],
+   "request": {
+    "$ref": "ImageBean",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "postVideo": {
+   "id": "myApi.postVideo",
+   "path": "postVideo/{userEmail}/{blobKey}/{lat}/{lon}",
+   "httpMethod": "POST",
+   "parameters": {
+    "blobKey": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    },
+    "lat": {
+     "type": "number",
+     "required": true,
+     "format": "double",
+     "location": "path"
+    },
+    "lon": {
+     "type": "number",
+     "required": true,
+     "format": "double",
+     "location": "path"
+    },
+    "userEmail": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "userEmail",
+    "blobKey",
+    "lat",
+    "lon"
+   ],
+   "response": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "updateLikes": {
+   "id": "myApi.updateLikes",
+   "path": "mybean/{postID}/{likes}",
+   "httpMethod": "POST",
+   "parameters": {
+    "likes": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
+    },
+    "postID": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "postID",
+    "likes"
+   ],
+   "response": {
+    "$ref": "MyBean"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}

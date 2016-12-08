@@ -23,14 +23,14 @@ targetCompatibility = JavaVersion.VERSION_1_7
 
 dependencies {
     appengineSdk ('com.google.appengine:appengine-java-sdk:1.9.34')
-    compile('org.apache.httpcomponents:httpcore:4.4.5')
-    compile('org.apache.httpcomponents:httpmime:4.5.2')
+    //compile('org.apache.httpcomponents:httpcore:4.4.5')
+    //compile('org.apache.httpcomponents:httpmime:4.5.2')
     compile ('com.google.appengine:appengine-endpoints:1.9.34')
     compile('com.google.appengine:appengine-endpoints-deps:1.9.34') {
         exclude module:'gen_approx_cyrillic'
     }
     compile('com.google.appengine.tools:appengine-gcs-client:0.6')
-    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    //compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
 }
 
 appengine {

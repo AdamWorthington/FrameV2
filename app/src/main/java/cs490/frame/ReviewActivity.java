@@ -18,6 +18,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.google.common.io.Files;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+
 import static cs490.frame.LoginActivity.userEmail;
 import static cs490.frame.LoginActivity.username;
 
@@ -100,7 +106,7 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
                         post.setUser("user was null");
                     }
                     try {
-                        /*
+
                         InputStream iStream = getContentResolver().openInputStream(fileUri);
                         // write the inputStream to a FileOutputStream
                         File tempVideo = new File(getCacheDir(), "tempVideo");
@@ -120,15 +126,19 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
                             post.setVideoURI(fileUri);
                             //TODO: Send the post here
                             boolean posted = new PostVideo().execute(post).get();
-                            //Toast.makeText(ReviewActivity.this, "Video functionality still under construction.", Toast.LENGTH_LONG).show();
-                            finish();
+                            if (!posted) {
+                                Toast.makeText(ReviewActivity.this, "Video functionality still under construction.", Toast.LENGTH_LONG).show();
+                            } else {
+                                finish();
+                            }
                         }
-                        */
+                        /*
                         post.setVideoURI(fileUri);
                         boolean posted = new PostVideo().execute(post).get();
                         if (!posted) {
                             Toast.makeText(ReviewActivity.this, "Video failed to post.", Toast.LENGTH_LONG).show();
                         }
+                        */
                     } catch (Exception e) {
                         Log.e("sendvideo", e.getMessage());
                         Toast.makeText(ReviewActivity.this, "Error finding video file.", Toast.LENGTH_LONG).show();

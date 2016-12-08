@@ -4,9 +4,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'androiddebugkey'
-            keyPassword 'android'
-            storeFile file('C:/Users/cwilh/.android/debug.keystore')
-            storePassword 'android'
+            keyPassword 'framev2'
+            storeFile file('C:/Users/Scott/Documents/GitHub/FrameV2/debug.keystore')
+            storePassword 'framev2'
         }
     }
     compileSdkVersion 24
@@ -34,7 +34,17 @@ android {
         javaMaxHeapSize "2g"
     }
     packagingOptions {
-        exclude "META-INF/com/google/appengine/repackaged/org/apache/commons/codec/language/bm/gen_approx_cyrillic.txt"
+        exclude "META-INF/LICENSE"
+        exclude "META-INF/DEPENDENCIES"
+        exclude "org/apache/http/version.properties"
+        exclude "com/google/appengine/repackaged/org/apache/commons/codec/language/bm/sep_approx_spanish.txt"
+        exclude "com/google/appengine/repackaged/org/apache/commons/codec/language/bm/gen_approx_greek.txt"
+        exclude "com/google/appengine/repackaged/org/apache/commons/codec/language/bm/gen_exact_polish.txt"
+        exclude "com/google/appengine/repackaged/org/apache/commons/codec/language/bm/gen_approx_cyrillic.txt"
+        exclude "com/google/appengine/repackaged/org/apache/commons/codec/language/bm/gen_approx_english.txt"
+        exclude "com/google/appengine/repackaged/org/apache/commons/codec/language/bm/*"
+        exclude "com/google/appengine/repackaged/org/codehaus/jackson/impl/VERSION.txt"
+        exclude "com/google/appengine/repackaged/org/apache/commons/codec/language/*"
     }
 }
 
@@ -44,15 +54,14 @@ ext {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile "com.android.support:appcompat-v7:${supportLibVersion}"
-    compile "com.android.support:design:${supportLibVersion}"
+    compile ("com.android.support:appcompat-v7:${supportLibVersion}")
+    compile ("com.android.support:design:${supportLibVersion}")
     compile('com.google.android.gms:play-services:9.6.1')
     {
         exclude group: 'org.apache.httpcomponents' //by group
         exclude group: 'org.apache.httpcomponents', module: 'httpclient' //by both name and group
         exclude group: 'xpp3'
     }
-    /*
     compile('com.google.api-client:google-api-client-xml:1.18.0-rc') {
         exclude group: 'org.apache.httpcomponents' //by group
         exclude group: 'org.apache.httpcomponents', module: 'httpclient' //by both name and group
@@ -78,7 +87,6 @@ dependencies {
         exclude group: 'org.apache.httpcomponents', module: 'httpclient' //by both name and group
         exclude group: 'xpp3'
     }
-    */
     compile('com.google.android.gms:play-services:9.6.1') {
         exclude group: 'org.apache.httpcomponents' //by group
         exclude group: 'org.apache.httpcomponents', module: 'httpclient' //by both name and group
@@ -99,10 +107,15 @@ dependencies {
         exclude group: 'org.apache.httpcomponents', module: 'httpclient' //by both name and group
         exclude group: 'xpp3'
     }
+    compile ('org.apache.httpcomponents:httpmime:4.3.6') {
+        exclude module: 'httpclient'
+    }
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
     testCompile 'junit:junit:4.12'
     compile project(path: ':backend', configuration: 'android-endpoints')
-    compile project(path: ':backend')
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+    compile 'com.google.appengine:appengine-endpoints:1.9.34'
 }

@@ -13,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.Grant.myapplication.backend.Comment;
-
 import java.util.ArrayList;
 
 public class DisplayImageActivity extends AppCompatActivity {

@@ -43,7 +43,7 @@ import javax.servlet.http.HttpServletRequest;
         )
 )
 public class MyEndpoint {
-
+    public static int i = 0;
     /**
      * A simple endpoint method that takes a name and says Hi back
      */
@@ -178,7 +178,7 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "getBlobURL")
-    public MyBean getBlobURL(@Named("literallyAnything") int ignore) {
+    public MyBean getBlobURL() {
         MyBean ret = new MyBean();
 
         BlobstoreService bsService = BlobstoreServiceFactory.getBlobstoreService();
@@ -188,6 +188,7 @@ public class MyEndpoint {
         if (blobUploadUrl != null) {
             ret.setData(true);
             ret.setInfo(blobUploadUrl);
+            ret.setPostID(i++);
         }
         else {
             ret.setData(false);
@@ -198,7 +199,7 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "postVideo", httpMethod = ApiMethod.HttpMethod.POST)
-    public MyBean postVideo(@Named("userEmail") String userEmail, @Named("blobKey") String blobKey, @Named("servingUrl") String servingUrl, @Named("lat") double lat, @Named("lon") double lon) {
+    public MyBean postVideo(@Named("userEmail") String userEmail, @Named("blobKey") String blobKey, @Named("lat") double lat, @Named("lon") double lon) {
         MyBean ret = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
@@ -211,7 +212,7 @@ public class MyEndpoint {
 
         //TODO: Call database function here
         //ret.setData(SQLStatements.storeServingUrl(conn, userEmail, blobKey, servingUrl, lat, lon));
-
+        ret.setData(true);
         return ret;
     }
 }
