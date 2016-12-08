@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.Grant.myapplication.backend.Comment;
+
 import java.util.ArrayList;
 
 public class DisplayImageActivity extends AppCompatActivity {
@@ -79,7 +81,7 @@ public class DisplayImageActivity extends AppCompatActivity {
         if(comment.isEmpty())
             return;
 
-        comments.add(new Comment("user", comment));
+        comments.add(new Comment(-1, "user", comment));
         textComment.clearComposingText();
         if(adapter != null)
             adapter.notifyDataSetChanged();

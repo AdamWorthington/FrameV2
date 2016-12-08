@@ -364,7 +364,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
         }
 
         //Notify user if any new posts have come into viewable range
-        if (newPosts > 0 && !inForeground) {
+        if (newPosts > 0) {
             NotificationCompat.Builder mBuilder =
                     new NotificationCompat.Builder(WorldController.this)
                             .setSmallIcon(R.drawable.cast_ic_notification_small_icon)

@@ -9,6 +9,9 @@ package com.example.Grant.myapplication.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
+import com.google.appengine.api.blobstore.UploadOptions;
 import com.google.appengine.tools.cloudstorage.GcsFileOptions;
 import com.google.appengine.tools.cloudstorage.GcsFilename;
 import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
@@ -89,7 +92,7 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "postImage", httpMethod= ApiMethod.HttpMethod.POST)
-    public MyBean postImage(ImageBean picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
+    public MyBean postImage(ImageBean picture, @Named("user") String user, @Named("userEmail") String userEmail, @Named("lat") double lat, @Named("lon") double lon) {
         MyBean response = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
@@ -99,24 +102,8 @@ public class MyEndpoint {
             return response;
         }
 
+        //TODO: update sql and db to accept both username and email
         boolean posted = SQLStatements.postImage(conn, picture.getData(), user, lat, lon);
-
-        response.setData(posted);
-        return response;
-    }
-
-    @ApiMethod(name = "postVideo", httpMethod= ApiMethod.HttpMethod.POST)
-    public MyBean postVideo(VideoBean video, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
-        MyBean response = new MyBean();
-
-        Connection conn = SQLStatements.createConnection();
-
-        if (conn == null) {
-            response.setInfo("Connection Failure in postImage");
-            return response;
-        }
-
-        boolean posted = true;// = SQLStatements.postImage(conn, "video.getData()", user, lat, lon);
 
         response.setData(posted);
         return response;
@@ -146,8 +133,7 @@ public class MyEndpoint {
         Connection conn = SQLStatements.createConnection();
 
         if (conn == null) {
-            ret = null;
-            return ret;
+            return null;
         }
 
         ArrayList<Comment> comments = SQLStatements.getComments(conn, postID);
@@ -162,7 +148,7 @@ public class MyEndpoint {
         Connection conn = SQLStatements.createConnection();
 
         if (conn == null) {
-            ret.setInfo("Connection Failure in getImage");
+            ret.setInfo("Connection Failure in addToScrapbook");
             ret.setData(false);
             return ret;
         }
@@ -180,13 +166,51 @@ public class MyEndpoint {
         Connection conn = SQLStatements.createConnection();
 
         if (conn == null) {
-            ret.setInfo("Connection Failure in getImage");
+            ret.setInfo("Connection Failure in updateLikes");
             ret.setData(false);
             return ret;
         }
 
         //TODO: Call database function here
         //ret.setData(SQLStatements.updateLikes(conn, postID, likes));
+
+        return ret;
+    }
+
+    @ApiMethod(name = "getBlobURL")
+    public MyBean getBlobURL(@Named("literallyAnything") int ignore) {
+        MyBean ret = new MyBean();
+
+        BlobstoreService bsService = BlobstoreServiceFactory.getBlobstoreService();
+        UploadOptions options = UploadOptions.Builder.withGoogleStorageBucketName("frame-145601.appspot.com");
+        String blobUploadUrl = bsService.createUploadUrl("/upload");
+
+        if (blobUploadUrl != null) {
+            ret.setData(true);
+            ret.setInfo(blobUploadUrl);
+        }
+        else {
+            ret.setData(false);
+            ret.setInfo("Failed to create upload URL");
+        }
+
+        return ret;
+    }
+
+    @ApiMethod(name = "postVideo", httpMethod = ApiMethod.HttpMethod.POST)
+    public MyBean postVideo(@Named("userEmail") String userEmail, @Named("blobKey") String blobKey, @Named("servingUrl") String servingUrl, @Named("lat") double lat, @Named("lon") double lon) {
+        MyBean ret = new MyBean();
+
+        Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            ret.setInfo("Connection Failure in storeServingUrl");
+            ret.setData(false);
+            return ret;
+        }
+
+        //TODO: Call database function here
+        //ret.setData(SQLStatements.storeServingUrl(conn, userEmail, blobKey, servingUrl, lat, lon));
 
         return ret;
     }

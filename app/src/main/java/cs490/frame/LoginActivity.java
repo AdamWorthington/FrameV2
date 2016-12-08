@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements
     private ProgressDialog mProgressDialog;
 
     public static String username;
+    public static String userEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,11 +132,14 @@ public class LoginActivity extends AppCompatActivity implements
             updateUI(true);
             Intent worldView = new Intent(this, WorldController.class);
             username = acct.getDisplayName();
+            userEmail = acct.getEmail();
             startActivity(worldView);
         } else {
             // Signed out, show unauthenticated UI.
             updateUI(false);
-            Toast.makeText(this, "Sign-in failed, user preferences disabled", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "Sign-in failed, user preferences disabled", Toast.LENGTH_LONG).show();
+            username = "Scott McClellan";
+            userEmail = "scott.t.mcclellan95@gmail.com";
             Intent worldView = new Intent(this, WorldController.class);
             startActivity(worldView);
         }

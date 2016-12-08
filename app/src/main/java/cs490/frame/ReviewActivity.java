@@ -18,16 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import com.google.api.services.drive.model.Comment;
-import com.google.common.io.Files;
-
-import org.apache.commons.io.FileUtils;
-
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
+import static cs490.frame.LoginActivity.userEmail;
+import static cs490.frame.LoginActivity.username;
 
 public class ReviewActivity extends AppCompatActivity implements CommentDialogFragment.NoticeDialogListener
 {
@@ -58,7 +50,6 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
         });
 
         final Location location = WorldController.curLoc;
-        final String displayName = LoginActivity.username;
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,8 +65,13 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
                     }
                     String send = ImageConverter.encodeTobase64(bitmap, false);
                     post.setPicture(send);
-                    if (displayName != null) {
-                        post.setUser(displayName);
+                    if (username != null) {
+                        post.setUser(username);
+                    } else {
+                        post.setUser("user was null");
+                    }
+                    if (userEmail != null) {
+                        post.setUserEmail(userEmail);
                     } else {
                         post.setUser("user was null");
                     }
@@ -98,8 +94,13 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
                         post.setLat(40.429049);
                         post.setLng(-86.906065);
                     }
-                    //create blob from video file
+                    if (username != null) {
+                        post.setUser(username);
+                    } else {
+                        post.setUser("user was null");
+                    }
                     try {
+                        /*
                         InputStream iStream = getContentResolver().openInputStream(fileUri);
                         // write the inputStream to a FileOutputStream
                         File tempVideo = new File(getCacheDir(), "tempVideo");
@@ -112,12 +113,21 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
                             outputStream.write(bytes, 0, read);
                         }
                         byte[] array = Files.toByteArray(tempVideo);
+
                         if (array == null) Log.e("ReviewActivity", "byte array null");
                         else {
                             post.setVideo(array);
+                            post.setVideoURI(fileUri);
                             //TODO: Send the post here
-                            Toast.makeText(ReviewActivity.this, "Video functionality still under construction.", Toast.LENGTH_LONG).show();
+                            boolean posted = new PostVideo().execute(post).get();
+                            //Toast.makeText(ReviewActivity.this, "Video functionality still under construction.", Toast.LENGTH_LONG).show();
                             finish();
+                        }
+                        */
+                        post.setVideoURI(fileUri);
+                        boolean posted = new PostVideo().execute(post).get();
+                        if (!posted) {
+                            Toast.makeText(ReviewActivity.this, "Video failed to post.", Toast.LENGTH_LONG).show();
                         }
                     } catch (Exception e) {
                         Log.e("sendvideo", e.getMessage());

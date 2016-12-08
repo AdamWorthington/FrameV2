@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.Grant.myapplication.backend.Comment;
+
 import java.util.ArrayList;
 
 /**
@@ -49,8 +51,8 @@ public class CommentsAdapter extends BaseAdapter{
         Comment c = getItem(position);
         TextView tvName = (TextView) convertView.findViewById(R.id.commentId);
         TextView tvContent = (TextView) convertView.findViewById(R.id.commentContent);
-        tvName.setText(c.user);
-        tvContent.setText(c.comment);
+        tvName.setText(c.getUser());
+        tvContent.setText(c.getComment());
 
         return convertView;
     }

@@ -1,5 +1,7 @@
 package cs490.frame;
 
+import android.net.Uri;
+
 import java.io.Serializable;
 
 /**
@@ -8,12 +10,13 @@ import java.io.Serializable;
 
 public class Post implements Serializable{
     String picture;
+    Uri videoURI;
     String user;
+    String userEmail;
     double lat;
     double lng;
     byte[] video;
     int postID;
-
     int likes;
 
     public byte[] getVideo() {
@@ -70,5 +73,21 @@ public class Post implements Serializable{
 
     public void setLikes(int likes) {
         this.likes = likes;
+    }
+
+    public Uri getVideoURI() {
+        return videoURI;
+    }
+
+    public void setVideoURI(Uri videoURI) {
+        this.videoURI = videoURI;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }
