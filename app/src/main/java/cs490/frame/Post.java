@@ -13,6 +13,7 @@ public class Post implements Serializable{
     Uri videoURI;
     String user;
     String userEmail;
+    String blobkey;
     double lat;
     double lng;
     byte[] video;
@@ -89,5 +90,13 @@ public class Post implements Serializable{
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    public String getBlobkey() {
+        return blobkey;
+    }
+
+    public void setBlobkey(String blobkey) {
+        this.blobkey = blobkey;
     }
 }

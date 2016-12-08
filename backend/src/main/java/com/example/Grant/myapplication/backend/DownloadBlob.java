@@ -28,35 +28,14 @@ import javax.servlet.http.HttpServletResponse;
 
 public class DownloadBlob extends HttpServlet {
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ImagesServiceFailureException {
-        BlobstoreService bsService = BlobstoreServiceFactory.getBlobstoreService();
-        Map<String, List<BlobKey>> blobs = bsService.getUploads(req);
-
-        List<BlobKey> blobKeys = blobs.get(Integer.toString(MyEndpoint.i-1));
-
-        /*
-        BlobKey blobKey = blobs.get(0);
-        log("blobkey: " + blobKey.toString());
-        bsService.serve(blobKey, res);
-        */
-
-        /*
-        ImagesService imagesService = ImagesServiceFactory.getImagesService();
-        ServingUrlOptions servingOptions = ServingUrlOptions.Builder.withBlobKey(blobKey);
-
-        String servingUrl = imagesService.getServingUrl(servingOptions);
-        */
-        String ret = blobKeys.get(0).toString();
-        log("blobkey: " + ret);
-        if (res == null) log("RESPONE OBJECT IS NULL");
-        else {
-            res.setStatus(HttpServletResponse.SC_OK);
-            res.setContentType("application/json");
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ImagesServiceFailureException {
+        String keyString = req.getParameter("blob-key");
+        if (keyString != null) {
+            BlobKey blobkey = new BlobKey(keyString);
+            BlobstoreService bsService = BlobstoreServiceFactory.getBlobstoreService();
+            bsService.serve(blobkey, res);
+        } else {
+          res.sendError(400, "Blob-key Parameter missing or null");
         }
-
-        PrintWriter out = res.getWriter();
-        out.print(ret);
-        out.flush();
-        out.close();
     }
 }
