@@ -31,6 +31,10 @@ public class ScrapbookActivity extends AppCompatActivity {
         ArrayList<Bitmap> favorited = new ArrayList<Bitmap>();
 
         File file = new File(this.getFilesDir(), "saved");
+        if(!file.exists())
+        {
+            file.mkdir();
+        }
         File[] fils = file.listFiles();
         ArrayList<File> _fils = new ArrayList<File>(Arrays.asList(fils));
 

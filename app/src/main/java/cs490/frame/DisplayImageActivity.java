@@ -141,10 +141,6 @@ public class DisplayImageActivity extends AppCompatActivity {
 
         if(hasDownvoted)
         {
-            TextView downvoteCount = (TextView) findViewById(R.id.downVoteCount);
-            int down = Integer.parseInt(downvoteCount.getText().toString());
-            down--;
-            downvoteCount.setText(Integer.toString(down));
             hasDownvoted = false;
         }
     }
@@ -156,17 +152,13 @@ public class DisplayImageActivity extends AppCompatActivity {
         else
             hasDownvoted = true;
 
-        TextView downvoteCount = (TextView) findViewById(R.id.downVoteCount);
+        TextView downvoteCount = (TextView) findViewById(R.id.upvoteCount);
         int current = Integer.parseInt(downvoteCount.getText().toString());
-        current++;
+        current--;
         downvoteCount.setText(Integer.toString(current));
 
         if(hasUpvoted)
         {
-            TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
-            int up = Integer.parseInt(upvoteCount.getText().toString());
-            up--;
-            upvoteCount.setText(Integer.toString(up));
             hasUpvoted = false;
         }
     }
