@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/V_EQj-KqqoW2G8k41QH6WV3mXp4\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/RAFbIpKcn448UttU0RnnwbEbypY\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -269,12 +269,24 @@
   "myApi.postComment": {
    "id": "myApi.postComment",
    "parameters": {
-    "resource": {
-     "$ref": "Comment"
+    "comment": {
+     "type": "string",
+     "required": true
+    },
+    "postID": {
+     "type": "integer",
+     "required": true,
+     "format": "int32"
+    },
+    "userEmail": {
+     "type": "string",
+     "required": true
     }
    },
    "parameterOrder": [
-    "resource"
+    "postID",
+    "comment",
+    "userEmail"
    ],
    "returns": {
     "$ref": "MyBean"

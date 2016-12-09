@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/V_EQj-KqqoW2G8k41QH6WV3mXp4\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/RAFbIpKcn448UttU0RnnwbEbypY\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -280,12 +280,31 @@
   },
   "postComment": {
    "id": "myApi.postComment",
-   "path": "postComment",
+   "path": "postComment/{postID}/{comment}/{userEmail}",
    "httpMethod": "POST",
-   "request": {
-    "$ref": "Comment",
-    "parameterName": "resource"
+   "parameters": {
+    "comment": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    },
+    "postID": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "path"
+    },
+    "userEmail": {
+     "type": "string",
+     "required": true,
+     "location": "path"
+    }
    },
+   "parameterOrder": [
+    "postID",
+    "comment",
+    "userEmail"
+   ],
    "response": {
     "$ref": "MyBean"
    },
