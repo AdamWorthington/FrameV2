@@ -47,13 +47,14 @@ public class ScrapbookActivity extends AppCompatActivity {
                 File f = adapter.getItem(i);
                 Intent viewActivity = new Intent(ScrapbookActivity.this, ScrapbookViewActivity.class);
                 if(f.getAbsolutePath().endsWith(".jpeg")) {
+                    viewActivity.putExtra("path", f.getAbsolutePath());
+                    viewActivity.putExtra("format", "photo");
+
+                }
+                else {
                     Uri videoUri = FileProvider.getUriForFile(ScrapbookActivity.this, "cs490.frame", f);
                     viewActivity.putExtra("uri", videoUri);
                     viewActivity.putExtra("format", "video");
-                }
-                else {
-                    viewActivity.putExtra("path", f.getAbsolutePath());
-                    viewActivity.putExtra("format", "photo");
                 }
                 ScrapbookActivity.this.startActivity(viewActivity);
             }
