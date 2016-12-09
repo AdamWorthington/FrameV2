@@ -42,7 +42,7 @@ public class PostComment extends AsyncTask<Comment, Void, Boolean> {
         Log.i("postComment", "comment user: "  + comment.getUser() + " postID: " + comment.getPostID() + " comment: " + comment.getComment());
 
         try {
-            MyBean response = myApiService.postComment(comment).execute();
+            MyBean response = myApiService.postComment(comment.getPostID(), comment.getComment(), comment.getUser()).execute();
             if (response.getData() == false) {
                 Log.e("postComment", "response message" + response.getInfo());
             }

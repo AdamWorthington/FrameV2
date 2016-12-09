@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 import static cs490.frame.LoginActivity.userEmail;
 import static cs490.frame.WorldController.curCaption;
@@ -145,7 +146,13 @@ public class DisplayImageActivity extends AppCompatActivity {
         add.setPostID(curPost);
         add.setComment(comment);
         add.setUser(userEmail);
-        new PostComment().execute(add);
+        try {
+            boolean success = new PostComment().execute(add).get();
+        } catch (InterruptedException e) {
+            Log.e("displayActivity", "InterruptedException: "+e.getMessage());
+        } catch (ExecutionException e) {
+            Log.e("displayActivity", "ExecutionException: "+e.getMessage());
+        }
         comments.add(add);
         textComment.clearComposingText();
         if(adapter != null)

@@ -12,19 +12,11 @@ import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.config.Nullable;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
-import com.google.appengine.tools.cloudstorage.GcsFileOptions;
-import com.google.appengine.tools.cloudstorage.GcsFilename;
-import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
 import com.google.appengine.tools.cloudstorage.GcsService;
 import com.google.appengine.tools.cloudstorage.GcsServiceFactory;
 import com.google.appengine.tools.cloudstorage.RetryParams;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.channels.Channels;
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.inject.Named;
@@ -110,7 +102,7 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "postComment", httpMethod = ApiMethod.HttpMethod.POST)
-    public MyBean postComment(Comment comment) {
+    public MyBean postComment(@Named("postID") int postID, @Named("comment") String comment, @Named("userEmail") String userEmail) {
         MyBean ret = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
@@ -121,7 +113,7 @@ public class MyEndpoint {
             return ret;
         }
 
-        ret.setData(SQLStatements.postComment(conn, comment.getPostID(), comment.getComment(), comment.getUser()));
+        ret.setData(SQLStatements.postComment(conn, postID, comment, userEmail));
 
         return ret;
     }
