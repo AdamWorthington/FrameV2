@@ -5,6 +5,7 @@ import android.graphics.Matrix;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,12 +65,7 @@ public class DisplayImageActivity extends AppCompatActivity {
         adapter = new CommentsAdapter(this, comments);
         commentList.setAdapter(adapter);
 
-        /*
-        TextView upvotes = (TextView) findViewById(R.id.upvoteCount);
-        upvotes.setText(curLikes);
-        TextView caption = (TextView) findViewById(R.id.caption);
-        caption.setText(curCaption);
-        */
+        Log.d("displayActivity", "curCaption: " + curCaption);
 
         ImageButton upvote = (ImageButton) findViewById(R.id.upvoteButton);
         upvote.setOnClickListener(new View.OnClickListener() {
