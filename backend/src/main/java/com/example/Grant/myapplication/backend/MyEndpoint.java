@@ -163,8 +163,7 @@ public class MyEndpoint {
             return ret;
         }
 
-        //TODO: Call database function here
-        //ret.setData(SQLStatements.updateLikes(conn, postID, likes));
+        ret.setData(SQLStatements.updateLikes(conn, postID, likes));
 
         return ret;
     }

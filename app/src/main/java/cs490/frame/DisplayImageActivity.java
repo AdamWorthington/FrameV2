@@ -109,7 +109,7 @@ public class DisplayImageActivity extends AppCompatActivity {
         });
 
         TextView upvoteCount = (TextView) findViewById(R.id.upvoteCount);
-        upvoteCount.setText(WorldController.curLikes);
+        upvoteCount.setText(Integer.toString(WorldController.curLikes));
     }
 
     private void sendFavorite()
