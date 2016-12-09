@@ -10,8 +10,16 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
-import com.google.api.client.http.HttpResponse;
 import com.google.common.io.CharStreams;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.ContentBody;
+import org.apache.http.entity.mime.content.InputStreamBody;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -59,10 +67,13 @@ public class PostVideo extends AsyncTask<Post, Void, Boolean> {
         //Upload video byte array to the upload url to be stored in blob store
         HttpClient httpClient = new DefaultHttpClient();
         HttpPost httpPost = new HttpPost(response.getInfo());
-        ContentBody contentBody = new InputStreamBody(new ByteArrayInputStream(post.getVideo()), Integer.toString(post.getPostID()));
+
+        ContentBody contentBody = new InputStreamBody(new ByteArrayInputStream(post.getVideo()), Integer.toString(response.getPostID()));
+
         MultipartEntityBuilder reqEntity = MultipartEntityBuilder.create();
         reqEntity.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
-        reqEntity.addPart(Integer.toString(post.getPostID()), contentBody);
+        reqEntity.addPart(Integer.toString(response.getPostID()), contentBody);
+
         httpPost.setEntity(reqEntity.build());
 
         HttpResponse resp = null;
@@ -74,7 +85,7 @@ public class PostVideo extends AsyncTask<Post, Void, Boolean> {
                 Log.e("postVideo", "response from upload servlet was null");
                 return false;
             }
-            int respCode = resp.getResponseCode();
+            int respCode = resp.getStatusLine().getStatusCode();
             Log.d("postVideo", "RESPONSEE CODE: " + respCode);
             switch (respCode) {
                 case 500:

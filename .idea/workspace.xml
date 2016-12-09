@@ -49,14 +49,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="PostVideo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DisplayImageActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/cs490/frame/DisplayImageActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1479">
+              <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostVideo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/cs490/frame/PostVideo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1063">
+              <caret line="88" column="53" selection-start-line="88" selection-start-column="53" selection-end-line="88" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,7 +126,7 @@
       <file leaf-file-name="MyEndpoint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/example/Grant/myapplication/backend/MyEndpoint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
+            <state relative-caret-position="565">
               <caret line="202" column="90" selection-start-line="202" selection-start-column="90" selection-end-line="202" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -2732,7 +2752,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="7404786447571" />
-        <entry key="C:\Users\Scott\Documents\GitHub\FrameV2" value="5925025983269" />
+        <entry key="C:\Users\Scott\Documents\GitHub\FrameV2" value="5925028009081" />
         <entry key="C:\Users\cwilh\Documents\StudioProjects\FrameV2" value="7405065603397" />
       </map>
     </option>
@@ -3358,7 +3378,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cs490/frame/ScrapbookActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_scrapbook_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/cs490/frame/LoginActivity.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/example/Grant/myapplication/backend/MyBean.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cs490/frame/Comment.java" />
@@ -3380,6 +3399,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/cs490/frame/ReviewActivity.java" />
         <option value="$PROJECT_DIR$/backend/src/main/java/com/example/Grant/myapplication/backend/BlobUpload.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/cs490/frame/PostVideo.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
       </list>
     </option>
   </component>
@@ -3629,7 +3649,7 @@
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
-    <property name="android.project.structure.last.selected" value="mysql-connector-java-5.1.40-bin" />
+    <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -4045,13 +4065,13 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.4958791" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.4958791" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969698" sideWeight="0.50274724" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.49725273" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942432" sideWeight="0.49725273" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.49862638" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -4333,14 +4353,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cs490/frame/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -4478,14 +4490,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/cs490/frame/DisplayImageActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cs490/frame/UpdateLikes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
@@ -4554,23 +4558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/example/Grant/myapplication/backend/MyEndpoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="202" column="90" selection-start-line="202" selection-start-column="90" selection-end-line="202" selection-end-column="90" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getImage#0;class#MyEndpoint#0" expanded="false" />
-            <element signature="method#getAttributes#0;class#MyEndpoint#0" expanded="false" />
-            <element signature="method#postImage#0;class#MyEndpoint#0" expanded="false" />
-            <element signature="method#postComment#0;class#MyEndpoint#0" expanded="false" />
-            <element signature="method#getComments#0;class#MyEndpoint#0" expanded="false" />
-            <element signature="method#addToScrapbook#0;class#MyEndpoint#0" expanded="false" />
-            <element signature="method#updateLikes#0;class#MyEndpoint#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/example/Grant/myapplication/backend/BlobDownload.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
@@ -4589,13 +4576,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backend/src/main/java/com/example/Grant/myapplication/backend/MyEndpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="202" column="90" selection-start-line="202" selection-start-column="90" selection-end-line="202" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getImage#0;class#MyEndpoint#0" expanded="false" />
+            <element signature="method#getAttributes#0;class#MyEndpoint#0" expanded="false" />
+            <element signature="method#postImage#0;class#MyEndpoint#0" expanded="false" />
+            <element signature="method#postComment#0;class#MyEndpoint#0" expanded="false" />
+            <element signature="method#getComments#0;class#MyEndpoint#0" expanded="false" />
+            <element signature="method#addToScrapbook#0;class#MyEndpoint#0" expanded="false" />
+            <element signature="method#updateLikes#0;class#MyEndpoint#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1063">
+          <caret line="88" column="53" selection-start-line="88" selection-start-column="53" selection-end-line="88" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/cs490/frame/PostVideo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
+          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/cs490/frame/DisplayImageActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
