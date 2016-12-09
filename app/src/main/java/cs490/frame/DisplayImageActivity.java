@@ -61,6 +61,14 @@ public class DisplayImageActivity extends AppCompatActivity {
 
         comments = new ArrayList<>();
         ListView commentList = (ListView) findViewById(R.id.commentsList);
+        try {
+            Comment cc = new GetComments().execute(WorldController.curPost).get();
+            comments.addAll(cc.getComments());
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
         adapter = new CommentsAdapter(this, comments);
         commentList.setAdapter(adapter);
 
