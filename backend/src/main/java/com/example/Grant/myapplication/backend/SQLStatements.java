@@ -8,39 +8,39 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SQLStatements {
-	
+
 	/*
 	 * Used to initialize an ImageAttributeHolder
 	 */
 	public SQLStatements() {
-		
+
 	}
 
 
-    /*
+	/*
      * Create a connection to access the database
      */
-    public static Connection createConnection() {
+	public static Connection createConnection() {
 
-        Connection conn = null;
-        try {
-            Class.forName("com.mysql.jdbc.GoogleDriver");
-            conn = DriverManager.getConnection(DatabaseInformation.url3);
+		Connection conn = null;
+		try {
+			Class.forName("com.mysql.jdbc.GoogleDriver");
+			conn = DriverManager.getConnection(DatabaseInformation.url3);
 			//conn = DriverManager.getConnection(DatabaseInformation.url2, DatabaseInformation.username, DatabaseInformation.password);
-        }
-        catch (ClassNotFoundException e) {
-            System.err.println("Error generating connection in createConnection (ClassNotFound)");
-            System.err.println(e.getMessage());
-            return null;
-        }
-        catch (SQLException e) {
-            System.err.println("Error generating connection in createConnection (SQLException)");
-            System.err.println(e.getMessage());
+		}
+		catch (ClassNotFoundException e) {
+			System.err.println("Error generating connection in createConnection (ClassNotFound)");
+			System.err.println(e.getMessage());
+			return null;
+		}
+		catch (SQLException e) {
+			System.err.println("Error generating connection in createConnection (SQLException)");
+			System.err.println(e.getMessage());
 			System.err.println(e.getStackTrace().toString());
-            return null;
-        }
-        return conn;
-    }
+			return null;
+		}
+		return conn;
+	}
 
 	/*
 	 * Posts a comment to the database for a specific post
@@ -68,7 +68,7 @@ public class SQLStatements {
 
 		return true;
 	}
-	
+
 	/*
 	 * Post an image and its attributes to the database
 	 */
@@ -79,8 +79,8 @@ public class SQLStatements {
 		 */
 		System.err.println("Picture: " + picture + " user: " + user + " lat: " + lat + " lng: " + lon);
 		PreparedStatement stmt = null;
-		String query = "INSERT INTO FrameV2.Media (ID, Image, IsVideo, Latitude, Longitude, User, Date) VALUES (NULL, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
-		
+		String query = "INSERT INTO FrameV2.Media (ID, Image, IsVideo, Latitude, Longitude, User, Votes, Blobkey, Date) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
+
 		try {
 			stmt = conn.prepareStatement(query);
 			stmt.setString(1, picture);
@@ -88,16 +88,76 @@ public class SQLStatements {
 			stmt.setDouble(3, lat);
 			stmt.setDouble(4, lon);
 			stmt.setString(5, user);
-			
+			stmt.setInt(6, 0);
+			stmt.setString(7, "");
+
 			int stmtReturn = stmt.executeUpdate();
 		}
 		catch(SQLException e) {
 			System.err.println("Error posting picture to table Media");
 			System.err.println(e.getMessage());
-			
+
 			return false;
 		}
-		
+
+		return true;
+	}
+
+	/*
+	 * Post a video and its attributes to the database
+	 */
+	public static boolean postVideo(Connection conn, String user, double lat, double lon, String blobkey) {
+
+		/*
+		 * table Media: int ID, varchar Image, double Latitude, double Longitude, varchar User, timestamp Date
+		 */
+		System.err.println("Blobkey: " + blobkey + " user: " + user + " lat: " + lat + " lng: " + lon);
+		PreparedStatement stmt = null;
+		String query = "INSERT INTO FrameV2.Media (ID, Image, IsVideo, Latitude, Longitude, User, Votes, Blobkey, Date) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
+
+		try {
+			stmt = conn.prepareStatement(query);
+			stmt.setString(1, "");
+			stmt.setInt(2, 1);
+			stmt.setDouble(3, lat);
+			stmt.setDouble(4, lon);
+			stmt.setString(5, user);
+			stmt.setInt(6, 0);
+			stmt.setString(7, blobkey);
+
+			int stmtReturn = stmt.executeUpdate();
+		}
+		catch(SQLException e) {
+			System.err.println("Error posting image to table Media");
+			System.err.println(e.getMessage());
+
+			return false;
+		}
+
+		return true;
+	}
+
+	/*
+	 * Update the number of likes on a post
+	 */
+	public static boolean updateLikes(Connection conn, int postID, int likes) {
+		PreparedStatement stmt = null;
+		String query = "UPDATE FrameV2.Media SET Votes = ? WHERE ID = ?";
+
+		try {
+			stmt = conn.prepareStatement(query);
+			stmt.setInt(1, likes);
+			stmt.setInt(2, postID);
+
+			int stmtReturn = stmt.executeUpdate();
+		}
+		catch(SQLException e) {
+			System.err.println("Error updating votes in table Media");
+			System.err.println(e.getMessage());
+
+			return false;
+		}
+
 		return true;
 	}
 
@@ -133,37 +193,53 @@ public class SQLStatements {
 
 		return ret;
 	}
-	
+
 	/*
 	 * Retrieve all information about an image except for the image itself.
 	 * Accessed by passing in the ID of the image
+	 *
+	 * Can also specify a user to filter by, returning only posts by that user
 	 */
-	public static ArrayList<ImageAttributeHolder> getAttributes(Connection conn) {
+	public static ArrayList<ImageAttributeHolder> getAttributes(Connection conn, String userIdentifier) {
 		ArrayList<ImageAttributeHolder> ret = new ArrayList<ImageAttributeHolder>();
-		
+
 		PreparedStatement stmt = null;
-		String query = "SELECT ID, Latitude, Longitude, User, Date FROM FrameV2.Media";
-		
+		String query = "SELECT ID, IsVideo, Latitude, Longitude, User, Votes, Blobkey, Date FROM FrameV2.Media";
+
+		if (userIdentifier != null) {
+			query += " WHERE User = ?";
+		}
+
 		try {
 			stmt = conn.prepareStatement(query);
-			
+
+			if (userIdentifier != null) {
+				stmt.setString(1, userIdentifier);
+			}
+
 			ResultSet rs = stmt.executeQuery();
-			
+
 			int ID;
+			int isVideo;
 			double latitude;
 			double longitude;
 			String user;
+			int votes;
+			String blobkey;
 			String date;
 			SQLStatements sql = new SQLStatements();
 
 			while (rs.next()) {
 				ID = rs.getInt("ID");
+				isVideo = rs.getInt("isVideo");
 				latitude = rs.getDouble("Latitude");
 				longitude = rs.getDouble("Longitude");
 				user = rs.getString("User");
+				votes = rs.getInt("Votes");
+				blobkey = rs.getString("Blobkey");
 				date = rs.getString("Date");
-				
-				ImageAttributeHolder iah = new ImageAttributeHolder(ID, latitude, longitude, user, date);
+
+				ImageAttributeHolder iah = new ImageAttributeHolder(ID, isVideo, latitude, longitude, user, votes, blobkey, date);
 				ret.add(iah);
 			}
 
@@ -172,52 +248,39 @@ public class SQLStatements {
 		catch(SQLException e) {
 			System.err.println("Error retrieving attributes from table Media");
 			System.err.println(e.getMessage());
-			
+
 			return null;
 		}
 	}
-	
+
 	/*
 	 * Retrieve solely the image itself
 	 * Accessed by passing in the image's ID
 	 */
 	public static String getImage(Connection conn, int id) {
-		
+
 		String ret = null;
 		PreparedStatement stmt = null;
 		String query = "SELECT Image FROM FrameV2.Media WHERE ID = ?;";
-		
+
 		try {
 			stmt = conn.prepareStatement(query);
-			
+
 			stmt.setInt(1, id);
-			
+
 			ResultSet rs = stmt.executeQuery();
-			
+
 			rs.next();
 			ret = rs.getString("Image");
 		}
 		catch(SQLException e) {
 			System.err.println("Error getting picture from table Media");
 			System.err.println(e.getMessage());
-			
+
 			return null;
 		}
-		
+
 		return ret;
 	}
 
-	/*
-    public static void main(String[] argv) {
-
-        Connection conn = createConnection();
-
-        if (conn == null) {
-            System.out.println("Connection is Null");
-            System.exit(1);
-        }
-
-        postImage(conn, "testing", "testing", 1.5, 4.5);
-    }
-    */
 }
