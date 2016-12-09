@@ -1,6 +1,6 @@
 {
  "kind": "discovery#restDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/RAFbIpKcn448UttU0RnnwbEbypY\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/hIcsw5jTJP0S37RypOtYa5SNmJs\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -360,6 +360,10 @@
    "path": "postVideo/{userEmail}/{blobKey}/{lat}/{lon}",
    "httpMethod": "POST",
    "parameters": {
+    "Caption": {
+     "type": "string",
+     "location": "query"
+    },
     "blobKey": {
      "type": "string",
      "required": true,

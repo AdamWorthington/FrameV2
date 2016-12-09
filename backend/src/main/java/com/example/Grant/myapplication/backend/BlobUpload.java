@@ -28,7 +28,7 @@ public class BlobUpload extends HttpServlet {
 
         String ret = blobKeys.get(0).toString();
         log("blobkey: " + ret);
-        if (res == null) log("RESPONE OBJECT IS NULL");
+        if (res == null) log("RESPONSE OBJECT IS NULL");
         else {
             res.setStatus(HttpServletResponse.SC_OK);
             res.setContentType("application/json");

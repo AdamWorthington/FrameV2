@@ -29,6 +29,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
+import static cs490.frame.LoginActivity.userEmail;
+
 public class ReviewActivity extends AppCompatActivity implements CommentDialogFragment.NoticeDialogListener
 {
     private Bitmap bitmap;
@@ -97,6 +99,7 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
                     TextView caption = (TextView) findViewById(R.id.captionContent);
                     post.setCaption(caption.getText().toString());
                     Log.d("reviewActivity", "caption: " + post.getCaption());
+                    post.setUser(userEmail);
                     if (location != null) {
                         post.setLat(location.getLatitude());
                         post.setLng(location.getLongitude());
@@ -121,8 +124,8 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
                         if (array == null) Log.e("ReviewActivity", "byte array null");
                         else {
                             post.setVideo(array);
-                            //TODO: Send the post here
-                            Toast.makeText(ReviewActivity.this, "Video functionality still under construction.", Toast.LENGTH_LONG).show();
+                            boolean posted = new PostVideo().execute(post).get();
+                            if (posted == false) Toast.makeText(ReviewActivity.this, "Error posting video.", Toast.LENGTH_LONG).show();
                             finish();
                         }
                     } catch (Exception e) {

@@ -189,7 +189,7 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "postVideo", httpMethod = ApiMethod.HttpMethod.POST)
-    public MyBean postVideo(@Named("userEmail") String userEmail, @Named("blobKey") String blobKey, @Named("lat") double lat, @Named("lon") double lon) {
+    public MyBean postVideo(@Named("userEmail") String userEmail, @Named("blobKey") String blobKey, @Named("lat") double lat, @Named("lon") double lon, @Named("Caption") @Nullable String caption) {
         MyBean ret = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
@@ -200,9 +200,7 @@ public class MyEndpoint {
             return ret;
         }
 
-        //TODO: Call database function here
-        //ret.setData(SQLStatements.storeServingUrl(conn, userEmail, blobKey, servingUrl, lat, lon));
-        ret.setData(true);
+        ret.setData(SQLStatements.postVideo(conn, userEmail, lat, lon, blobKey, caption));
         return ret;
     }
 }

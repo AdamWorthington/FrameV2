@@ -2,7 +2,6 @@ package cs490.frame;
 
 import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Base64;
 import android.util.Log;
 
 import com.example.grant.myapplication.backend.myApi.MyApi;
@@ -11,11 +10,14 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
+import com.google.api.client.http.HttpResponse;
+import com.google.common.io.CharStreams;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.net.HttpURLConnection;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * Created by Scott on 10/6/2016.
@@ -43,6 +45,7 @@ public class PostVideo extends AsyncTask<Post, Void, Boolean> {
         Post post = new Post();
         post = params[0];
 
+        //Get the upload url from the api
         MyBean response = null;
         try {
              response = myApiService.getBlobURL().execute();
@@ -51,22 +54,71 @@ public class PostVideo extends AsyncTask<Post, Void, Boolean> {
             Log.e("postVideo", e.getMessage());
             return false;
         }
+        Log.d("postVideo", "upload URL: " + response.getInfo());
 
+        //Upload video byte array to the upload url to be stored in blob store
+        HttpClient httpClient = new DefaultHttpClient();
+        HttpPost httpPost = new HttpPost(response.getInfo());
+        ContentBody contentBody = new InputStreamBody(new ByteArrayInputStream(post.getVideo()), Integer.toString(post.getPostID()));
+        MultipartEntityBuilder reqEntity = MultipartEntityBuilder.create();
+        reqEntity.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+        reqEntity.addPart(Integer.toString(post.getPostID()), contentBody);
+        httpPost.setEntity(reqEntity.build());
 
+        HttpResponse resp = null;
         String blobkey = null;
-        HttpURLConnection conn;
         try {
-            URL urlObj = new URL(response.getInfo());
+            //Upload then read response which should be blobkey
+            resp = httpClient.execute(httpPost);
+            if (resp == null) {
+                Log.e("postVideo", "response from upload servlet was null");
+                return false;
+            }
+            int respCode = resp.getResponseCode();
+            Log.d("postVideo", "RESPONSEE CODE: " + respCode);
+            switch (respCode) {
+                case 500:
+                    Log.e("postVideo", "Upload URL returned ERROR 500");
+                    return false;
+
+                case 404:
+                    Log.e("postVideo", "Upload URL returned ERROR 404");
+                    return false;
+
+                case 400:
+                    Log.e("postVideo", "Upload URL returned ERROR 404");
+                    return false;
+
+                default:
+                    InputStream in = resp.getEntity().getContent();
+                    blobkey = CharStreams.toString(new InputStreamReader(in));
+            }
         } catch (MalformedURLException e) {
-
-        }
-
-        try {
-            return myApiService.postVideo(post.getUser(), blobkey, post.getLat(), post.getLng()).execute().getData();
+            Log.e("postVideo", "MalformedURLException Out: " + e.getMessage());
+            return false;
         } catch (IOException e) {
-            Log.i("postImage", "IOException occured~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-            Log.e("postImage", e.getMessage());
+            Log.e("postVideo", "IOException Out: " + e.getMessage());
             return false;
         }
+        if (blobkey == null) {
+            Log.e("postVideo", "blobkey was null");
+            return false;
+        }
+
+        //Upload success, received blobkey; redirect back at API
+        Log.d("postVideo", "blobkey: " + blobkey);
+
+        //File successfully uploaded and blobkey successfully retrieved, store the new info as a post
+        MyBean ret = new MyBean();
+        ret.setData(false);
+        try {
+            if (post.getCaption() != null) ret = myApiService.postVideo(post.getUser(), blobkey, post.getLat(), post.getLng()).setCaption(post.getCaption()).execute();
+            else ret = myApiService.postVideo(post.getUser(), blobkey, post.getLat(), post.getLng()).execute();
+        } catch (IOException e) {
+            Log.i("postVideo", "IOException occured~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Log.e("postVideo", "IOException postVideo return: " + e.getMessage());
+            return false;
+        }
+        return ret.getData();
     }
 }

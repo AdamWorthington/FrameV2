@@ -1,6 +1,6 @@
 {
  "kind": "discovery#rpcDescription",
- "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/RAFbIpKcn448UttU0RnnwbEbypY\"",
+ "etag": "\"ODRTh3xaRR64wpeXJSlF33HMN-0/hIcsw5jTJP0S37RypOtYa5SNmJs\"",
  "discoveryVersion": "v1",
  "id": "myApi:v1",
  "name": "myApi",
@@ -335,6 +335,9 @@
   "myApi.postVideo": {
    "id": "myApi.postVideo",
    "parameters": {
+    "Caption": {
+     "type": "string"
+    },
     "blobKey": {
      "type": "string",
      "required": true
