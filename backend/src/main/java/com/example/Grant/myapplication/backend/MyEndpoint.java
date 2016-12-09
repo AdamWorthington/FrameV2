@@ -9,6 +9,9 @@ package com.example.Grant.myapplication.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.google.api.server.spi.config.Nullable;
+import com.google.appengine.api.blobstore.BlobstoreService;
+import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.tools.cloudstorage.GcsFileOptions;
 import com.google.appengine.tools.cloudstorage.GcsFilename;
 import com.google.appengine.tools.cloudstorage.GcsOutputChannel;
@@ -40,11 +43,11 @@ import javax.servlet.http.HttpServletRequest;
         )
 )
 public class MyEndpoint {
-
+    public static int i = 0;
     /**
      * A simple endpoint method that takes a name and says Hi back
      */
-
+    //whats this?
     private final GcsService gcsService = GcsServiceFactory.createGcsService(new RetryParams.Builder()
             .initialRetryDelayMillis(10)
             .retryMaxAttempts(10)
@@ -82,83 +85,133 @@ public class MyEndpoint {
             return response;
         }
 
-        ArrayList<ImageAttributeHolder> attributes = SQLStatements.getAttributes(conn);
+        ArrayList<ImageAttributeHolder> attributes = SQLStatements.getAttributes(conn, null);
 
         response.setData(attributes);
         return response;
     }
 
     @ApiMethod(name = "postImage", httpMethod= ApiMethod.HttpMethod.POST)
-    public MyBean postImage(ImageBean picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
+    public MyBean postImage(ImageBean picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon, @Named("Caption") @Nullable String caption) {
         MyBean response = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
 
         if (conn == null) {
             response.setInfo("Connection Failure in postImage");
+            response.setData(false);
             return response;
         }
 
-        boolean posted = SQLStatements.postImage(conn, picture.getData(), user, lat, lon);
+        boolean posted = SQLStatements.postImage(conn, picture.getData(), user, lat, lon, caption);
 
         response.setData(posted);
         return response;
     }
 
-    @ApiMethod(name = "postVideo", httpMethod= ApiMethod.HttpMethod.POST)
-    public MyBean postVideo(VideoBean video, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
-        MyBean response = new MyBean();
+    @ApiMethod(name = "postComment", httpMethod = ApiMethod.HttpMethod.POST)
+    public MyBean postComment(Comment comment) {
+        MyBean ret = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
 
         if (conn == null) {
-            response.setInfo("Connection Failure in postImage");
-            return response;
+            ret.setInfo("Connection Failure in postComment");
+            ret.setData(false);
+            return ret;
         }
 
-        boolean posted = true;// = SQLStatements.postImage(conn, "video.getData()", user, lat, lon);
+        ret.setData(SQLStatements.postComment(conn, comment.getPostID(), comment.getComment(), comment.getUser()));
 
-        response.setData(posted);
-        return response;
+        return ret;
     }
 
+    @ApiMethod(name = "getComments", httpMethod = ApiMethod.HttpMethod.GET)
+    public Comment getComments(@Named("postID")int postID) {
+        Comment ret = new Comment(postID, null, null);
 
-    /*
-    //    public void postVideo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-    @ApiMethod(name = "postVideo", httpMethod= ApiMethod.HttpMethod.POST)
-    public MyBean postVideo(VideoBean video, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) throws IOException, SQLException {
+        Connection conn = SQLStatements.createConnection();
 
-        MyBean response = new MyBean();
-        GcsFileOptions instance = GcsFileOptions.getDefaultInstance();
-        GcsFilename fileName = new GcsFilename("frame-145601.appspot.com", "Bob Saget");//getFileName(req);
-        GcsOutputChannel outputChannel;
-        outputChannel = gcsService.createOrReplace(fileName, instance);
-        copy(video.getData().getBinaryStream(), Channels.newOutputStream(outputChannel));
-        return response;
-    }
-
-    private GcsFilename getFileName(HttpServletRequest req) {
-        String[] splits = req.getRequestURI().split("/", 4);
-        if (!splits[0].equals("") || !splits[1].equals("gcs")) {
-            throw new IllegalArgumentException("The URL is not formed as expected. " +
-                    "Expecting /gcs/<bucket>/<object>");
+        if (conn == null) {
+            return null;
         }
-        return new GcsFilename(splits[2], splits[3]);
+
+        ArrayList<Comment> comments = SQLStatements.getComments(conn, postID);
+        ret.setComments(comments);
+        return ret;
     }
 
+    @ApiMethod(name = "addToScrapbook", httpMethod = ApiMethod.HttpMethod.POST)
+    public MyBean addToScrapbook(@Named("postID") int postID, @Named("user") String user) {
+        MyBean ret = new MyBean();
 
-    private void copy(InputStream input, OutputStream output) throws IOException {
-        try {
-            byte[] buffer = new byte[BUFFER_SIZE];
-            int bytesRead = input.read(buffer);
-            while (bytesRead != -1) {
-                output.write(buffer, 0, bytesRead);
-                bytesRead = input.read(buffer);
-            }
-        } finally {
-            input.close();
-            output.close();
+        Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            ret.setInfo("Connection Failure in addToScrapbook");
+            ret.setData(false);
+            return ret;
         }
+
+        //TODO: Call database function here
+        //ret.setData(SQLStatements.addToScrapbook(conn, postID, user));
+
+        return ret;
     }
-    */
+
+    @ApiMethod(name = "updateLikes", httpMethod = ApiMethod.HttpMethod.POST)
+    public MyBean updateLikes(@Named("postID") int postID, @Named("likes") int likes) {
+        MyBean ret = new MyBean();
+
+        Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            ret.setInfo("Connection Failure in updateLikes");
+            ret.setData(false);
+            return ret;
+        }
+
+        //TODO: Call database function here
+        //ret.setData(SQLStatements.updateLikes(conn, postID, likes));
+
+        return ret;
+    }
+
+    @ApiMethod(name = "getBlobURL")
+    public MyBean getBlobURL() {
+        MyBean ret = new MyBean();
+
+        BlobstoreService bsService = BlobstoreServiceFactory.getBlobstoreService();
+        String blobUploadUrl = bsService.createUploadUrl("/upload");
+
+        if (blobUploadUrl != null) {
+            ret.setData(true);
+            ret.setInfo(blobUploadUrl);
+            ret.setPostID(i++);
+        }
+        else {
+            ret.setData(false);
+            ret.setInfo("Failed to create upload URL");
+        }
+
+        return ret;
+    }
+
+    @ApiMethod(name = "postVideo", httpMethod = ApiMethod.HttpMethod.POST)
+    public MyBean postVideo(@Named("userEmail") String userEmail, @Named("blobKey") String blobKey, @Named("lat") double lat, @Named("lon") double lon) {
+        MyBean ret = new MyBean();
+
+        Connection conn = SQLStatements.createConnection();
+
+        if (conn == null) {
+            ret.setInfo("Connection Failure in storeServingUrl");
+            ret.setData(false);
+            return ret;
+        }
+
+        //TODO: Call database function here
+        //ret.setData(SQLStatements.storeServingUrl(conn, userEmail, blobKey, servingUrl, lat, lon));
+        ret.setData(true);
+        return ret;
+    }
 }

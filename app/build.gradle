@@ -4,9 +4,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'androiddebugkey'
-            keyPassword 'android'
-            storeFile file('C:/Users/cwilh/.android/debug.keystore')
-            storePassword 'android'
+            keyPassword 'framev2'
+            storeFile file('C:/Users/Scott/Documents/GitHub/FrameV2/debug.keystore')
+            storePassword 'framev2'
         }
     }
     compileSdkVersion 24

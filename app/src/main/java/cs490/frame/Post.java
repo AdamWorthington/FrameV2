@@ -9,6 +9,9 @@ import java.io.Serializable;
 public class Post implements Serializable{
     String picture;
     String user;
+    String caption;
+    int likes;
+    int postID;
     double lat;
     double lng;
     byte[] video;
@@ -51,5 +54,29 @@ public class Post implements Serializable{
 
     public void setLng(double lng) {
         this.lng = lng;
+    }
+
+    public String getCaption() {
+        return caption;
+    }
+
+    public void setCaption(String caption) {
+        this.caption = caption;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getPostID() {
+        return postID;
+    }
+
+    public void setPostID(int postID) {
+        this.postID = postID;
     }
 }

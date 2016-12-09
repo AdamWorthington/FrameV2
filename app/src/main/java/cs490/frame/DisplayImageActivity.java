@@ -3,7 +3,6 @@ package cs490.frame;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.os.Build;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,10 +14,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.grant.myapplication.backend.myApi.model.Comment;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
+
+import static cs490.frame.LoginActivity.userEmail;
+import static cs490.frame.WorldController.curCaption;
+import static cs490.frame.WorldController.curLikes;
+import static cs490.frame.WorldController.curPost;
 
 public class DisplayImageActivity extends AppCompatActivity {
     ArrayList<Comment> comments;
@@ -53,6 +59,13 @@ public class DisplayImageActivity extends AppCompatActivity {
         ListView commentList = (ListView) findViewById(R.id.commentsList);
         adapter = new CommentsAdapter(this, comments);
         commentList.setAdapter(adapter);
+
+        /*
+        TextView upvotes = (TextView) findViewById(R.id.upvoteCount);
+        upvotes.setText(curLikes);
+        TextView caption = (TextView) findViewById(R.id.caption);
+        caption.setText(curCaption);
+        */
 
         ImageButton upvote = (ImageButton) findViewById(R.id.upvoteButton);
         upvote.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +133,11 @@ public class DisplayImageActivity extends AppCompatActivity {
         if(comment.isEmpty())
             return;
 
-        comments.add(new Comment("user", comment));
+        Comment add = new Comment();
+        add.setPostID(curPost);
+        add.setComment(comment);
+        add.setUser(userEmail);
+        comments.add(add);
         textComment.clearComposingText();
         if(adapter != null)
             adapter.notifyDataSetChanged();

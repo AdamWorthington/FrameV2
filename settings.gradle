@@ -1,1 +1,1 @@
-include ':app', ':backend', ':mysql-connector-java-5.1.40-bin'
+include ':app', ':backend'

@@ -91,6 +91,8 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
                 }
                 else if (format.compareTo("video") == 0) {
                     Post post = new Post();
+                    TextView caption = (TextView) findViewById(R.id.captionContent);
+                    post.setCaption(caption.getText().toString());
                     if (location != null) {
                         post.setLat(location.getLatitude());
                         post.setLng(location.getLongitude());

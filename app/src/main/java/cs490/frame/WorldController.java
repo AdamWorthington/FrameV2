@@ -65,6 +65,9 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
 
     static String showPicture;
     static Location curLoc;
+    static int curPost;
+    static int curLikes;
+    static String curCaption;
 
     private Circle circle;
     private ArrayList<ImageAttributeHolder> posts = null;
@@ -392,7 +395,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
         }
 
         //Notify user if any new posts have come into viewable range
-        if (newPosts > 0 && !inForeground) {
+        if (newPosts > 0) {
             NotificationCompat.Builder mBuilder =
                     new NotificationCompat.Builder(WorldController.this)
                             .setSmallIcon(R.drawable.cast_ic_notification_small_icon)
@@ -442,14 +445,27 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
     //Only to be called after checking if post is within viewable range
     private void displayPost(String title) {
         ImageBean image = null;
+        int postID = Integer.parseInt(title);
+        ImageAttributeHolder holder = null;
+        for(ImageAttributeHolder post: posts) {
+            if (post.getId() == postID) {
+                holder = post;
+                break;
+            }
+        }
+
+        if (holder == null) return;
         try {
-            image = new GetImage().execute(Integer.parseInt(title)).get();
+            image = new GetImage().execute(holder.getId()).get();
             if (image.getInfo() != null)
                 if (image.getInfo().equals("Connection Failure in getImage"))
                     Toast.makeText(WorldController.this, "Failed to retrieve image from server", Toast.LENGTH_SHORT).show();
             if (image.getInfo() == null) {
                 Intent imageView = new Intent(WorldController.this, DisplayImageActivity.class);
                 showPicture = image.getData();
+                curPost = holder.getId();
+                curLikes = holder.getVotes();
+                curCaption = holder.getCaption();
                 startActivity(imageView);
             }
         } catch (Exception e) {

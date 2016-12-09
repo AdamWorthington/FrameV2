@@ -1,5 +1,7 @@
 package com.example.Grant.myapplication.backend;
 
+import java.util.ArrayList;
+
 /**
  * Created by Daniel on 12/5/2016.
  */
@@ -9,6 +11,7 @@ public class Comment {
     int postID;
     String comment;
     String user;
+    ArrayList<Comment> comments;
 
     public Comment (int postID, String comment, String user) {
         this.postID = postID;
@@ -38,5 +41,13 @@ public class Comment {
 
     public void setPostID(int postID) {
         this.postID = postID;
+    }
+
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<Comment> comments) {
+        this.comments = comments;
     }
 }
