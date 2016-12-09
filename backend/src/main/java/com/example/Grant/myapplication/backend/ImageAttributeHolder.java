@@ -13,8 +13,9 @@ class ImageAttributeHolder {
     private int votes;
     private String blobkey;
     private String date;
+    private String caption;
 
-    ImageAttributeHolder(int ID, int isVideo, double latitude, double longitude, String user, int votes, String blobkey, String date) {
+    ImageAttributeHolder(int ID, int isVideo, double latitude, double longitude, String user, int votes, String blobkey, String date, String Caption) {
         this.ID = ID;
         this.isVideo = isVideo;
         this.latitude = latitude;
@@ -23,6 +24,8 @@ class ImageAttributeHolder {
         this.votes = votes;
         this.blobkey = blobkey;
         this.date = date;
+
+        this.caption = Caption;
     }
 
     public int getID() { return ID; }
@@ -33,4 +36,6 @@ class ImageAttributeHolder {
     public int getVotes() { return votes; }
     public String getBlobkey() { return blobkey; }
     public String getDate() { return date; }
+    public String getCaption() { return caption; }
+
 }

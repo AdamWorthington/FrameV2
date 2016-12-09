@@ -108,14 +108,14 @@ public class SQLStatements {
 	/*
 	 * Post a video and its attributes to the database
 	 */
-	public static boolean postVideo(Connection conn, String user, double lat, double lon, String blobkey) {
+	public static boolean postVideo(Connection conn, String user, double lat, double lon, String blobkey, String Caption) {
 
 		/*
 		 * table Media: int ID, varchar Image, double Latitude, double Longitude, varchar User, timestamp Date
 		 */
 		System.err.println("Blobkey: " + blobkey + " user: " + user + " lat: " + lat + " lng: " + lon);
 		PreparedStatement stmt = null;
-		String query = "INSERT INTO FrameV2.Media (ID, Image, IsVideo, Latitude, Longitude, User, Votes, Blobkey, Date) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
+		String query = "INSERT INTO FrameV2.Media (ID, Image, IsVideo, Latitude, Longitude, User, Votes, Blobkey, Date) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?);";
 
 		try {
 			stmt = conn.prepareStatement(query);
@@ -126,6 +126,7 @@ public class SQLStatements {
 			stmt.setString(5, user);
 			stmt.setInt(6, 0);
 			stmt.setString(7, blobkey);
+			stmt.setString(8, Caption);
 
 			int stmtReturn = stmt.executeUpdate();
 		}
@@ -245,7 +246,7 @@ public class SQLStatements {
 				date = rs.getString("Date");
 				caption = rs.getString("Caption");
 				
-				ImageAttributeHolder iah = new ImageAttributeHolder(ID, isVideo, latitude, longitude, user, votes, blobkey, date);
+				ImageAttributeHolder iah = new ImageAttributeHolder(ID, isVideo, latitude, longitude, user, votes, blobkey, date, caption);
 
 				ret.add(iah);
 			}
