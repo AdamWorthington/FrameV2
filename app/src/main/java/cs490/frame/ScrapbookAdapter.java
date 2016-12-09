@@ -3,6 +3,8 @@ package cs490.frame;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.ThumbnailUtils;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -46,7 +48,14 @@ public class ScrapbookAdapter extends BaseAdapter {
             imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
-            imageView.setImageBitmap(BitmapFactory.decodeFile(images.get(position).getAbsolutePath()));
+            boolean photo = images.get(position).getAbsolutePath().endsWith(".jpeg");
+            if(!photo) {
+                imageView.setImageBitmap(ThumbnailUtils.createVideoThumbnail(images.get(position).getAbsolutePath(),
+                        MediaStore.Images.Thumbnails.MINI_KIND));
+            }
+            else {
+                imageView.setImageBitmap(BitmapFactory.decodeFile(images.get(position).getAbsolutePath()));
+            }
         } else {
             imageView = (ImageView) convertView;
         }

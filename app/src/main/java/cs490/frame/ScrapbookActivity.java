@@ -52,8 +52,7 @@ public class ScrapbookActivity extends AppCompatActivity {
 
                 }
                 else {
-                    Uri videoUri = FileProvider.getUriForFile(ScrapbookActivity.this, "cs490.frame", f);
-                    viewActivity.putExtra("uri", videoUri);
+                    viewActivity.putExtra("file", f);
                     viewActivity.putExtra("format", "video");
                 }
                 ScrapbookActivity.this.startActivity(viewActivity);

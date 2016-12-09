@@ -46,6 +46,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
@@ -465,6 +467,7 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
                             Toast.makeText(WorldController.this, "Failed to retrieve image from server", Toast.LENGTH_SHORT).show();
                     if (image.getInfo() == null) {
                         Intent imageView = new Intent(WorldController.this, DisplayImageActivity.class);
+                        imageView.putExtra("format", "photo");
                         showPicture = image.getData();
                         curPost = holder.getId();
                         curLikes = holder.getVotes();
@@ -483,6 +486,21 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
                     if (video == null) {
                         Log.e("WorldController", "Error retrieving video");
                         return;
+                    }
+                    try {
+                        File outputFile = File.createTempFile("video", "mp3", getCacheDir());
+                        outputFile.deleteOnExit();
+                        FileOutputStream fileoutputstream = new FileOutputStream(outputFile);
+                        fileoutputstream.write(video);
+                        fileoutputstream.close();
+                        Intent displayImageView = new Intent(WorldController.this, DisplayImageActivity.class);
+                        displayImageView.putExtra("format", "video");
+                        displayImageView.putExtra("videoFile", outputFile);
+                        startActivity(displayImageView);
+                    }
+                    catch(Exception e)
+                    {
+                        e.printStackTrace();
                     }
                     //TODO: turn byte array into video and do magic
                     Log.d("WorldController", "SUCCESS: byte array length: " + video.length);
