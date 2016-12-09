@@ -72,14 +72,14 @@ public class SQLStatements {
 	/*
 	 * Post an image and its attributes to the database
 	 */
-	public static boolean postImage(Connection conn, String picture, String user, double lat, double lon) {
+	public static boolean postImage(Connection conn, String picture, String user, double lat, double lon, String caption) {
 		
 		/*
 		 * table Media: int ID, varchar Image, double Latitude, double Longitude, varchar User, timestamp Date
 		 */
 		System.err.println("Picture: " + picture + " user: " + user + " lat: " + lat + " lng: " + lon);
 		PreparedStatement stmt = null;
-		String query = "INSERT INTO FrameV2.Media (ID, Image, IsVideo, Latitude, Longitude, User, Date) VALUES (NULL, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP);";
+		String query = "INSERT INTO FrameV2.Media (ID, Image, IsVideo, Latitude, Longitude, User, Date, Caption) VALUES (NULL, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?);";
 		
 		try {
 			stmt = conn.prepareStatement(query);
@@ -88,6 +88,7 @@ public class SQLStatements {
 			stmt.setDouble(3, lat);
 			stmt.setDouble(4, lon);
 			stmt.setString(5, user);
+			stmt.setString(6, caption);
 			
 			int stmtReturn = stmt.executeUpdate();
 		}
@@ -142,7 +143,7 @@ public class SQLStatements {
 		ArrayList<ImageAttributeHolder> ret = new ArrayList<ImageAttributeHolder>();
 		
 		PreparedStatement stmt = null;
-		String query = "SELECT ID, Latitude, Longitude, User, Date FROM FrameV2.Media";
+		String query = "SELECT ID, Latitude, Longitude, User, Date, Caption FROM FrameV2.Media";
 		
 		try {
 			stmt = conn.prepareStatement(query);
@@ -154,6 +155,7 @@ public class SQLStatements {
 			double longitude;
 			String user;
 			String date;
+			String caption;
 			SQLStatements sql = new SQLStatements();
 
 			while (rs.next()) {
@@ -162,6 +164,7 @@ public class SQLStatements {
 				longitude = rs.getDouble("Longitude");
 				user = rs.getString("User");
 				date = rs.getString("Date");
+				caption = rs.getString("Caption");
 				
 				ImageAttributeHolder iah = new ImageAttributeHolder(ID, latitude, longitude, user, date);
 				ret.add(iah);

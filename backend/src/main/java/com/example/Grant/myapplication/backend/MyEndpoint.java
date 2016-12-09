@@ -89,7 +89,7 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "postImage", httpMethod= ApiMethod.HttpMethod.POST)
-    public MyBean postImage(ImageBean picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
+    public MyBean postImage(ImageBean picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon, @Named("Caption") String caption) {
         MyBean response = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
@@ -99,14 +99,14 @@ public class MyEndpoint {
             return response;
         }
 
-        boolean posted = SQLStatements.postImage(conn, picture.getData(), user, lat, lon);
+        boolean posted = SQLStatements.postImage(conn, picture.getData(), user, lat, lon, caption);
 
         response.setData(posted);
         return response;
     }
 
     @ApiMethod(name = "postVideo", httpMethod= ApiMethod.HttpMethod.POST)
-    public MyBean postVideo(VideoBean video, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon) {
+    public MyBean postVideo(VideoBean video, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon, @Named("Caption") String caption) {
         MyBean response = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
@@ -116,7 +116,7 @@ public class MyEndpoint {
             return response;
         }
 
-        boolean posted = true;// = SQLStatements.postImage(conn, "video.getData()", user, lat, lon);
+        boolean posted = true;// = SQLStatements.postImage(conn, "video.getData()", user, lat, lon, caption);
 
         response.setData(posted);
         return response;
