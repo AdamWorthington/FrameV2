@@ -65,6 +65,9 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
             public void onClick(View v) {
                 if (format.compareTo("photo") == 0) {
                     Post post = new Post();
+                    TextView caption = (TextView) findViewById(R.id.captionContent);
+                    post.setCaption(caption.getText().toString());
+                    Log.d("reviewActivity", "caption: " + post.getCaption());
                     if (location != null) {
                         post.setLat(location.getLatitude());
                         post.setLng(location.getLongitude());
@@ -93,6 +96,7 @@ public class ReviewActivity extends AppCompatActivity implements CommentDialogFr
                     Post post = new Post();
                     TextView caption = (TextView) findViewById(R.id.captionContent);
                     post.setCaption(caption.getText().toString());
+                    Log.d("reviewActivity", "caption: " + post.getCaption());
                     if (location != null) {
                         post.setLat(location.getLatitude());
                         post.setLng(location.getLongitude());
