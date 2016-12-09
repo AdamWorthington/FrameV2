@@ -9,6 +9,7 @@ package com.example.Grant.myapplication.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.google.api.server.spi.config.Nullable;
 import com.google.appengine.api.blobstore.BlobstoreService;
 import com.google.appengine.api.blobstore.BlobstoreServiceFactory;
 import com.google.appengine.tools.cloudstorage.GcsFileOptions;
@@ -91,13 +92,14 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "postImage", httpMethod= ApiMethod.HttpMethod.POST)
-    public MyBean postImage(ImageBean picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon, @Named("Caption") String caption) {
+    public MyBean postImage(ImageBean picture, @Named("user") String user, @Named("lat") double lat, @Named("lon") double lon, @Named("Caption") @Nullable String caption) {
         MyBean response = new MyBean();
 
         Connection conn = SQLStatements.createConnection();
 
         if (conn == null) {
             response.setInfo("Connection Failure in postImage");
+            response.setData(false);
             return response;
         }
 
@@ -126,7 +128,7 @@ public class MyEndpoint {
 
     @ApiMethod(name = "getComments", httpMethod = ApiMethod.HttpMethod.GET)
     public Comment getComments(@Named("postID")int postID) {
-        Comment ret = new Comment();
+        Comment ret = new Comment(postID, null, null);
 
         Connection conn = SQLStatements.createConnection();
 

@@ -3,7 +3,6 @@ package cs490.frame;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.os.Build;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.grant.myapplication.backend.myApi.model.Comment;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -59,10 +60,12 @@ public class DisplayImageActivity extends AppCompatActivity {
         adapter = new CommentsAdapter(this, comments);
         commentList.setAdapter(adapter);
 
+        /*
         TextView upvotes = (TextView) findViewById(R.id.upvoteCount);
         upvotes.setText(curLikes);
         TextView caption = (TextView) findViewById(R.id.caption);
         caption.setText(curCaption);
+        */
 
         ImageButton upvote = (ImageButton) findViewById(R.id.upvoteButton);
         upvote.setOnClickListener(new View.OnClickListener() {
@@ -130,7 +133,11 @@ public class DisplayImageActivity extends AppCompatActivity {
         if(comment.isEmpty())
             return;
 
-        comments.add(new Comment(curPost, userEmail, comment));
+        Comment add = new Comment();
+        add.setPostID(curPost);
+        add.setComment(comment);
+        add.setUser(userEmail);
+        comments.add(add);
         textComment.clearComposingText();
         if(adapter != null)
             adapter.notifyDataSetChanged();

@@ -79,7 +79,7 @@ public class SQLStatements {
 		 */
 		System.err.println("Picture: " + picture + " user: " + user + " lat: " + lat + " lng: " + lon);
 		PreparedStatement stmt = null;
-		String query = "INSERT INTO FrameV2.Media (ID, Image, IsVideo, Latitude, Longitude, User, Votes, Blobkey, Date) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?);";
+		String query = "INSERT INTO FrameV2.Media (ID, Image, IsVideo, Latitude, Longitude, User, Votes, Blobkey, Date, Caption) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?);";
 
 
 		try {
