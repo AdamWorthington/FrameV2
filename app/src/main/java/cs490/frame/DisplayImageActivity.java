@@ -145,6 +145,7 @@ public class DisplayImageActivity extends AppCompatActivity {
         add.setPostID(curPost);
         add.setComment(comment);
         add.setUser(userEmail);
+        new PostComment().execute(add);
         comments.add(add);
         textComment.clearComposingText();
         if(adapter != null)
@@ -163,6 +164,10 @@ public class DisplayImageActivity extends AppCompatActivity {
         int current = Integer.parseInt(upvoteCount.getText().toString());
         current++;
         upvoteCount.setText(Integer.toString(current));
+        Post p = new Post();
+        p.setPostID(WorldController.curPost);
+        p.setLikes(current);
+        new UpdateLikes().execute(p);
 
         if(hasDownvoted)
         {
@@ -181,6 +186,10 @@ public class DisplayImageActivity extends AppCompatActivity {
         int current = Integer.parseInt(downvoteCount.getText().toString());
         current--;
         downvoteCount.setText(Integer.toString(current));
+        Post p = new Post();
+        p.setPostID(WorldController.curPost);
+        p.setLikes(current);
+        new UpdateLikes().execute(p);
 
         if(hasUpvoted)
         {
