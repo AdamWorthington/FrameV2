@@ -19,13 +19,15 @@ import javax.servlet.http.HttpServletResponse;
 
 public class BlobDownload extends HttpServlet {
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ImagesServiceFailureException {
+    public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException, ImagesServiceFailureException {
         String keyString = req.getParameter("blob-key");
-        if (keyString == null);
-
-        BlobstoreService bsService = BlobstoreServiceFactory.getBlobstoreService();
-        BlobKey blobKey = new BlobKey(keyString);
-        log("blobkey: " + blobKey.toString());
-        bsService.serve(blobKey, res);
+        if (keyString != null) {
+            BlobstoreService bsService = BlobstoreServiceFactory.getBlobstoreService();
+            BlobKey blobKey = new BlobKey(keyString);
+            log("blobkey: " + blobKey.toString());
+            bsService.serve(blobKey, res);
+        } else {
+            res.sendError(HttpServletResponse.SC_NO_CONTENT);
+        }
     }
 }

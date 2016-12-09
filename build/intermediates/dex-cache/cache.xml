@@ -205,7 +205,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="609490e96162a6136220c0a0e77e54fa2bda9f5b">
+        sha1="3f41ee4d6c40e7f4bce7fad0ea5da9a74c9adf88">
         <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d658b4924961d5fae984737dbe7b5f4b524282f4\classes.dex" />
     </item>
     <item
@@ -691,7 +691,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="107172cf687947a35b75c6bada9f838c821b2c36">
+        sha1="a994580297a5eb99728517cb6c3356baf33612e9">
         <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_082f91a52c45a40c4754a5d2c20d2be301f5899e\classes.dex" />
     </item>
     <item

@@ -47,6 +47,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 public class WorldController extends AppCompatActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -455,22 +456,45 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
         }
 
         if (holder == null) return;
-        try {
-            image = new GetImage().execute(holder.getId()).get();
-            if (image.getInfo() != null)
-                if (image.getInfo().equals("Connection Failure in getImage"))
+        switch (holder.getIsVideo()) {
+            case 0:
+                try {
+                    image = new GetImage().execute(holder.getId()).get();
+                    if (image.getInfo() != null)
+                        if (image.getInfo().equals("Connection Failure in getImage"))
+                            Toast.makeText(WorldController.this, "Failed to retrieve image from server", Toast.LENGTH_SHORT).show();
+                    if (image.getInfo() == null) {
+                        Intent imageView = new Intent(WorldController.this, DisplayImageActivity.class);
+                        showPicture = image.getData();
+                        curPost = holder.getId();
+                        curLikes = holder.getVotes();
+                        curCaption = holder.getCaption();
+                        startActivity(imageView);
+                    }
+                } catch (Exception e) {
+                    Log.e("WorldController", e.getMessage());
                     Toast.makeText(WorldController.this, "Failed to retrieve image from server", Toast.LENGTH_SHORT).show();
-            if (image.getInfo() == null) {
-                Intent imageView = new Intent(WorldController.this, DisplayImageActivity.class);
-                showPicture = image.getData();
-                curPost = holder.getId();
-                curLikes = holder.getVotes();
-                curCaption = holder.getCaption();
-                startActivity(imageView);
-            }
-        } catch (Exception e) {
-            Log.e("WorldController", e.getMessage());
-            Toast.makeText(WorldController.this, "Failed to retrieve image from server", Toast.LENGTH_SHORT).show();
+                }
+                break;
+
+            case 1:
+                try {
+                    byte[] video = new GetVideo().execute(holder.getBlobkey()).get();
+                    if (video == null) {
+                        Log.e("WorldController", "Error retrieving video");
+                        return;
+                    }
+                    //TODO: turn byte array into video and do magic
+                    Log.d("WorldController", "SUCCESS: byte array length: " + video.length);
+                } catch (InterruptedException e) {
+                    Log.e("WorldController", "InterrupedException getVideo: " + e.getMessage());
+                    return;
+                } catch (ExecutionException e) {
+                    Log.e("WorldController", "ExecutionException getVideo: " + e.getMessage());
+                    return;
+                }
+                break;
         }
+        return;
     }
 }
