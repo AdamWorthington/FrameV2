@@ -41,6 +41,10 @@ public class DisplayImageActivity extends AppCompatActivity {
 
         image = null;
         String picture = WorldController.showPicture;
+        String caption = WorldController.curCaption;
+
+        TextView captionText = (TextView) findViewById(R.id.caption);
+        captionText.setText(caption);
 
         if (picture != null) {
             image = ImageConverter.decodeBase64(picture);
