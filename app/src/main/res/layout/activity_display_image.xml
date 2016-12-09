@@ -30,14 +30,22 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/caption"
                 android:layout_centerVertical="true"
-                android:text="hello what is going on here"/>
+                android:text="Description"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:id="@+id/favoriteButton"
+                android:src="@mipmap/ic_stars_black_24dp"
+                android:background="@null"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_height="wrap_content" />
             <TextView
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_width="wrap_content"
                 android:id="@+id/downVoteCount"
                 android:text="0"
-                android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@id/favoriteButton"
                 android:layout_centerVertical="true"
                 android:layout_height="wrap_content"/>
             <ImageButton

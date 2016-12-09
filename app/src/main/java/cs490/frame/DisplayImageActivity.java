@@ -3,6 +3,7 @@ package cs490.frame;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.os.Build;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,21 +13,27 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DisplayImageActivity extends AppCompatActivity {
     ArrayList<Comment> comments;
     CommentsAdapter adapter;
     boolean hasUpvoted = false;
     boolean hasDownvoted = false;
+    boolean hasFavorited = false;
+    Bitmap image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_image);
 
-        Bitmap image = null;
+        image = null;
         String picture = WorldController.showPicture;
 
         if (picture != null) {
@@ -70,6 +77,40 @@ public class DisplayImageActivity extends AppCompatActivity {
                 sendComment();
             }
         });
+
+        ImageButton favoriteButton = (ImageButton) findViewById(R.id.favoriteButton);
+        favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendFavorite();
+            }
+        });
+    }
+
+    private void sendFavorite()
+    {
+        if(hasFavorited)
+            return;
+
+        hasFavorited = true;
+
+        Date d = new Date();
+        String fileName = d.toString().concat(".jpeg");
+
+        File dir = new File(this.getFilesDir(), "saved");
+        if(!dir.exists())
+            dir.mkdir();
+        File file = new File(dir, fileName);
+
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            image.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            out.flush();
+            out.close();
+            Toast.makeText(this, "Added to Scrapbook", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void sendComment()

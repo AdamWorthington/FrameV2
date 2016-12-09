@@ -16,6 +16,9 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -93,6 +96,25 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.world_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.scrapbook:
+                onScrapbook();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
     protected void onStart() {
         mGoogleClient.connect();
         super.onStart();
@@ -129,6 +151,12 @@ public class WorldController extends AppCompatActivity implements OnMapReadyCall
     @Override
     public void onConnectionFailed(ConnectionResult result) {
         Log.d("Connection Error", result.getErrorMessage());
+    }
+
+    private void onScrapbook()
+    {
+        Intent scrapbookIntent = new Intent(this, ScrapbookActivity.class);
+        startActivity(scrapbookIntent);
     }
 
     private void startLocationUpdates() {

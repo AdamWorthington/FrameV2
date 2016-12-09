@@ -67,7 +67,12 @@
             android:label="Frame"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".WorldController" />
-        <activity android:name=".DisplayImageActivity"></activity>
+        <activity android:name=".DisplayImageActivity" />
+        <activity android:name=".ScrapbookActivity" />
+        <activity android:name=".ScrapbookViewActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="Frame"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
     </application>
 
 </manifest>
