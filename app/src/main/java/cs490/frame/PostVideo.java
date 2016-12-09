@@ -6,13 +6,16 @@ import android.util.Base64;
 import android.util.Log;
 
 import com.example.grant.myapplication.backend.myApi.MyApi;
-import com.example.grant.myapplication.backend.myApi.model.VideoBean;
+import com.example.grant.myapplication.backend.myApi.model.MyBean;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * Created by Scott on 10/6/2016.
@@ -39,15 +42,27 @@ public class PostVideo extends AsyncTask<Post, Void, Boolean> {
         }
         Post post = new Post();
         post = params[0];
-        Log.i("postImage", "Post Lat: " + post.getLat() + " Lng: " + post.getLng() + " user: " + post.getUser());
 
-        String toReturn = Base64.encodeToString(post.getVideo(),Base64.DEFAULT);
-        VideoBean video = new VideoBean();
-        video.setVideo(toReturn);
+        MyBean response = null;
+        try {
+             response = myApiService.getBlobURL().execute();
+        } catch (IOException e) {
+            Log.i("postVideo", "IOException occured~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            Log.e("postVideo", e.getMessage());
+            return false;
+        }
 
+
+        String blobkey = null;
+        HttpURLConnection conn;
+        try {
+            URL urlObj = new URL(response.getInfo());
+        } catch (MalformedURLException e) {
+
+        }
 
         try {
-            return myApiService.postVideo(post.getUser(), post.getLat(), post.getLng(), video).execute().getData();
+            return myApiService.postVideo(post.getUser(), blobkey, post.getLat(), post.getLng()).execute().getData();
         } catch (IOException e) {
             Log.i("postImage", "IOException occured~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             Log.e("postImage", e.getMessage());

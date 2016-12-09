@@ -45,7 +45,7 @@ public class PostImage extends AsyncTask<Post, Void, Boolean> {
         image.setData(post.getPicture());
 
         try {
-            MyBean response = myApiService.postImage(post.getUser(), post.getLat(), post.getLng(), image).execute();
+            MyBean response = myApiService.postImage(post.getUser(), post.getLat(), post.getLng(), post.getCaption(), image).execute();
             if (response.getData() == false) {
                 Log.e("PostImage", "response message" + response.getInfo());
             }

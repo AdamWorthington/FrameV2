@@ -20,6 +20,11 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static cs490.frame.LoginActivity.userEmail;
+import static cs490.frame.WorldController.curCaption;
+import static cs490.frame.WorldController.curLikes;
+import static cs490.frame.WorldController.curPost;
+
 public class DisplayImageActivity extends AppCompatActivity {
     ArrayList<Comment> comments;
     CommentsAdapter adapter;
@@ -53,6 +58,11 @@ public class DisplayImageActivity extends AppCompatActivity {
         ListView commentList = (ListView) findViewById(R.id.commentsList);
         adapter = new CommentsAdapter(this, comments);
         commentList.setAdapter(adapter);
+
+        TextView upvotes = (TextView) findViewById(R.id.upvoteCount);
+        upvotes.setText(curLikes);
+        TextView caption = (TextView) findViewById(R.id.caption);
+        caption.setText(curCaption);
 
         ImageButton upvote = (ImageButton) findViewById(R.id.upvoteButton);
         upvote.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +130,7 @@ public class DisplayImageActivity extends AppCompatActivity {
         if(comment.isEmpty())
             return;
 
-        comments.add(new Comment("user", comment));
+        comments.add(new Comment(curPost, userEmail, comment));
         textComment.clearComposingText();
         if(adapter != null)
             adapter.notifyDataSetChanged();

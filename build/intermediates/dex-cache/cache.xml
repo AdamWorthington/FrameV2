@@ -3,588 +3,552 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.guava\guava-jdk5\17.0\463f8378feba44df7ba7cd9272d01837dad62b36\guava-jdk5-17.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="463f8378feba44df7ba7cd9272d01837dad62b36">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\guava-jdk5-17.0_3eb6d6fb204edc025ae31f50820f20bbc4afa90a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="79f521967ad7f49b34748db89df02852c2b2f87b">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.6.1_118c4945c8537e5561c0fc57575ca42679284c7a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="465f40f840e583f8b7421a3aacf3fbf08c28f00a">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.6.1_281056b2dbf2c791f12b537addaff880c6ca60f9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="4df40545c9b875855f3dd9d4928e5d07f07c20ba">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.6.1_da06326a9daf756e641a1bffa13c45836d2ce569\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="b75ecdd04a37d31b4a0da2729fc5c558962a529b">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.6.1_f9cff06378002da22f6e9ac616fa06aa64bc86db\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="867dad63c33388ff8c7644b236579355036d075f">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_03e6a5e05d6f268b74240c903eefd6ff2e31df3a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client-gson\1.18.0-rc\82647ac9ebf591b4517f8863ed4c84367cde0728\google-http-client-gson-1.18.0-rc.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="82647ac9ebf591b4517f8863ed4c84367cde0728">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-gson-1.18.0-rc_0995a66f3d48e491c8271412c1610d50830b6fc9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="ee61ace5f3e488fc610e1c67693c49186a441f32">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.6.1_a5c632fd73df147592dd0698f34600ad6cdf83aa\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_84532eafe6cb90a010f0fa29d8291aa71e9d8d71\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.api-client\google-api-client-xml\1.18.0-rc\7af8b2b05608938f4a5f970785e7bce83fa9bbaa\google-api-client-xml-1.18.0-rc.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="7af8b2b05608938f4a5f970785e7bce83fa9bbaa">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-api-client-xml-1.18.0-rc_c3c9a615678c52ee491bbe1c6de54833e789d027\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="7fd7d3d9567fcee132289e52df221daac40ca113">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_6eb71e4ff24368dc51bc3c0722411056f2382bad\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="ee0ccb43f6ab276191b7f2d77c305fa9beb26db9">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.6.1_1588b592fa59532aa1f55faf5692e8c333756c96\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_70bae8cb6d6037002d6b0d3162edf539011248d5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="62ff84124b89177abc0c27f3e38c9732f2d41617">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.6.1_6a8bc83721e124ec866d9c872e6fb27f5020b944\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.1.3\f6c3aed1cdfa21b5c1737c915186ea93a95a58bd\jackson-core-2.1.3.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.1.3_805aca6ecd336ddfd346198646cd26f3c78a529f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="8ebae43cd06058e99e08c8b4d305b72f2b9927c6">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.6.1_91b9a1a556992ddb00848dd624b5d8b62fb2f9aa\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="518adc52081d41724932b41bc132e4d50a352b86">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.6.1_9b552538bc1b76285cb43dedae6288f60cb8b3d7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_3307c0ef5e8639f37107ee65a77ead5b88f6071f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_82ebcc0e4e6f642979a431f5fde42776a7949959\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="8c6ef5bd4072f8cda2b89d8356ea7d8acd0683aa">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.6.1_8a870fb05b3942a7a4cd75750bb59eaeb75ea2ad\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="0efd1b44f47c134fb245914a1d54a55adbfc2f8d">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.6.1_2de2a52f97270c0b0728e2546413a173809ec18d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.1_b5021a7f44bf6f398a016a36d9d461cbfc17c8c1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="90be14317e3f26d18438e8dbf8544500d1dfe07f">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-9.6.1_f0abcd90339ec34a4cc5c9d4946cf32ad44b6256\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_6c72abb5d70eb30d240ad2dc869a36291096e1bf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\2.0.1\516c03b21d50a644d538de0f0369c620989cd8f0\jsr305-2.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\jsr305-2.0.1_050bdf018291749daf50cb6c995f774675aa5637\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client-xml\1.18.0-rc\a1ec1a695625d9a514962f0b93400fcdd1897223\google-http-client-xml-1.18.0-rc.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="a1ec1a695625d9a514962f0b93400fcdd1897223">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-xml-1.18.0-rc_36f03d7365733887200a665f1d77d11ec5e184ac\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_810727654ae9a77b6fc3703c11811c1cab0af83e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="6ff796a3173787afe2e712f3aec6f5b99796118e">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.6.1_ee9e0b1b9af6e0f59473e05efaa4dc8a0a309344\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="cf2c4e6607c77b0e671dc5ca252c5ea0d9c1ce0d">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.6.1_7eff860bef7d7f6d5928d2e0d85040fe58943a9b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_f55ae1bacfec6dc6ef993bdc57e2d3dd589f9e10\classes.dex" />
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.2.1_aeab6a9a35bb0ae06144380e90f3b52fd4bda53a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.6.1_b2b1c843f4d6bd8ef4bc8bf2e6f27100dad47224\classes.dex" />
+        sha1="8c6ef5bd4072f8cda2b89d8356ea7d8acd0683aa">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.6.1_0ca3e88b0d6e30e270b487b92290471344a6357c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="77558e74bb2056ef38516296f13a27c4c4fc3e5c">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.6.1_ab6e3f8247a041a467a3f4c00d63be4a6a764b6d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="c755536e5a100d9c76c8ea0b72f76c018f7a9de2">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.0_4c670b44e5e8dd62223c276a1592c6643ae1f936\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.api-client\google-api-client-android\1.20.0\5673179575c32b69a474334255c3044adf18d40\google-api-client-android-1.20.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="05673179575c32b69a474334255c3044adf18d40">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-api-client-android-1.20.0_a83e4581b08336f227261e646e909a5638d8fff0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\design\24.2.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="23eb0d2998a782213b56168cbf23a0688b9111d9">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.0_5d9eb9ae96bb96f8452dfb171b57d9545d8f5932\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client\1.22.0\d441fc58329c4a4c067acec04ac361627f66ecc8\google-http-client-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="d441fc58329c4a4c067acec04ac361627f66ecc8">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-1.22.0_46aebe50588ab6970d2d5614b947f5418da33afa\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_c06757afe3d0a0378fba7e52ebe0fc4202440797\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client-android\1.20.0\313dc99a7963523871495897ca11aa8472b3c6fd\google-http-client-android-1.20.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="313dc99a7963523871495897ca11aa8472b3c6fd">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-android-1.20.0_84761c9c92c2cc7ff09f221a6c41c6c466ce78fe\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="a136366045678579300d161de97c2211c4c4f7a0">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-9.6.1_6549192fb6ed9559900347695ac2db11e755f230\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="f0e96478ca3147bc588aadb9ae467d85b42473cc">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.6.1_9f8647fe8b0000e831dd8b1575f3595ed27351b5\classes.dex" />
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.6.1_110adcd2fdbf0b232be09fef5793b4d24d982b5d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="526f4b02f1771fa7607ff1b89fe2e9bd0344fee8">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.6.1_8f4a378c2bb062854f6a2ce288f950be2974cb1b\classes.dex" />
+        sha1="9c0cf3d4f9d7d076f301e110b92e18ae23da12c2">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-9.6.1_7a134b7c170947a9cd60fbeaf9e898b924f00aab\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_9103f3653bf69ef4b7e5353d8b0972f752c8b875\classes.dex" />
+        sha1="babb25794a7599069d34705038744c5760a9a88c">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-9.6.1_2236720e8548102105803ea9bfd2d575a08920d0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="d45c048bb1c55cf963899190e507065aea8e5be9">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.6.1_20ea1035f2e9131c82431a8ea62447c5f266e4e5\classes.dex" />
+        sha1="ee0ccb43f6ab276191b7f2d77c305fa9beb26db9">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.6.1_73e7a6d65dda028a8e61f2ccfa0b96372cbd0c8d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.2.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="0dfc12e4aacf514346ea866560c99807d032bc48">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.6.1_598494416d40ce9f145c334fe5f02e721366eaa5\classes.dex" />
+        sha1="c755536e5a100d9c76c8ea0b72f76c018f7a9de2">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.2.0_57e44602e029e20c35c6f736840f1d546e20d47f\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="6ffe8b28ab61e5ee92ab9431a220379790c71ddf">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.6.1_b75338912d9c17c00cc5cda61e454dab17791e2c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="1ef72e72bc0d05602c366582afa9439f58bb31d6">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.6.1_294ad9db3369f2b4631fa687c670412596b66d8f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_5c4b64b18046f3e1de7528b76b2777ca95138e3d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_0e31774731726331d5d9e88bce380c83d9e8fd69\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="cc39b4bcc9e7062891db90d5a752fa9e4986f447">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.6.1_27cefc8034d5f6aa3b144dcfcf871210ad880990\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="f6aa7c76cbaa867e05dbad0afab1ef0e65c4e55f">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.6.1_00ad2a3ddfbe775c47a7a8a167e10c3e2da6a64d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.oauth-client\google-oauth-client\1.22.0\1d63f369ac78e4838a3197147012026e791008cb\google-oauth-client-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="1d63f369ac78e4838a3197147012026e791008cb">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-oauth-client-1.22.0_bfcefec31cf8b7a3636ae319e7e1672eca8b39ef\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="e875bbd316666e531574b39979af3c88343f9202">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_7f5ecf97c09ab4ac2467f0c9507cb41c512ee79b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="c828add497d2b7a3de7c047bf72050cd4b7521a1">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.6.1_584588900f092a19c803c6895b9dd25b27240e9f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.1\2e66da15851f9f5b5079228f856c2f090ba98c38\gson-2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="2e66da15851f9f5b5079228f856c2f090ba98c38">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.1_0177a438d2fa724ba1531ae7aeb6b7d00ef6457d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="1e14ebe1cda8491f152083e752ca5bf73cd37bff">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.6.1_a4df96f8c43bc77901ebd1ff3294aa9c24ddfe45\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="f8db47be01cbe8cfa81e9cecce5ff1371ed1ad95">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.6.1_c6cbd92a9627e9edd479e75439cdf9658e6ca2b3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="2a18547ea91d258866d132c2a763185f15b01b25">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.6.1_5b5f007f6d635c4463b2f1b9f750835ca2ac707e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.apis\google-api-services-drive\v3-rev45-1.22.0\cbfa6589de4606d13c71c09981ca2d0c164f4fea\google-api-services-drive-v3-rev45-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="cbfa6589de4606d13c71c09981ca2d0c164f4fea">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-api-services-drive-v3-rev45-1.22.0_cc613ffe5e1d362b297c04e0092bc2d54fa071d1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="ac8365c87591065db07f7bac8551504504832cd4">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.6.1_63f02946f4d537078e75d863cc985a349c9e11e7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="a53ac0560ab915a02c50d2e5c7b003381e6fb5e3">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.6.1_56f93a6225b04196ddfd6e2b1f099fd47ee0503a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_f00f7c86546c618aeaf34b8251a94dfb2075ddca\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="a1c351dc10b92d638da57f3a6513f87cfbdc9f83">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.6.1_82d74a048ec76285c99fa0db6fbc1ea24ca06e30\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="159494eb362396d073d8c922b77e40c0da5fc5bc">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.6.1_ade45d5d92505e1501fbf4beb9b3071b5d2586dd\classes.dex" />
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.6.1_b700815b151cec709da0a2606b0d07127ce8c1bc\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="4a36600281a648769411ef642c331851732bf29e">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.6.1_a991ae588a660bc68d4c28d52b5e7476567362cb\classes.dex" />
+        sha1="cf2c4e6607c77b0e671dc5ca252c5ea0d9c1ce0d">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.6.1_af2c17ef3f9d4a08d2facb839cee0a39c2988402\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.guava\guava-jdk5\17.0\463f8378feba44df7ba7cd9272d01837dad62b36\guava-jdk5-17.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="463f8378feba44df7ba7cd9272d01837dad62b36">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\guava-jdk5-17.0_48d433f94b5b748a40639d52ed2780ca317dbacc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.2.1_7ab70d0d774b674e763c8fbcfa9c377a5920c6b0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.6.1_5d64cf6dd742ef818d116dee4cb448c13a58fa58\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-24.2.1_54edd68cd9979e822f23cd968793d4c326a4369f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.apis\google-api-services-drive\v3-rev45-1.22.0\cbfa6589de4606d13c71c09981ca2d0c164f4fea\google-api-services-drive-v3-rev45-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="cbfa6589de4606d13c71c09981ca2d0c164f4fea">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-api-services-drive-v3-rev45-1.22.0_22953b56d5668ea650619b9b500a8716734b3eac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.api-client\google-api-client\1.22.0\244350c0c845c583717ade13f5666a452fd0cfa\google-api-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0244350c0c845c583717ade13f5666a452fd0cfa">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-api-client-1.22.0_e84d8775c54ffafde793e9605ba1c6eb00276850\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="ff9be0a1e75a21c372735930d8987a55b5e6065f">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.6.1_d809666a80e9f6776e59967c390d5d369983ca61\classes.dex" />
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.6.1_0fd348fab5d6a3d3b0331a831000621fcac7da17\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6ffe8b28ab61e5ee92ab9431a220379790c71ddf">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.6.1_39bf2f712ab65e7473a59307edadba1d5d0b0e2b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="90be14317e3f26d18438e8dbf8544500d1dfe07f">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-9.6.1_f47adacc8f582451419f2411f757552085ca0c64\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client-gson\1.18.0-rc\82647ac9ebf591b4517f8863ed4c84367cde0728\google-http-client-gson-1.18.0-rc.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="82647ac9ebf591b4517f8863ed4c84367cde0728">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-gson-1.18.0-rc_5ba112c2cad91b40d7bb7fabf2f0ff051102e7bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-24.2.1_2139916208f705dfec8f399ff2ce8f5a3466d2ff\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="526f4b02f1771fa7607ff1b89fe2e9bd0344fee8">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.6.1_49afb47a006055fa9c4055659934d8dc26e9ae61\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="4df40545c9b875855f3dd9d4928e5d07f07c20ba">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.6.1_a56b641ebda954f37d5dfd4691b00325a8a8c65c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="a76a6983a23788b3689524d4bed763955afbd306">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.6.1_83a4e296b88efa1d292bae7b4f76af7efccaa601\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client-android\1.20.0\313dc99a7963523871495897ca11aa8472b3c6fd\google-http-client-android-1.20.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="313dc99a7963523871495897ca11aa8472b3c6fd">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-android-1.20.0_59537ac91f271d9feda360934ab5e2b90420a03e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.1\2e66da15851f9f5b5079228f856c2f090ba98c38\gson-2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="2e66da15851f9f5b5079228f856c2f090ba98c38">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.1_d4af4c883b63b863328f9e8189958dc630f3c377\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-24.2.1_c59c03b999c8ec248240166eb5f0970b2b1a3e5d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1ef72e72bc0d05602c366582afa9439f58bb31d6">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.6.1_b528fa3a36afc3a17c2bf91b1f34abdb4cf0f424\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="465f40f840e583f8b7421a3aacf3fbf08c28f00a">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.6.1_6b451247f9a56ab5c4a2dedbe9a19867bbff32da\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client-jackson2\1.22.0\cc014d64ae11117e159d334c99d9c246d9b36f44\google-http-client-jackson2-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="cc014d64ae11117e159d334c99d9c246d9b36f44">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-jackson2-1.22.0_a7f884b25c10aa0e8893bf07793ef499484dad15\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="79f521967ad7f49b34748db89df02852c2b2f87b">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.6.1_80f439f07c4386dde54108a5093a1bbde5fad485\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_bd59a9de466e5b6e47f6e76a42cb4dd7b86fc893\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client-xml\1.18.0-rc\a1ec1a695625d9a514962f0b93400fcdd1897223\google-http-client-xml-1.18.0-rc.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="a1ec1a695625d9a514962f0b93400fcdd1897223">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-xml-1.18.0-rc_fd2dcc0781c891e56adc6c184d40f26b6731cea4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_dbdb4caa8824fc5e6bfbae4108e1fea84a005095\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="a53ac0560ab915a02c50d2e5c7b003381e6fb5e3">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.6.1_16ad32158ddb6e8a0df28b594749a42b50213f47\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b75ecdd04a37d31b4a0da2729fc5c558962a529b">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.6.1_516ea871a94f80e0ababf573b892b39a500a9c86\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ac8365c87591065db07f7bac8551504504832cd4">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.6.1_1f121b75bd1e5501781ea4e643edbf17a0027320\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_11b62aa64580016de248248296e711152ad40686\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="518adc52081d41724932b41bc132e4d50a352b86">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.6.1_2b6860b655f53d8c253d0fe425a4f14fa7a4af85\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="ad7706f8bb4a985656a8d2142f74021c8b0e03d8">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.6.1_6ab7ca0f157f9bd338b39c3f7b4587db648fa359\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="cdddf21e0a8205e9955661061d1735ed10e44a7b">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.6.1_1a27cec945c09b71b9028d2c4b466ed1d9c1bc3e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0dfc12e4aacf514346ea866560c99807d032bc48">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.6.1_51da924491b5769ea0f8743707301456e190f1cc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="77558e74bb2056ef38516296f13a27c4c4fc3e5c">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.6.1_d3202fae917ec16b4031ff39fe5ffa8ffe6a7a87\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0efd1b44f47c134fb245914a1d54a55adbfc2f8d">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.6.1_7e800500e39eb618a0cabbc3bcb6087c83213f13\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_1f7fb873cf2367210c5dd5789ae98ee79c112d5e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f8db47be01cbe8cfa81e9cecce5ff1371ed1ad95">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.6.1_dcc90cb4ec38aa7618f4ee61e4064a4e80be096a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="29589153d26911cf7066ec302fa2ce49c91e8f28">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d658b4924961d5fae984737dbe7b5f4b524282f4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_c1f873870563a7bede095569dbf8deae514fd21e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="80dd8bea08bc5fe10b10a3243b8279c856ccc690">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.6.1_448adc8be88225de881935f64d0e4fdd87d045be\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\NVPACK\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_db28ddf610398c1bc10bb35faacded0fef8cf9fc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="a1c351dc10b92d638da57f3a6513f87cfbdc9f83">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.6.1_48138006cabb2bff437d30e8aa93cb7e407b1e80\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="da3f763afd39da1c947d9442847c837e9182a09f">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.6.1_2b4c4f9c5c5a5dfae81cdd36534ba0a241002f42\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_29673e76a1c3be5b55b1b8472497c974b7eb94a4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="1e14ebe1cda8491f152083e752ca5bf73cd37bff">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.6.1_712ef47e8983155f1971bc4856ad72a37486d963\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_69b5cddba076ba5b4d3b40cee9f3f13118858db5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="6ff796a3173787afe2e712f3aec6f5b99796118e">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.6.1_3deb0b53907643ef1e704764040592008fcb9777\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="4a36600281a648769411ef642c331851732bf29e">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.6.1_a544245c332b2f82b3b5d8f8703d28dcb0df96a7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="62ff84124b89177abc0c27f3e38c9732f2d41617">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.6.1_bd9150ed176d9b0f04bec8b97e653d2cfd6e6a08\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0e0e0681c26a1f575d3e4c542182dd59bab75fd6">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.6.1_a464e3d83c9e81016d382f9a4a7fafc84556fe1e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_51769531150a9cf78aef655474cc72d3b0b9a541\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="2a18547ea91d258866d132c2a763185f15b01b25">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.6.1_e1e42bd49897c95e4667422844a49d6faf4a93b3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\2.0.1\516c03b21d50a644d538de0f0369c620989cd8f0\jsr305-2.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\jsr305-2.0.1_e61a3c4fd7827f6b4149768d70b7f68f2806e858\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -593,196 +557,232 @@
         optimize="true"
         revision="24.0.1"
         sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-io-2.4_b2955a73e8fdec69863902c786dced8321b28c5c\classes.dex" />
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-io-2.4_b2955a73e8fdec69863902c786dced8321b28c5c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="c4394d46152165cd3256fb711ac94f66a28fbae1">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.6.1_11e4536872ee13350d31217f248b126627c7e5a5\classes.dex" />
+        sha1="ee61ace5f3e488fc610e1c67693c49186a441f32">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.6.1_3da648e5a3641a2370c0660dbfa3b2013fed0520\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="9c0cf3d4f9d7d076f301e110b92e18ae23da12c2">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-9.6.1_3a713d0a0c5559390a1acb301cb8f55f238c9adc\classes.dex" />
+        sha1="9e42373494e8318f0a961a20ce1592620053a1c9">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_082f91a52c45a40c4754a5d2c20d2be301f5899e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\design\24.2.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="23eb0d2998a782213b56168cbf23a0688b9111d9">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.2.0_e5a9145dc86be781a850afbf96255b2778ff7ef8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-multidex-1.0.1_6dbc6b074e4a1314c3bfab7469fe044d8732a333\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c828add497d2b7a3de7c047bf72050cd4b7521a1">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.6.1_538c055def10529492d7356ba3a76c4352a45e50\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="dfcba20b85ef3669a8ced0a8760a6df281cbd7c7">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.6.1_08a0bfa4fc45139d2a44aa671a9b80df465129b2\classes.dex" />
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.6.1_f8c7d41fe1b53934e17c4c8222fd44c38777fb50\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="80dd8bea08bc5fe10b10a3243b8279c856ccc690">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.6.1_86ca122121834054a04ff3a21489bbfde4a0e642\classes.dex" />
+        sha1="8ebae43cd06058e99e08c8b4d305b72f2b9927c6">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.6.1_77410c438f4082389b9264ea8dbf0352dbb4cf6a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_0554f7bb808277c6cb4e33a261b2e9a0dd802bf7\classes.dex" />
+        sha1="cc39b4bcc9e7062891db90d5a752fa9e4986f447">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.6.1_2596a7ec790f28c7c07ed9cd5006b29aa5a41452\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\24.2.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-24.2.1_fde950e0d7a97fd958db05c1f53d1be9d377ae5b\classes.dex" />
+        sha1="f6aa7c76cbaa867e05dbad0afab1ef0e65c4e55f">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.6.1_2dd9ae50032641c8850b810a49243bdaf73f0e8b\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="47bbb3ec4b31ba71e125241c090dabe70cbb4de7">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.6.1_8916174195111f85dc9838fa3045d568051f0276\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_c51358a313ed9f431bcbd8881273ec3845274411\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="ad7706f8bb4a985656a8d2142f74021c8b0e03d8">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.6.1_cc2202a323e8c85b4b0a27cb7e944301454ade69\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="1810ae0df0a1b9b539ce97df54e96f2bf8f5ff94">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.6.1_c8e8b2c21b287e31997c7e9e82ef231911797aa9\classes.dex" />
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.6.1_b159e544a7e167f1a638cb28f42e879afb0ed489\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.oauth-client\google-oauth-client\1.22.0\1d63f369ac78e4838a3197147012026e791008cb\google-oauth-client-1.22.0.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="babb25794a7599069d34705038744c5760a9a88c">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-9.6.1_9635b3515f65f9074ebdb94452af79badeedb5a6\classes.dex" />
+        sha1="1d63f369ac78e4838a3197147012026e791008cb">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-oauth-client-1.22.0_6d68d47e3e3985104e41cd2acd7ee59884789a60\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.api-client\google-api-client\1.22.0\244350c0c845c583717ade13f5666a452fd0cfa\google-api-client-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="0244350c0c845c583717ade13f5666a452fd0cfa">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-api-client-1.22.0_b2a4714e220cfd12d56c9f6d0d2f1429f33fdfb7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="da3f763afd39da1c947d9442847c837e9182a09f">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.6.1_7e338f9841813cb4bd42e3d37ff14c94dbad09a9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client-jackson2\1.22.0\cc014d64ae11117e159d334c99d9c246d9b36f44\google-http-client-jackson2-1.22.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="cc014d64ae11117e159d334c99d9c246d9b36f44">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-jackson2-1.22.0_c0ec0c1195dfeb4056d2befc98c49d671a320552\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_d3ab7212a8dd3cd6a97cb0c4fe795198d4ce4656\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.6.1_ed85c4894200ffc1189193f0201db488ad434b80\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="0e0e0681c26a1f575d3e4c542182dd59bab75fd6">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.6.1_cf56434b0cdb8a4d0ae26ab136bbc809e1ec8ee7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.6.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="cdddf21e0a8205e9955661061d1735ed10e44a7b">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.6.1_e6c7a60171ff1b4fdef3ca3857c5f11ddefedb8b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="24.0.1"
-        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.2.1_17942e708f44b50f06a9eeebc8e3725b92c2884d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.6.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
         sha1="0cae6511c5705869cacf199f8abb0ea84cd10157">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.6.1_acd61f2fe711e5348418e55e078a0452cba88c82\classes.dex" />
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.6.1_530da5b838cc71b2e84a65d648e9a156f32f558b\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.6.1\jars\classes.jar"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="24.0.1"
-        sha1="a76a6983a23788b3689524d4bed763955afbd306">
-        <dex dex="C:\Users\cwilh\Documents\StudioProjects\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.6.1_06a7c385b7b89a3fb8ed9ed82ba728c12fb0556e\classes.dex" />
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_a65e8d850b181027efacb3e44093e0c3601b6931\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.api-client\google-api-client-android\1.20.0\5673179575c32b69a474334255c3044adf18d40\google-api-client-android-1.20.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="05673179575c32b69a474334255c3044adf18d40">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-api-client-android-1.20.0_9f3fa54bfcc56bd74c8af92b1a27597b467ff037\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-fragment\24.2.1\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_3deb12374c2563385cb2a7a786a9b49c31d0b034\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.1.3\f6c3aed1cdfa21b5c1737c915186ea93a95a58bd\jackson-core-2.1.3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.1.3_08d7b5993f06365474e139b9f88268e38ef095b5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.2.1_47d11d569245f2a16aa19758c9bb66124c7ce90f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.android.support\support-compat\24.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-24.2.1_06529602f2bd6a8c26b5b0f2ba89621016a24e18\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="a136366045678579300d161de97c2211c4c4f7a0">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-9.6.1_fc7a8da6cbf2fbd2a37773d6841a8ec3022cf78c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d45c048bb1c55cf963899190e507065aea8e5be9">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.6.1_e0a7a29c3d3cf66fee7eb22f8e8647f128fa96ca\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.api-client\google-api-client-xml\1.18.0-rc\7af8b2b05608938f4a5f970785e7bce83fa9bbaa\google-api-client-xml-1.18.0-rc.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="7af8b2b05608938f4a5f970785e7bce83fa9bbaa">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-api-client-xml-1.18.0-rc_a3bddd2919cfa6782452ea93e24519293a225699\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\.gradle\caches\modules-2\files-2.1\com.google.http-client\google-http-client\1.22.0\d441fc58329c4a4c067acec04ac361627f66ecc8\google-http-client-1.22.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="d441fc58329c4a4c067acec04ac361627f66ecc8">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\google-http-client-1.22.0_ae22f454e0b1b6886a3e91c163d5c0f1602a6c43\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="c4394d46152165cd3256fb711ac94f66a28fbae1">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.6.1_3cea452e101e086a97135261dc3d45ea2bf64359\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.6.1_6cf4f11a40ce868ea88bbb69f40e7fc893083c15\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.6.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.1"
+        sha1="47bbb3ec4b31ba71e125241c090dabe70cbb4de7">
+        <dex dex="C:\Users\Scott\Documents\GitHub\FrameV2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.6.1_297c3387fccf8c775f4aaad8cb647de2b2b4c87d\classes.dex" />
     </item>
 
 </items>
